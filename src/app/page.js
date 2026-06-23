@@ -181,10 +181,34 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="footer" style={{ padding: '40px 0', textAlign: 'center', background: '#0f172a', color: '#64748b', borderTop: '1px solid #1e293b' }}>
-        <div className="container">
-          <div className="logo" style={{ color: 'white', marginBottom: '16px' }}>HeyMedi</div>
-          <p>© {new Date().getFullYear()} HeyMedi. All rights reserved.</p>
+      <footer className="footer" style={{ background: '#111625', color: '#999999', padding: '60px 0', fontSize: '0.875rem' }}>
+        <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', textAlign: 'center' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', lineHeight: '1.6' }}>
+            <div>
+              <span>아카이브헤이</span>
+              <span style={{ margin: '0 8px', color: '#444' }}>|</span>
+              <span>브랜드명: 헤이메디</span>
+              <span style={{ margin: '0 8px', color: '#444' }}>|</span>
+              <span>대표: 지원규</span>
+              <span style={{ margin: '0 8px', color: '#444' }}>|</span>
+              <span>사업자등록번호: 151-47-01239</span>
+            </div>
+            <div>
+              <span>주소: 경기도 화성시 동탄구 동탄중심상가2길 8, 4층 401-하46호</span>
+              <span style={{ margin: '0 8px', color: '#444' }}>|</span>
+              <span>이메일: team.archivehey@gmail.com</span>
+              <span style={{ margin: '0 8px', color: '#444' }}>|</span>
+              <span>TEL: 0507-1395-1381</span>
+              <span style={{ margin: '0 8px', color: '#444' }}>|</span>
+              <a href="http://pf.kakao.com/_xacxenX/chat" target="_blank" rel="noopener noreferrer" style={{ color: '#fff', fontWeight: 600, textDecoration: 'none' }}>카카오톡 문의</a>
+            </div>
+            <div style={{ marginTop: '8px' }}>
+              <a href="/privacy" style={{ color: '#999', textDecoration: 'none' }}>개인정보처리방침</a>
+              <span style={{ margin: '0 8px', color: '#444' }}>|</span>
+              <a href="/terms" style={{ color: '#999', textDecoration: 'none' }}>이용약관</a>
+            </div>
+          </div>
+          <p style={{ marginTop: '16px' }}>© {new Date().getFullYear()} HeyMedi. All rights reserved.</p>
         </div>
       </footer>
     </main>
