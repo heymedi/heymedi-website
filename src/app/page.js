@@ -80,6 +80,23 @@ export default function Home() {
       });
     });
 
+    // Sticky element fade out
+    const stickyContainers = document.querySelectorAll('.sticky-container');
+    stickyContainers.forEach((container) => {
+      const stickyContent = container.querySelector('.sticky-content');
+      if (stickyContent) {
+        gsap.to(stickyContent, {
+          scrollTrigger: {
+            trigger: container,
+            start: "bottom 60%", // 부모 영역의 하단이 화면의 60% 지점에 도달하면 페이드아웃 시작
+            end: "bottom 30%",   // 화면 30% 지점에서 페이드아웃 완료
+            scrub: true,         // 스크롤에 맞춰 부드럽게 전환
+          },
+          opacity: 0
+        });
+      }
+    });
+
     // Header transition on scroll
     ScrollTrigger.create({
       trigger: "#section-2",
@@ -207,8 +224,8 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col reveal">
-            <div className="flex flex-col md:flex-row py-12 gap-8 md:gap-12 relative md:items-start">
-              <div className="w-full md:w-1/3 flex flex-col gap-6 md:sticky md:top-32">
+            <div className="flex flex-col md:flex-row py-12 gap-8 md:gap-12 relative md:items-start sticky-container">
+              <div className="w-full md:w-1/3 flex flex-col gap-6 md:sticky md:top-32 sticky-content">
                 <div>
                   <span className="font-mono text-xs tracking-widest text-brand-copper mb-4 block">POINT 01</span>
                   <h4 className="text-2xl font-medium text-black">
@@ -232,8 +249,8 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="flex flex-col md:flex-row py-12 gap-8 md:gap-12 relative md:items-start">
-              <div className="w-full md:w-1/3 flex flex-col gap-6 md:sticky md:top-32">
+            <div className="flex flex-col md:flex-row py-12 gap-8 md:gap-12 relative md:items-start sticky-container">
+              <div className="w-full md:w-1/3 flex flex-col gap-6 md:sticky md:top-32 sticky-content">
                 <div>
                   <span className="font-mono text-xs tracking-widest text-brand-copper mb-4 block">POINT 02</span>
                   <h4 className="text-2xl font-medium text-black">
