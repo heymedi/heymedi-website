@@ -193,7 +193,8 @@ export default function Home() {
             <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase mb-4">OUR PROMISE</h2>
             <h3 className="text-3xl md:text-5xl font-medium tracking-tight leading-tight mb-8">
               1등은 나눠 가질 수 없겠죠?<br />
-              지역당 단 1곳의 병원만 철저하게 독점 관리합니다.
+              지역당 단 1곳의 병원만<br />
+              철저하게 독점 관리합니다.
             </h3>
             <p className="text-lg text-brand-gray font-light leading-relaxed max-w-3xl">
               헤이메디는 본질부터 다르게 접근합니다.<br />
@@ -204,25 +205,35 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col reveal">
-            <div className="flex flex-col md:flex-row py-12 group hover:bg-black/[0.02] transition-colors hover-trigger">
+            <div className="flex flex-col md:flex-row py-12">
               <div className="w-full md:w-1/3 mb-6 md:mb-0">
                 <span className="font-mono text-xs tracking-widest text-brand-copper mb-4 block">POINT 01</span>
                 <h4 className="text-2xl font-medium text-black">독점 파트너십</h4>
               </div>
-              <div className="w-full md:w-2/3 text-brand-gray text-lg font-light leading-relaxed">
-                해당 상권 내 동종 진료과목은 절대 중복 계약하지 않습니다.<br />
-                우리의 모든 리소스는 오직 원장님의 병원만을 향합니다.
+              <div className="w-full md:w-2/3">
+                <div className="aspect-[6/4] w-full bg-black/5 rounded-2xl mb-8 overflow-hidden relative">
+                   <img src="https://images.unsplash.com/photo-1551076805-e18690c5e53b?auto=format&fit=crop&q=80&w=1200" alt="독점 파트너십" className="w-full h-full object-cover" />
+                </div>
+                <p className="text-brand-gray text-lg font-light leading-relaxed">
+                  해당 상권 내 동종 진료과목은 절대 중복 계약하지 않습니다.<br />
+                  우리의 모든 리소스는 오직 원장님의 병원만을 향합니다.
+                </p>
               </div>
             </div>
             
-            <div className="flex flex-col md:flex-row py-12 group hover:bg-black/[0.02] transition-colors hover-trigger">
+            <div className="flex flex-col md:flex-row py-12">
               <div className="w-full md:w-1/3 mb-6 md:mb-0">
                 <span className="font-mono text-xs tracking-widest text-brand-copper mb-4 block">POINT 02</span>
                 <h4 className="text-2xl font-medium text-black">전략과 디자인의 결합</h4>
               </div>
-              <div className="w-full md:w-2/3 text-brand-gray text-lg font-light leading-relaxed">
-                뻔한 템플릿은 쓰지 않습니다.<br />
-                데이터 기반의 정교한 타겟팅 위에, 시선을 사로잡는 하이엔드 디자인을 입혀 이탈 없는 전환을 만들어냅니다.
+              <div className="w-full md:w-2/3">
+                <div className="aspect-[6/4] w-full bg-black/5 rounded-2xl mb-8 overflow-hidden relative">
+                   <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200" alt="전략과 디자인의 결합" className="w-full h-full object-cover" />
+                </div>
+                <p className="text-brand-gray text-lg font-light leading-relaxed">
+                  뻔한 템플릿은 쓰지 않습니다.<br />
+                  데이터 기반의 정교한 타겟팅 위에, 시선을 사로잡는 하이엔드 디자인을 입혀 이탈 없는 전환을 만들어냅니다.
+                </p>
               </div>
             </div>
           </div>
@@ -230,7 +241,7 @@ export default function Home() {
       </section>
 
       {/* [Section 2] Testimonial Marquee */}
-      <section className="py-24 overflow-hidden relative">
+      <section className="py-24 overflow-hidden relative bg-brand-dark text-white">
         <div className="max-w-7xl mx-auto px-6 md:px-16 mb-12">
           <div className="mb-24 reveal">
             <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase mb-4">SUCCESS STORIES</h2>
@@ -270,16 +281,12 @@ export default function Home() {
       {/* [Section 3] How We Do It */}
       <section className="py-32 px-6 md:px-16">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-24">
-            <div className="md:col-span-4 reveal">
-              <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase">WORK PROCESS</h2>
-            </div>
-            <div className="md:col-span-8 reveal">
-              <h3 className="text-3xl md:text-5xl font-medium tracking-tight mb-6 leading-tight">
-                지역구 1등은 우연이 아닙니다.<br />
-                치밀하게 설계된 3단계 프로세스
-              </h3>
-            </div>
+          <div className="mb-24 reveal">
+            <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase mb-4">WORK PROCESS</h2>
+            <h3 className="text-3xl md:text-5xl font-medium tracking-tight mb-6 leading-tight">
+              지역구 1등은 우연이 아닙니다.<br />
+              치밀하게 설계된 3단계 프로세스
+            </h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -337,28 +344,30 @@ export default function Home() {
             </p>
           </div>
 
-          <form className="space-y-12 reveal" onSubmit={(e) => { e.preventDefault(); alert('요청이 전송되었습니다. (데모)'); }}>
-            <div className="relative group">
-              <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">01. 병원 이름</label>
-              <input type="text" placeholder="예: 튼튼정형외과 (필수)" required className="hover-trigger" />
-            </div>
-            
-            <div className="relative group">
-              <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">02. 연락처</label>
-              <input type="tel" placeholder="연락받으실 번호를 남겨주세요 (필수)" required className="hover-trigger" />
-            </div>
+          <div className="bg-white rounded-[32px] p-8 md:p-14 shadow-[0_8px_30px_rgb(0,0,0,0.04)] reveal border border-black/5">
+            <form className="space-y-12" onSubmit={(e) => { e.preventDefault(); alert('요청이 전송되었습니다. (데모)'); }}>
+              <div className="relative group">
+                <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">01. 병원 이름</label>
+                <input type="text" placeholder="예: 튼튼정형외과 (필수)" required className="hover-trigger" />
+              </div>
+              
+              <div className="relative group">
+                <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">02. 연락처</label>
+                <input type="tel" placeholder="연락받으실 번호를 남겨주세요 (필수)" required className="hover-trigger" />
+              </div>
 
-            <div className="relative group">
-              <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">03. 고민 사항</label>
-              <textarea rows="3" placeholder="요즘 가장 고민되는 점이 있다면 편하게 적어주세요 (선택)" className="hover-trigger resize-none"></textarea>
-            </div>
+              <div className="relative group">
+                <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">03. 고민 사항</label>
+                <textarea rows="3" placeholder="요즘 가장 고민되는 점이 있다면 편하게 적어주세요 (선택)" className="hover-trigger resize-none"></textarea>
+              </div>
 
-            <div className="pt-8 text-center">
-              <button type="submit" className="w-full md:w-auto px-12 py-5 bg-[#FF5900] text-white font-medium tracking-wide uppercase text-sm hover:bg-[#e04e00] transition-colors duration-300 hover-trigger shadow-lg shadow-[#FF5900]/20 rounded-full">
-                [ 우리 지역 독점 T/O 확인하기 ]
-              </button>
-            </div>
-          </form>
+              <div className="pt-8 text-center">
+                <button type="submit" className="w-full md:w-auto px-12 py-5 bg-[#FF5900] text-white font-medium tracking-wide uppercase text-sm hover:bg-[#e04e00] transition-colors duration-300 hover-trigger shadow-lg shadow-[#FF5900]/20 rounded-full">
+                  [ 우리 지역 독점 T/O 확인하기 ]
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </section>
 
