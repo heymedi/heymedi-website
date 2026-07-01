@@ -160,15 +160,15 @@ export default function Home() {
           </p>
           
           <h1 className="hero-el text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tightest mb-10 max-w-5xl">
-            마케팅 비용은 계속 쓰는데,<br />
-            <span className="text-brand-gray">왜 환자는 늘지 않을까요?</span>
+            우리의 목표는<br />
+            <span className="text-white">"지역구 1등 병원" 만들기입니다.</span>
           </h1>
           
           <div className="hero-el flex flex-col md:flex-row md:items-end justify-between gap-8 mt-20">
             <p className="text-lg md:text-xl text-brand-gray max-w-2xl font-light leading-relaxed">
-              원장님 병원만의 <strong className="text-white font-medium">'진짜 매력'</strong>을 찾아드릴게요.<br />
-              만약 성과가 없다면 100% 환불해 드립니다.<br />
-              그만큼 자신 있거든요!
+              마케팅 업체가 인근 지역의 경쟁 병원을 동시에 관리하면 어떻게 될까요?<br />
+              똑같은 키워드로 서로 경쟁시키는 것은<br />
+              <strong className="text-white font-medium">원장님의 마케팅 비용을 깎아먹는 비겁한 행위입니다.</strong>
             </p>
             <a href="#contact" className="inline-flex items-center gap-4 text-sm font-mono tracking-widest uppercase border border-brand-line px-8 py-4 rounded-full hover:bg-white hover:text-black transition-all hover-trigger group">
               우리 병원 무료 진단받아보기 
@@ -208,43 +208,38 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-24 reveal">
             <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase mb-4">02 / Our Promise</h2>
-            <p className="text-2xl md:text-3xl font-light">헤이메디는 이렇게 다릅니다.</p>
+            <h3 className="text-3xl md:text-5xl font-medium tracking-tight leading-tight mb-8">
+              1등은 나눠 가질 수 없겠죠?<br />
+              지역당 단 1곳의 병원만 철저하게 독점 관리합니다.
+            </h3>
+            <p className="text-lg text-brand-gray font-light leading-relaxed max-w-3xl">
+              헤이메디는 본질부터 다르게 접근합니다.<br />
+              마케팅 전략가가 설계한 치밀한 환자 유입 경로를,<br />
+              수석 디자이너가 압도적인 비주얼로 완성하여<br />
+              단순한 병원이 아닌 <strong className="text-brand-copper font-medium">'하나의 프리미엄 브랜드'</strong>로 재탄생시킵니다.
+            </p>
           </div>
 
           <div className="flex flex-col hairline-top reveal">
-            <div className="flex flex-col md:flex-row justify-between py-8 md:py-12 hairline-bottom group hover:bg-white/[0.02] transition-colors hover-trigger">
-              <div className="w-full md:w-1/4 mb-4 md:mb-0">
-                <span className="font-mono text-xs tracking-widest text-brand-copper">비용과 책임</span>
+            <div className="flex flex-col md:flex-row py-12 hairline-bottom group hover:bg-white/[0.02] transition-colors hover-trigger">
+              <div className="w-full md:w-1/3 mb-6 md:mb-0">
+                <span className="font-mono text-xs tracking-widest text-brand-copper mb-4 block">POINT 01</span>
+                <h4 className="text-2xl font-medium text-white">독점 파트너십</h4>
               </div>
-              <div className="w-full md:w-1/3 mb-2 md:mb-0 text-brand-gray line-through decoration-brand-gray">
-                보통: 계약하고 나면 연락이 잘 안 돼요.
-              </div>
-              <div className="w-full md:w-5/12 text-white font-medium">
-                헤이메디: 효과가 없으면 100% 환불해 드려요.
+              <div className="w-full md:w-2/3 text-brand-gray text-lg font-light leading-relaxed">
+                해당 상권 내 동종 진료과목은 절대 중복 계약하지 않습니다.<br />
+                우리의 모든 리소스는 오직 원장님의 병원만을 향합니다.
               </div>
             </div>
             
-            <div className="flex flex-col md:flex-row justify-between py-8 md:py-12 hairline-bottom group hover:bg-white/[0.02] transition-colors hover-trigger">
-              <div className="w-full md:w-1/4 mb-4 md:mb-0">
-                <span className="font-mono text-xs tracking-widest text-brand-copper">콘텐츠 만들기</span>
+            <div className="flex flex-col md:flex-row py-12 hairline-bottom group hover:bg-white/[0.02] transition-colors hover-trigger">
+              <div className="w-full md:w-1/3 mb-6 md:mb-0">
+                <span className="font-mono text-xs tracking-widest text-brand-copper mb-4 block">POINT 02</span>
+                <h4 className="text-2xl font-medium text-white">전략과 디자인의 결합</h4>
               </div>
-              <div className="w-full md:w-1/3 mb-2 md:mb-0 text-brand-gray">
-                보통: 기계적으로 똑같은 글만 복사해서 올려요.
-              </div>
-              <div className="w-full md:w-5/12 text-white font-medium">
-                헤이메디: 원장님과 깊은 대화를 나누고 진짜 장점을 찾아요.
-              </div>
-            </div>
-
-            <div className="flex flex-col md:flex-row justify-between py-8 md:py-12 hairline-bottom group hover:bg-white/[0.02] transition-colors hover-trigger">
-              <div className="w-full md:w-1/4 mb-4 md:mb-0">
-                <span className="font-mono text-xs tracking-widest text-brand-copper">광고 노출 방식</span>
-              </div>
-              <div className="w-full md:w-1/3 mb-2 md:mb-0 text-brand-gray">
-                보통: 아무에게나 닥치는 대로 광고해요.
-              </div>
-              <div className="w-full md:w-5/12 text-white font-medium">
-                헤이메디: 당장 치료가 필요한 분들에게만 콕 집어서 보여줘요.
+              <div className="w-full md:w-2/3 text-brand-gray text-lg font-light leading-relaxed">
+                뻔한 템플릿은 쓰지 않습니다.<br />
+                데이터 기반의 정교한 타겟팅 위에, 시선을 사로잡는 하이엔드 디자인을 입혀 이탈 없는 전환을 만들어냅니다.
               </div>
             </div>
           </div>
