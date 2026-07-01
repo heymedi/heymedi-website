@@ -18,56 +18,16 @@
   body {
     cursor: none;
     overflow-x: hidden;
-    background-color: var(--color-brand-dark);
-    color: #ffffff;
+    background-color: #f8f9fa;
+    color: #0a0a0c;
     transition: background-color 0.5s ease, color 0.5s ease;
   }
 }
 
-/* Light Theme Transition */
-body.light-theme {
-  background-color: #f8f9fa !important;
-  color: #0a0a0c !important;
-}
-
-body.light-theme .text-white {
-  color: #0a0a0c !important;
-}
-
-body.light-theme .bg-brand-dark,
-body.light-theme .bg-\[\#1a1412\] {
-  background-color: #ffffff !important;
-}
-
-body.light-theme .bg-brand-dark\/50 {
-  background-color: rgba(0, 0, 0, 0.02) !important;
-}
-
-body.light-theme .border-brand-line,
-body.light-theme .hairline-top,
-body.light-theme .hairline-bottom,
-body.light-theme .border-white\/10,
-body.light-theme .border-white\/20 {
-  border-color: rgba(0, 0, 0, 0.1) !important;
-}
-
-body.light-theme .text-brand-gray {
-  color: #666666 !important;
-}
-
-body.light-theme .ambient-light {
-  opacity: 0 !important;
-}
-
-body.light-theme input,
-body.light-theme textarea {
-  color: #0a0a0c;
-  border-bottom-color: rgba(0, 0, 0, 0.2);
-}
-
+/* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--color-brand-dark); }
-::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+::-webkit-scrollbar-track { background: #f8f9fa; }
+::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
 
 /* Custom Cursor Interaction Layer */
 .cursor-dot {
@@ -129,9 +89,9 @@ body.hover-active .cursor-follower {
 input, textarea {
     background: transparent;
     border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 0;
-    color: #fff;
+    color: #0a0a0c;
     padding: 1rem 0;
     width: 100%;
     transition: border-color 0.3s ease;
@@ -140,7 +100,7 @@ input:focus, textarea:focus {
     outline: none;
     border-bottom-color: var(--color-brand-copper);
 }
-input::placeholder, textarea::placeholder { color: #555; }
+input::placeholder, textarea::placeholder { color: #888; }
 
 /* Infinite Marquee */
 @keyframes marquee {

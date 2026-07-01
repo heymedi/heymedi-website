@@ -48,6 +48,7 @@ const testimonials = [
 export default function Home() {
   const cursorDotRef = useRef(null);
   const cursorFollowerRef = useRef(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     // GSAP Registration
@@ -77,6 +78,14 @@ export default function Home() {
         duration: 1.2,
         ease: "power3.out"
       });
+    });
+
+    // Header transition on scroll
+    ScrollTrigger.create({
+      trigger: "#section-2",
+      start: "top 80px",
+      onEnter: () => setIsScrolled(true),
+      onLeaveBack: () => setIsScrolled(false),
     });
 
     // Custom Cursor
@@ -117,7 +126,7 @@ export default function Home() {
       <div className="ambient-light"></div>
 
       {/* Fixed Navigation */}
-      <nav className="fixed top-0 w-full z-50 px-6 py-8 flex justify-between items-center transition-colors duration-500">
+      <nav className={`fixed top-0 w-full z-50 px-6 flex justify-between items-center transition-all duration-500 ${isScrolled ? 'text-[#0a0a0c] bg-white/90 backdrop-blur-md shadow-sm py-4' : 'text-white bg-transparent py-8'}`}>
         <div className="w-1/3 hover-trigger hover:text-brand-copper transition-colors">
           <Logo className="h-6 md:h-8 w-auto text-current" />
         </div>
@@ -128,7 +137,7 @@ export default function Home() {
       </nav>
 
       {/* [Section 1] Hero Area */}
-      <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 pt-20 overflow-hidden">
+      <section className="relative min-h-screen flex flex-col px-6 md:px-16 overflow-hidden bg-brand-dark text-white">
         <div className="absolute inset-0 z-0 opacity-50">
           <ColorBends
             colors={["#FF5900", "#8a5cff", "#0a0a0c"]}
@@ -146,32 +155,34 @@ export default function Home() {
             transparent
           />
         </div>
-        <div className="max-w-7xl mx-auto w-full relative z-10">
-          <p className="hero-el text-brand-copper font-mono text-xs md:text-sm tracking-widest mb-8 uppercase">
-            Premium Hospital Branding
-          </p>
-          
-          <h1 className="hero-el text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tightest mb-10 max-w-5xl">
-            우리의 목표는<br />
-            <span className="text-white">"지역구 1등 병원" 만들기입니다.</span>
-          </h1>
-          
-          <div className="hero-el flex flex-col md:flex-row md:items-end justify-between gap-8 mt-20">
-            <p className="text-lg md:text-xl text-brand-gray max-w-2xl font-light leading-relaxed">
-              마케팅 업체가 인근 지역의 경쟁 병원을 동시에 관리하면 어떻게 될까요?<br />
-              똑같은 키워드로 서로 경쟁시키는 것은<br />
-              <strong className="text-white font-medium">원장님의 마케팅 비용을 깎아먹는 비겁한 행위입니다.</strong>
+        <div className="max-w-7xl mx-auto w-full relative z-10 flex-1 flex flex-col pt-32 pb-12">
+          <div className="my-auto">
+            <p className="hero-el text-brand-copper font-mono text-xs md:text-sm tracking-widest mb-8 uppercase">
+              Premium Hospital Branding
             </p>
+            
+            <h1 className="hero-el text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tightest mb-10 max-w-5xl">
+              우리의 목표는<br />
+              <span className="text-white">"지역구 1등 병원" 만들기입니다.</span>
+            </h1>
+            
+            <div className="hero-el flex flex-col md:flex-row md:items-end justify-between gap-8 mt-20">
+              <p className="text-lg md:text-xl text-brand-gray max-w-2xl font-light leading-relaxed">
+                마케팅 업체가 인근 지역의 경쟁 병원을 동시에 관리하면 어떻게 될까요?<br />
+                똑같은 키워드로 서로 경쟁시키는 것은<br />
+                <strong className="text-white font-medium">원장님의 마케팅 비용을 깎아먹는 비겁한 행위입니다.</strong>
+              </p>
+            </div>
           </div>
-        </div>
-        
-        <div className="absolute bottom-12 left-6 md:left-16 flex flex-col items-start gap-4 hero-el z-10 text-brand-gray">
-          <p className="text-sm md:text-base font-light tracking-wide">
-            원장님의 마케팅 대행사는 여러곳을 담당하고 있지 않나요?
-          </p>
-          <svg className="w-6 h-6 animate-bounce text-brand-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
+          
+          <div className="hero-el flex flex-col items-start gap-4 text-brand-gray mt-auto">
+            <p className="text-sm md:text-base font-light tracking-wide">
+              원장님의 마케팅 대행사는 여러곳을 담당하고 있지 않나요?
+            </p>
+            <svg className="w-6 h-6 animate-bounce text-brand-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
         </div>
       </section>
 
@@ -196,7 +207,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row py-12 group hover:bg-black/[0.02] transition-colors hover-trigger">
               <div className="w-full md:w-1/3 mb-6 md:mb-0">
                 <span className="font-mono text-xs tracking-widest text-brand-copper mb-4 block">POINT 01</span>
-                <h4 className="text-2xl font-medium text-white">독점 파트너십</h4>
+                <h4 className="text-2xl font-medium text-black">독점 파트너십</h4>
               </div>
               <div className="w-full md:w-2/3 text-brand-gray text-lg font-light leading-relaxed">
                 해당 상권 내 동종 진료과목은 절대 중복 계약하지 않습니다.<br />
@@ -207,7 +218,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row py-12 group hover:bg-black/[0.02] transition-colors hover-trigger">
               <div className="w-full md:w-1/3 mb-6 md:mb-0">
                 <span className="font-mono text-xs tracking-widest text-brand-copper mb-4 block">POINT 02</span>
-                <h4 className="text-2xl font-medium text-white">전략과 디자인의 결합</h4>
+                <h4 className="text-2xl font-medium text-black">전략과 디자인의 결합</h4>
               </div>
               <div className="w-full md:w-2/3 text-brand-gray text-lg font-light leading-relaxed">
                 뻔한 템플릿은 쓰지 않습니다.<br />
