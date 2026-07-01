@@ -119,7 +119,7 @@ export default function BlogAgency() {
       <section id="white-section" className="bg-white w-full py-20 md:py-32 px-6 flex flex-col items-center">
         <div className="w-full max-w-[800px] mx-auto flex flex-col rounded-[32px] overflow-hidden border border-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
           {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-            <img key={num} src={`/images/seo-blog/heymedi-blog-agency-marketing-${num.toString().padStart(2, '0')}.${num === 6 ? 'gif' : 'png'}`} alt={`블로그 대행 상세 설명 ${num}`} className="w-full h-auto block" />
+            <img key={num} src={`/images/blog-agency/heymedi-blog-agency-marketing-${num.toString().padStart(2, '0')}.${num === 6 ? 'gif' : 'png'}`} alt={`블로그 대행 상세 설명 ${num}`} className="w-full h-auto block" />
           ))}
         </div>
       </section>
