@@ -35,6 +35,9 @@ export default function AllInOneMarketing() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
+    const cursorDot = cursorDotRef.current;
+    const cursorFollower = cursorFollowerRef.current;
+    
     if (window.innerWidth >= 768 && cursorDot && cursorFollower) {
       let xTo = gsap.quickTo(cursorFollower, "x", { duration: 0.4, ease: "power3" });
       let yTo = gsap.quickTo(cursorFollower, "y", { duration: 0.4, ease: "power3" });
