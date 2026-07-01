@@ -208,7 +208,7 @@ export default function Home() {
 
       {/* [Section 1] Core USP */}
       <section id="section-2" className="py-32 px-6 md:px-16 bg-white text-[#0a0a0c]">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="mb-24 reveal">
             <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase mb-4">OUR PROMISE</h2>
             <h3 className="text-3xl md:text-5xl font-medium tracking-tight leading-tight mb-8">
@@ -224,7 +224,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col reveal">
-            <div className="flex flex-col md:flex-row py-12 gap-8 md:gap-12 relative md:items-start sticky-container">
+            <div className="flex flex-col md:flex-row py-12 gap-8 md:gap-24 relative md:items-start sticky-container">
               <div className="w-full md:w-1/3 flex flex-col gap-6 md:sticky md:top-32 sticky-content">
                 <div>
                   <span className="font-mono text-xs tracking-widest text-brand-copper mb-4 block">POINT 01</span>
@@ -249,7 +249,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="flex flex-col md:flex-row py-12 gap-8 md:gap-12 relative md:items-start sticky-container">
+            <div className="flex flex-col md:flex-row py-12 gap-8 md:gap-24 relative md:items-start sticky-container">
               <div className="w-full md:w-1/3 flex flex-col gap-6 md:sticky md:top-32 sticky-content">
                 <div>
                   <span className="font-mono text-xs tracking-widest text-brand-copper mb-4 block">POINT 02</span>
