@@ -10,35 +10,35 @@ import ColorBends from "../components/ColorBends";
 const testimonials = [
   {
     id: 1,
-    quote: "마케팅 비용은 절반으로 줄었는데, 신환 예약은 3배 늘었습니다. 진작 만났어야 했어요.",
+    quote: <>지역 독점이라 안심하고 맡겼는데, <strong className="text-brand-copper font-bold">신환 문의가 250% 늘었습니다.</strong></>,
     author: "김원장",
     clinic: "A 치과",
     image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: 2,
-    quote: "매달 보내주는 리포트가 압권입니다. 우리 병원의 장점을 저보다 더 잘 아시더라고요.",
+    quote: <>단순한 광고가 아니라, <strong className="text-brand-copper font-bold">병원 브랜드 자체가 하이엔드</strong>로 올라간 느낌입니다.</>,
     author: "박원장",
     clinic: "B 피부과",
     image: "https://images.unsplash.com/photo-1551076805-e18690c5e53b?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: 3,
-    quote: "그냥 광고만 하는 게 아니라, 진짜로 환자의 마음을 움직이는 글을 써줍니다. 든든한 파트너입니다.",
+    quote: <>우리 병원의 가치를 알아주는 <strong className="text-brand-copper font-bold">프리미엄 환자층</strong>이 확연히 늘었습니다.</>,
     author: "이원장",
     clinic: "C 한의원",
     image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: 4,
-    quote: "상담 동의율이 체감될 정도로 올랐습니다. 블로그 보고 왔다는 환자분들이 정말 많아졌어요.",
+    quote: <>광고비는 그대로인데, <strong className="text-brand-copper font-bold">상담 동의율이 2배</strong>가 되었습니다. 진정한 독점의 힘이네요.</>,
     author: "최원장",
     clinic: "D 성형외과",
     image: "https://images.unsplash.com/photo-1638202993928-7267aad84c31?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: 5,
-    quote: "원장인 제가 봐도 설득력이 있습니다. 우리 병원의 핵심 가치를 정확하게 짚어주어 감사합니다.",
+    quote: <>정교한 디자인 덕분에 <strong className="text-brand-copper font-bold">대형 병원 못지않은 신뢰감</strong>을 줍니다.</>,
     author: "정원장",
     clinic: "E 정형외과",
     image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800"
@@ -131,7 +131,7 @@ export default function Home() {
         </div>
         
         <div className="w-2/3 flex justify-end">
-          <ContactButton />
+          {/* ContactButton moved to floating bottom right */}
         </div>
       </nav>
 
@@ -177,37 +177,21 @@ export default function Home() {
           </div>
         </div>
         
-        <div className="absolute bottom-12 left-6 md:left-16 font-mono text-[10px] tracking-widest text-brand-gray flex items-center gap-4 hero-el z-10">
-          <span>SCROLL</span>
-          <div className="w-12 h-[1px] bg-brand-line"></div>
+        <div className="absolute bottom-12 left-6 md:left-16 flex flex-col items-start gap-4 hero-el z-10 text-brand-gray">
+          <p className="text-sm md:text-base font-light tracking-wide">
+            원장님의 마케팅 대행사는 여러곳을 담당하고 있지 않나요?
+          </p>
+          <svg className="w-6 h-6 animate-bounce text-brand-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
         </div>
       </section>
 
-      {/* [Section 2] Pain Point */}
-      <section id="section-2" className="py-32 px-6 md:px-16 hairline-top">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
-          <div className="md:col-span-4 reveal">
-            <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase sticky top-32">
-              01 / The Problem
-            </h2>
-          </div>
-          <div className="md:col-span-8 reveal">
-            <h3 className="text-3xl md:text-5xl font-medium tracking-tight leading-tight mb-12">
-              "검색하면 우리 병원이 1등인데,<br />왜 예약 전화는 안 울릴까요?"
-            </h3>
-            <div className="space-y-8 text-brand-gray text-lg font-light leading-relaxed max-w-2xl">
-              <p>어디서 본 듯한 똑같은 광고 글로는 환자의 마음을 얻기 힘들어요.</p>
-              <p>단순히 방문자 수만 늘리는 마케팅은 이제 그만! 진짜 치료가 필요한 환자가 <span className="text-white">스스로 찾아오게</span> 만들어야 합니다.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* [Section 3] Core USP */}
-      <section className="py-32 px-6 md:px-16 hairline-top bg-brand-dark">
+      {/* [Section 1] Core USP */}
+      <section id="section-2" className="py-32 px-6 md:px-16 hairline-top bg-brand-dark">
         <div className="max-w-7xl mx-auto">
           <div className="mb-24 reveal">
-            <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase mb-4">02 / Our Promise</h2>
+            <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase mb-4">01 / Our Promise</h2>
             <h3 className="text-3xl md:text-5xl font-medium tracking-tight leading-tight mb-8">
               1등은 나눠 가질 수 없겠죠?<br />
               지역당 단 1곳의 병원만 철저하게 독점 관리합니다.
@@ -250,9 +234,12 @@ export default function Home() {
       <section className="py-24 border-t border-brand-line overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-6 md:px-16 mb-12">
           <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase reveal">
-            03 / Success Stories
+            02 / Success Stories
           </h2>
-          <p className="text-xl font-light mt-4 text-white reveal">원장님들의 생생한 후기</p>
+          <p className="text-2xl md:text-3xl font-light mt-4 text-white reveal leading-snug">
+            헤이메디의 독점을 선택한 원장님들,<br />
+            이미 지역구 1등을 경험하고 계십니다.
+          </p>
         </div>
         
         {/* Marquee Wrapper */}
@@ -286,36 +273,49 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-24">
             <div className="md:col-span-4 reveal">
-              <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase">04 / Work Process</h2>
+              <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase">03 / Work Process</h2>
             </div>
             <div className="md:col-span-8 reveal">
-              <h3 className="text-3xl md:text-5xl font-medium tracking-tight mb-6">
-                "보이고, 설득하고,<br />찾아오게 만듭니다."
+              <h3 className="text-3xl md:text-5xl font-medium tracking-tight mb-6 leading-tight">
+                지역구 1등은 우연이 아닙니다.<br />
+                치밀하게 설계된 3단계 프로세스
               </h3>
-              <p className="text-brand-gray text-lg font-light">온라인의 관심이 실제 내원으로 이어지는 헤이메디만의 3단계 마법</p>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="relative p-10 hairline-top hairline-bottom md:border-l border-brand-line bg-brand-dark/50 hover:-translate-y-2 transition-transform duration-500 reveal hover-trigger">
-              <div className="text-4xl font-light text-brand-copper mb-8">1.</div>
-              <h4 className="text-2xl font-medium mb-6">[유입] 환자의 눈에 띄게</h4>
+              <div className="text-brand-copper mb-8 opacity-80">
+                <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+              </div>
+              <h4 className="text-2xl font-medium mb-6"><span className="text-brand-copper font-light mr-2">1.</span> [유입] 환자의 눈에 띄게</h4>
               <p className="text-brand-gray text-sm font-light leading-relaxed">
                 단순히 비싼 광고비만 내고 잠깐 1등 자리에 오르는 방식은 쓰지 않아요. 헤이메디는 네이버가 좋아하는 '진짜 좋은 글'을 써서 탄탄하게 상위 노출을 만듭니다. 정성껏 가꾼 브랜드 블로그 하나만 있어도, 수십 개의 키워드를 안정적으로 꽉 잡을 수 있답니다.
               </p>
             </div>
 
             <div className="relative p-10 hairline-top hairline-bottom md:border-l border-brand-line bg-brand-dark/50 hover:-translate-y-2 transition-transform duration-500 md:translate-y-8 reveal hover-trigger">
-              <div className="text-4xl font-light text-brand-copper mb-8">2.</div>
-              <h4 className="text-2xl font-medium mb-6">[설득] 진심 어린 스토리</h4>
+              <div className="text-brand-copper mb-8 opacity-80">
+                <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </div>
+              <h4 className="text-2xl font-medium mb-6"><span className="text-brand-copper font-light mr-2">2.</span> [설득] 진심 어린 스토리</h4>
               <p className="text-brand-gray text-sm font-light leading-relaxed">
                 아픈 환자들은 비싼 최신 장비보다 "여기 원장님은 내 고민을 진짜 이해해 줄까?"를 더 궁금해합니다. 원장님의 진심과 진료 철학이 환자의 마음에 고스란히 닿을 수 있도록, 우리 병원을 선택할 수밖에 없는 따뜻하고 특별한 이야기를 만들어 드립니다.
               </p>
             </div>
 
             <div className="relative p-10 hairline-top hairline-bottom md:border-l md:border-r border-brand-line bg-brand-dark/50 hover:-translate-y-2 transition-transform duration-500 md:translate-y-16 reveal hover-trigger">
-              <div className="text-4xl font-light text-brand-copper mb-8">3.</div>
-              <h4 className="text-2xl font-medium mb-6">[전환] 진짜 찾아오게</h4>
+              <div className="text-brand-copper mb-8 opacity-80">
+                <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+              </div>
+              <h4 className="text-2xl font-medium mb-6"><span className="text-brand-copper font-light mr-2">3.</span> [전환] 진짜 찾아오게</h4>
               <p className="text-brand-gray text-sm font-light leading-relaxed">
                 글을 읽고 호감을 느꼈다면 병원 문을 열고 들어오게 해야겠죠? '공감 → 신뢰 → 방문'으로 이어지는 매끄러운 길을 짭니다. 환자가 자연스럽게 진료 문의와 예약 버튼을 누를 수 있도록, 온라인의 관심이 실제 매출로 쏙쏙 이어지게 설계해 드려요.
               </p>
@@ -328,13 +328,13 @@ export default function Home() {
       <section id="contact" className="py-32 px-6 md:px-16 hairline-top relative overflow-hidden">
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-20 reveal">
-            <h2 className="text-3xl md:text-5xl font-medium tracking-tight mb-8">
-              비싼 광고비부터 쓰지 마세요.<br />
-              <span className="text-brand-gray">병원의 매력부터 제대로 닦아내야 합니다.</span>
+            <h2 className="text-3xl md:text-5xl font-medium tracking-tight mb-8 leading-tight">
+              상권 내 경쟁 병원이 먼저 계약하면,<br />
+              <span className="text-brand-gray">더 이상 기회는 없습니다.</span>
             </h2>
             <p className="text-brand-gray font-light">
-              매월 딱 정해진 수의 병원만 꼼꼼하게 도와드리고 있어요.<br />
-              우리 병원엔 어떤 처방이 필요할지, 지금 바로 편하게 이야기 나눠볼까요?
+              지역당 단 1곳, 철저한 독점 파트너십으로 원장님의 성공에만 집중합니다.<br />
+              현재 우리 지역의 계약 가능 여부를 확인해 보세요.
             </p>
           </div>
 
@@ -355,8 +355,8 @@ export default function Home() {
             </div>
 
             <div className="pt-8 text-center">
-              <button type="submit" className="w-full md:w-auto px-12 py-5 bg-white text-black font-medium tracking-wide uppercase text-sm hover:bg-brand-copper hover:text-white transition-colors duration-300 hover-trigger">
-                [ 우리 병원 맞춤 성장 리포트 받아보기 ]
+              <button type="submit" className="w-full md:w-auto px-12 py-5 bg-[#FF5900] text-white font-medium tracking-wide uppercase text-sm hover:bg-[#e04e00] transition-colors duration-300 hover-trigger shadow-lg shadow-[#FF5900]/20 rounded-full">
+                [ 우리 지역 독점 T/O 확인하기 ]
               </button>
             </div>
           </form>
@@ -397,6 +397,11 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Floating Contact Button */}
+      <div className="fixed bottom-8 right-8 z-[100] animate-fade-in-up hover-trigger">
+        <ContactButton />
+      </div>
     </>
   );
 }
