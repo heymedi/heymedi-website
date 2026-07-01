@@ -207,8 +207,8 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col reveal">
-            <div className="flex flex-col md:flex-row py-12 gap-8 md:gap-0">
-              <div className="w-full md:w-1/3 flex flex-col gap-6">
+            <div className="flex flex-col md:flex-row py-12 gap-8 md:gap-12 relative md:items-start">
+              <div className="w-full md:w-1/3 flex flex-col gap-6 md:sticky md:top-32">
                 <div>
                   <span className="font-mono text-xs tracking-widest text-brand-copper mb-4 block">POINT 01</span>
                   <h4 className="text-2xl font-medium text-black">
@@ -216,17 +216,17 @@ export default function Home() {
                     날카로운 기획력
                   </h4>
                 </div>
-                <div className="w-1/2">
-                   <img src="/USP_marketer_profile.png" alt="마케터 프로필" className="w-full h-auto object-contain" />
-                </div>
-              </div>
-              <div className="w-full md:w-2/3 flex flex-col gap-8">
                 <p className="text-black text-lg font-light leading-relaxed">
                   우리는 글을 쓰기 전, 성과가 날 수밖에 없는 '퍼널구조'부터 설계합니다.<br />
                   대부분의 대행사는 '상위노출'에 집착하지만, 헤이메디는 본질에 집중합니다.<br />
                   환자가 병원을 발견하고 예약 버튼을 누르기까지의 심리 동선을 먼저 짜지 않으면<br />
                   아무리 많은 글도 소용없습니다.
                 </p>
+                <div className="w-1/2">
+                   <img src="/USP_marketer_profile.png" alt="마케터 프로필" className="w-full h-auto object-contain" />
+                </div>
+              </div>
+              <div className="w-full md:w-2/3 flex flex-col gap-8">
                 <div className="flex flex-col gap-8">
                   <img src="/USP_marketer01.png" alt="퍼널구조 1" className="w-full h-auto rounded-2xl border border-black/5 reveal" />
                   <img src="/USP_marketer02.png" alt="퍼널구조 2" className="w-full h-auto rounded-2xl border border-black/5 reveal" />
@@ -235,8 +235,8 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="flex flex-col md:flex-row py-12 gap-8 md:gap-0">
-              <div className="w-full md:w-1/3 flex flex-col gap-6">
+            <div className="flex flex-col md:flex-row py-12 gap-8 md:gap-12 relative md:items-start">
+              <div className="w-full md:w-1/3 flex flex-col gap-6 md:sticky md:top-32">
                 <div>
                   <span className="font-mono text-xs tracking-widest text-brand-copper mb-4 block">POINT 02</span>
                   <h4 className="text-2xl font-medium text-black">
@@ -244,17 +244,17 @@ export default function Home() {
                     디자인 감각
                   </h4>
                 </div>
-                <div className="w-1/2">
-                   <img src="/USP_designer_profile.png" alt="디자이너 프로필" className="w-full h-auto object-contain" />
-                </div>
-              </div>
-              <div className="w-full md:w-2/3 flex flex-col gap-8">
                 <p className="text-black text-lg font-light leading-relaxed">
                   환자가 병원을 선택하는 0.3초의 찰나,<br />
                   신뢰감 있는 첫인상은 비주얼로 결정됩니다.<br />
                   공공기관, 유명 뷰티 및 브랜드 프로젝트를 수행하며 다져진<br />
                   하이엔드급 디자이너가 우리 병원을 압도적으로 시각화 합니다.
                 </p>
+                <div className="w-1/2">
+                   <img src="/USP_designer_profile.png" alt="디자이너 프로필" className="w-full h-auto object-contain" />
+                </div>
+              </div>
+              <div className="w-full md:w-2/3 flex flex-col gap-8">
                 <div className="flex flex-col gap-8">
                   <img src="/USP_designer01.png" alt="디자인 포트폴리오 1" className="w-full h-auto rounded-2xl border border-black/5 reveal" />
                   <img src="/USP_designer02.png" alt="디자인 포트폴리오 2" className="w-full h-auto rounded-2xl border border-black/5 reveal" />
