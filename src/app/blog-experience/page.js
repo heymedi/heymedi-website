@@ -14,22 +14,18 @@ export default function BlogExperience() {
   const cursorFollowerRef = useRef(null);
 
   useEffect(() => {
-    // Header transition on scroll over white section
-    gsap.registerPlugin(ScrollTrigger);
-    
-    let st;
-    // slightly delay ScrollTrigger creation to ensure DOM is ready
-    const timer = setTimeout(() => {
-      st = ScrollTrigger.create({
-        trigger: "#white-section",
-        start: "top 80px", // When white section reaches header
-        end: "bottom 80px", // When white section leaves header
-        onEnter: () => setIsScrolled(true),
-        onLeave: () => setIsScrolled(false),
-        onEnterBack: () => setIsScrolled(true),
-        onLeaveBack: () => setIsScrolled(false),
-      });
-    }, 100);
+    const handleScroll = () => {
+      const whiteSection = document.getElementById("white-section");
+      if (whiteSection) {
+        const rect = whiteSection.getBoundingClientRect();
+        if (rect.top <= 80 && rect.bottom >= 80) {
+          setIsScrolled(true);
+        } else {
+          setIsScrolled(false);
+        }
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
 
     // Custom Cursor
     const cursorDot = cursorDotRef.current;
@@ -48,18 +44,14 @@ export default function BlogExperience() {
       window.addEventListener('mousemove', onMouseMove);
 
       return () => {
-        clearTimeout(timer);
-        if (st) st.kill();
+        window.removeEventListener("scroll", handleScroll);
         window.removeEventListener('mousemove', onMouseMove);
       };
     } else {
       if (cursorDot) cursorDot.style.display = 'none';
       if (cursorFollower) cursorFollower.style.display = 'none';
       document.body.style.cursor = 'auto';
-      return () => {
-        clearTimeout(timer);
-        if (st) st.kill();
-      };
+      return () => window.removeEventListener("scroll", handleScroll);
     }
   }, []);
 
