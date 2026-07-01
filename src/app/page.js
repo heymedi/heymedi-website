@@ -216,11 +216,8 @@ export default function Home() {
                     날카로운 기획력
                   </h4>
                 </div>
-                <p className="text-black text-lg font-light leading-relaxed">
-                  우리는 글을 쓰기 전, 성과가 날 수밖에 없는 '퍼널구조'부터 설계합니다.<br />
-                  대부분의 대행사는 '상위노출'에 집착하지만, 헤이메디는 본질에 집중합니다.<br />
-                  환자가 병원을 발견하고 예약 버튼을 누르기까지의 심리 동선을 먼저 짜지 않으면<br />
-                  아무리 많은 글도 소용없습니다.
+                <p className="text-brand-gray text-lg font-light leading-relaxed text-justify break-keep">
+                  우리는 글을 쓰기 전, 성과가 날 수밖에 없는 '퍼널구조'부터 설계합니다. 대부분의 대행사는 '상위노출'에 집착하지만, 헤이메디는 본질에 집중합니다. 환자가 병원을 발견하고 예약 버튼을 누르기까지의 심리 동선을 먼저 짜지 않으면 아무리 많은 글도 소용없습니다.
                 </p>
                 <div className="w-1/2">
                    <img src="/USP_marketer_profile.png" alt="마케터 프로필" className="w-full h-auto object-contain" />
@@ -244,11 +241,8 @@ export default function Home() {
                     디자인 감각
                   </h4>
                 </div>
-                <p className="text-black text-lg font-light leading-relaxed">
-                  환자가 병원을 선택하는 0.3초의 찰나,<br />
-                  신뢰감 있는 첫인상은 비주얼로 결정됩니다.<br />
-                  공공기관, 유명 뷰티 및 브랜드 프로젝트를 수행하며 다져진<br />
-                  하이엔드급 디자이너가 우리 병원을 압도적으로 시각화 합니다.
+                <p className="text-brand-gray text-lg font-light leading-relaxed text-justify break-keep">
+                  환자가 병원을 선택하는 0.3초의 찰나, 신뢰감 있는 첫인상은 비주얼로 결정됩니다. 공공기관, 유명 뷰티 및 브랜드 프로젝트를 수행하며 다져진 하이엔드급 디자이너가 우리 병원을 압도적으로 시각화 합니다.
                 </p>
                 <div className="w-1/2">
                    <img src="/USP_designer_profile.png" alt="디자이너 프로필" className="w-full h-auto object-contain" />
