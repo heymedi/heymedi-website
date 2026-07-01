@@ -183,47 +183,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* [Section 1.5] Testimonial Marquee */}
-      <section className="py-24 border-t border-brand-line overflow-hidden relative">
-        <div className="max-w-7xl mx-auto px-6 md:px-16 mb-12">
-          <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase reveal">
-            01 / Success Stories
-          </h2>
-          <p className="text-xl font-light mt-4 text-white reveal">원장님들의 생생한 후기</p>
-        </div>
-        
-        {/* Marquee Wrapper */}
-        <div className="flex w-fit animate-marquee hover:[animation-play-state:paused] group mt-8">
-          {/* Double the list for infinite effect */}
-          {[...Array(2)].map((_, i) => (
-            <div key={i} className="flex gap-6 px-3">
-              {testimonials.map((t) => (
-                <div key={`${i}-${t.id}`} className="relative w-[280px] md:w-[360px] h-[400px] rounded-2xl overflow-hidden flex-shrink-0 cursor-none hover-trigger border border-white/5">
-                  <img src={t.image} alt="Testimonial background" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-[#0a0a0c]/60 to-transparent"></div>
-                  
-                  <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end h-full z-10">
-                    <p className="text-white text-lg font-medium leading-relaxed mb-6">
-                      "{t.quote}"
-                    </p>
-                    <div>
-                      <p className="text-brand-copper font-medium">{t.clinic}</p>
-                      <p className="text-brand-gray text-sm">{t.author}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* [Section 2] Pain Point */}
       <section id="section-2" className="py-32 px-6 md:px-16 hairline-top">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
           <div className="md:col-span-4 reveal">
             <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase sticky top-32">
-              02 / The Problem
+              01 / The Problem
             </h2>
           </div>
           <div className="md:col-span-8 reveal">
@@ -242,7 +207,7 @@ export default function Home() {
       <section className="py-32 px-6 md:px-16 hairline-top bg-brand-dark">
         <div className="max-w-7xl mx-auto">
           <div className="mb-24 reveal">
-            <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase mb-4">03 / Our Promise</h2>
+            <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase mb-4">02 / Our Promise</h2>
             <p className="text-2xl md:text-3xl font-light">헤이메디는 이렇게 다릅니다.</p>
           </div>
 
@@ -283,6 +248,41 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* [Section 4] Testimonial Marquee */}
+      <section className="py-24 border-t border-brand-line overflow-hidden relative">
+        <div className="max-w-7xl mx-auto px-6 md:px-16 mb-12">
+          <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase reveal">
+            03 / Success Stories
+          </h2>
+          <p className="text-xl font-light mt-4 text-white reveal">원장님들의 생생한 후기</p>
+        </div>
+        
+        {/* Marquee Wrapper */}
+        <div className="flex w-fit animate-marquee hover:[animation-play-state:paused] group mt-8">
+          {/* Double the list for infinite effect */}
+          {[...Array(2)].map((_, i) => (
+            <div key={i} className="flex gap-6 px-3">
+              {testimonials.map((t) => (
+                <div key={`${i}-${t.id}`} className="relative w-[280px] md:w-[360px] h-[400px] rounded-2xl overflow-hidden flex-shrink-0 cursor-none hover-trigger border border-[#ffffff]/5">
+                  <img src={t.image} alt="Testimonial background" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-[#0a0a0c]/60 to-transparent"></div>
+                  
+                  <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end h-full z-10">
+                    <p className="text-[#ffffff] text-lg font-medium leading-relaxed mb-6">
+                      "{t.quote}"
+                    </p>
+                    <div>
+                      <p className="text-brand-copper font-medium">{t.clinic}</p>
+                      <p className="text-[#888888] text-sm">{t.author}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
       </section>
 
