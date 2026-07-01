@@ -129,7 +129,7 @@ export default function Home() {
       <div className="ambient-light"></div>
 
       {/* Fixed Navigation */}
-      <nav className={`fixed top-0 w-full z-[100] px-6 py-8 flex justify-between items-center transition-all duration-500 ${isScrolled ? 'text-[#0a0a0c] bg-white/90 backdrop-blur-md shadow-sm !py-4' : 'text-white bg-transparent'}`}>
+      <nav className={`fixed top-0 w-full z-[100] px-6 py-8 flex justify-between items-center transition-all duration-500 ${isScrolled ? 'text-[#0a0a0c] !py-4' : 'text-white bg-transparent'}`}>
         <div className="w-1/3 hover-trigger hover:text-brand-copper transition-colors">
           <Logo className="h-6 md:h-8 w-auto text-current" />
         </div>
