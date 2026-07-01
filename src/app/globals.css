@@ -85,30 +85,7 @@ body.hover-active .cursor-follower {
 .hairline-bottom { border-bottom: 1px solid var(--color-brand-line); }
 .reveal { opacity: 0; transform: translateY(30px); }
 
-/* Input Styling */
-input, textarea {
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 0;
-    color: #fff;
-    padding: 1rem 0;
-    width: 100%;
-    transition: border-color 0.3s ease;
-}
-input:focus, textarea:focus {
-    outline: none;
-    border-bottom-color: var(--color-brand-copper);
-}
-input::placeholder, textarea::placeholder { color: #555; }
 
-.bg-white input, .bg-white textarea {
-    color: #0a0a0c;
-    border-bottom-color: rgba(0, 0, 0, 0.2);
-}
-.bg-white input::placeholder, .bg-white textarea::placeholder {
-    color: #888;
-}
 
 /* Infinite Marquee */
 @keyframes marquee {

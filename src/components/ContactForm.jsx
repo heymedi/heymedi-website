@@ -41,7 +41,7 @@ export default function ContactForm({ onShowPrivacy, isModal = false }) {
         <input 
           type="text" 
           required 
-          className="w-full bg-[#f8f9fa] border border-gray-200 rounded-2xl px-5 py-4 text-base md:text-lg font-light text-[#0a0a0c] focus:outline-none focus:border-brand-copper focus:bg-white transition-all hover-trigger" 
+          className="w-full bg-transparent border border-gray-300 rounded-2xl px-5 py-4 text-base md:text-lg font-light text-[#0a0a0c] focus:outline-none focus:border-brand-copper focus:ring-1 focus:ring-brand-copper transition-all hover-trigger" 
         />
       </div>
       
@@ -50,7 +50,7 @@ export default function ContactForm({ onShowPrivacy, isModal = false }) {
         <input 
           type="text" 
           required 
-          className="w-full bg-[#f8f9fa] border border-gray-200 rounded-2xl px-5 py-4 text-base md:text-lg font-light text-[#0a0a0c] focus:outline-none focus:border-brand-copper focus:bg-white transition-all hover-trigger" 
+          className="w-full bg-transparent border border-gray-300 rounded-2xl px-5 py-4 text-base md:text-lg font-light text-[#0a0a0c] focus:outline-none focus:border-brand-copper focus:ring-1 focus:ring-brand-copper transition-all hover-trigger" 
         />
       </div>
 
@@ -59,7 +59,7 @@ export default function ContactForm({ onShowPrivacy, isModal = false }) {
         <input 
           type="tel" 
           required 
-          className="w-full bg-[#f8f9fa] border border-gray-200 rounded-2xl px-5 py-4 text-base md:text-lg font-light text-[#0a0a0c] focus:outline-none focus:border-brand-copper focus:bg-white transition-all hover-trigger" 
+          className="w-full bg-transparent border border-gray-300 rounded-2xl px-5 py-4 text-base md:text-lg font-light text-[#0a0a0c] focus:outline-none focus:border-brand-copper focus:ring-1 focus:ring-brand-copper transition-all hover-trigger" 
         />
       </div>
 
@@ -68,7 +68,7 @@ export default function ContactForm({ onShowPrivacy, isModal = false }) {
         <input 
           type="email" 
           required 
-          className="w-full bg-[#f8f9fa] border border-gray-200 rounded-2xl px-5 py-4 text-base md:text-lg font-light text-[#0a0a0c] focus:outline-none focus:border-brand-copper focus:bg-white transition-all hover-trigger" 
+          className="w-full bg-transparent border border-gray-300 rounded-2xl px-5 py-4 text-base md:text-lg font-light text-[#0a0a0c] focus:outline-none focus:border-brand-copper focus:ring-1 focus:ring-brand-copper transition-all hover-trigger" 
         />
       </div>
 
@@ -77,7 +77,7 @@ export default function ContactForm({ onShowPrivacy, isModal = false }) {
         <textarea 
           rows="3" 
           required 
-          className="w-full bg-[#f8f9fa] border border-gray-200 rounded-2xl px-5 py-4 text-base md:text-lg font-light text-[#0a0a0c] focus:outline-none focus:border-brand-copper focus:bg-white transition-all hover-trigger resize-none"
+          className="w-full bg-transparent border border-gray-300 rounded-2xl px-5 py-4 text-base md:text-lg font-light text-[#0a0a0c] focus:outline-none focus:border-brand-copper focus:ring-1 focus:ring-brand-copper transition-all hover-trigger resize-none"
         ></textarea>
       </div>
 
@@ -91,8 +91,8 @@ export default function ContactForm({ onShowPrivacy, isModal = false }) {
             type="button"
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             className={`w-full flex items-center justify-between text-left border rounded-2xl px-5 py-4 text-base md:text-lg font-light transition-all hover-trigger ${
-              isDropdownOpen ? 'bg-white border-brand-copper text-[#0a0a0c]' : 
-              selectedService ? 'bg-[#f8f9fa] border-gray-200 text-[#0a0a0c]' : 'bg-[#f8f9fa] border-gray-200 text-gray-400'
+              isDropdownOpen ? 'bg-transparent border-brand-copper text-[#0a0a0c] ring-1 ring-brand-copper' : 
+              selectedService ? 'bg-transparent border-gray-300 text-[#0a0a0c]' : 'bg-transparent border-gray-300 text-gray-400'
             }`}
           >
             <span>{selectedService || '마케팅 서비스를 선택해주세요'}</span>
@@ -130,14 +130,13 @@ export default function ContactForm({ onShowPrivacy, isModal = false }) {
       <div className="bg-[#f8f9fa] rounded-2xl p-6 mt-8">
         <div className="flex justify-between items-start md:items-center mb-4 flex-col md:flex-row gap-4 md:gap-0">
           <label htmlFor={checkboxId} className="group flex items-center cursor-pointer">
-            <div className="relative flex items-center justify-center w-5 h-5 mr-3">
+            <div className="flex items-center justify-center mr-3">
               <input 
                 type="checkbox" 
                 id={checkboxId} 
                 required 
-                className="peer appearance-none w-5 h-5 border border-gray-300 rounded cursor-pointer checked:bg-[#0a0a0c] checked:border-[#0a0a0c] transition-colors"
+                className="w-5 h-5 border-gray-300 rounded accent-[#0a0a0c] cursor-pointer"
               />
-              <svg className="absolute w-3 h-3 text-white pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"></path></svg>
             </div>
             <span className="text-base font-medium text-[#0a0a0c] group-hover:text-brand-copper transition-colors">
               [필수] 개인정보 수집 및 이용에 동의합니다.
