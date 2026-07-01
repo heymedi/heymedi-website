@@ -116,7 +116,7 @@ export default function AllInOneMarketing() {
       </section>
 
       {/* Full Image Section */}
-      <section className="bg-white w-full py-20 md:py-32 px-6 flex flex-col items-center">
+      <section id="white-section" className="bg-white w-full py-20 md:py-32 px-6 flex flex-col items-center">
         <div className="w-full max-w-[800px] mx-auto flex flex-col rounded-[32px] overflow-hidden border border-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
             <img key={num} src={`/images/experience/${num.toString().padStart(2, '0')}.png`} alt={`상세이미지 ${num}`} className="w-full h-auto block" />
