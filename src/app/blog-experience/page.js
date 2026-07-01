@@ -35,14 +35,27 @@ export default function BlogExperience() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
-    const cleanupScroll = () => cleanupScroll();
+    if (window.innerWidth >= 768 && cursorDot && cursorFollower) {
+      let xTo = gsap.quickTo(cursorFollower, "x", { duration: 0.4, ease: "power3" });
+      let yTo = gsap.quickTo(cursorFollower, "y", { duration: 0.4, ease: "power3" });
+
+      const onMouseMove = (e) => {
+        gsap.set(cursorDot, { x: e.clientX, y: e.clientY });
+        xTo(e.clientX);
+        yTo(e.clientY);
+      };
+
+      window.addEventListener('mousemove', onMouseMove);
+
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
         window.removeEventListener('mousemove', onMouseMove);
       };
     } else {
       if (cursorDot) cursorDot.style.display = 'none';
       if (cursorFollower) cursorFollower.style.display = 'none';
       document.body.style.cursor = 'auto';
-      return () => cleanupScroll();
+      return () => window.removeEventListener('scroll', handleScroll);
     }
   }, []);
 
