@@ -41,6 +41,14 @@ export default function Home() {
       });
     });
 
+    // Light Theme Transition on Scroll
+    ScrollTrigger.create({
+      trigger: "#section-2",
+      start: "top 60%",
+      onEnter: () => document.body.classList.add("light-theme"),
+      onLeaveBack: () => document.body.classList.remove("light-theme"),
+    });
+
     // Custom Cursor
     const cursorDot = cursorDotRef.current;
     const cursorFollower = cursorFollowerRef.current;
@@ -93,7 +101,7 @@ export default function Home() {
       <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-50">
           <ColorBends
-            colors={["#FC5C2A", "#8a5cff", "#0a0a0c"]}
+            colors={["#FF5900", "#8a5cff", "#0a0a0c"]}
             rotation={90}
             speed={0.2}
             scale={1}
@@ -138,7 +146,7 @@ export default function Home() {
       </section>
 
       {/* [Section 2] Pain Point */}
-      <section className="py-32 px-6 md:px-16 hairline-top">
+      <section id="section-2" className="py-32 px-6 md:px-16 hairline-top">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
           <div className="md:col-span-4 reveal">
             <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase sticky top-32">

@@ -2,7 +2,7 @@
 
 @theme {
   --color-brand-dark: #0a0a0c;
-  --color-brand-copper: #c56b4f;
+  --color-brand-copper: #FF5900;
   --color-brand-gray: #888888;
   --color-brand-line: rgba(255, 255, 255, 0.1);
 
@@ -20,7 +20,49 @@
     overflow-x: hidden;
     background-color: var(--color-brand-dark);
     color: #ffffff;
+    transition: background-color 0.5s ease, color 0.5s ease;
   }
+}
+
+/* Light Theme Transition */
+body.light-theme {
+  background-color: #f8f9fa !important;
+  color: #0a0a0c !important;
+}
+
+body.light-theme .text-white {
+  color: #0a0a0c !important;
+}
+
+body.light-theme .bg-brand-dark,
+body.light-theme .bg-\[\#1a1412\] {
+  background-color: #ffffff !important;
+}
+
+body.light-theme .bg-brand-dark\/50 {
+  background-color: rgba(0, 0, 0, 0.02) !important;
+}
+
+body.light-theme .border-brand-line,
+body.light-theme .hairline-top,
+body.light-theme .hairline-bottom,
+body.light-theme .border-white\/10,
+body.light-theme .border-white\/20 {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+body.light-theme .text-brand-gray {
+  color: #666666 !important;
+}
+
+body.light-theme .ambient-light {
+  opacity: 0 !important;
+}
+
+body.light-theme input,
+body.light-theme textarea {
+  color: #0a0a0c;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
 }
 
 ::-webkit-scrollbar { width: 6px; }
@@ -42,7 +84,7 @@
     position: fixed;
     top: 0; left: 0;
     width: 40px; height: 40px;
-    border: 1px solid rgba(197, 107, 79, 0.4);
+    border: 1px solid rgba(255, 89, 0, 0.4);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
@@ -64,12 +106,13 @@ body.hover-active .cursor-follower {
     position: fixed;
     width: 60vw; height: 60vw;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(197,107,79,0.08) 0%, rgba(10,10,12,0) 70%);
+    background: radial-gradient(circle, rgba(255, 89, 0, 0.08) 0%, rgba(10,10,12,0) 70%);
     top: -20vh; left: -20vw;
     filter: blur(80px);
     z-index: -1;
     animation: pulse 10s infinite alternate ease-in-out;
     pointer-events: none;
+    transition: opacity 0.5s ease;
 }
 
 @keyframes pulse {

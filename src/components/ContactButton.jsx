@@ -13,7 +13,7 @@ export default function ContactButton() {
         {/* Profile Image with Circular Mask */}
         <div className="absolute inset-0 w-full h-full rounded-full overflow-hidden z-10 border border-white/10 group-hover:border-brand-copper/50 transition-colors duration-300">
           <img 
-            src="/contact-profile.jpeg" 
+            src="/contact-profile.png" 
             alt="Contact Profile" 
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
           />
