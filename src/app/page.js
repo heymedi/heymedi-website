@@ -5,6 +5,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Logo from "../components/Logo";
 import ContactButton from "../components/ContactButton";
+import ColorBends from "../components/ColorBends";
 
 export default function Home() {
   const cursorDotRef = useRef(null);
@@ -89,8 +90,25 @@ export default function Home() {
       </nav>
 
       {/* [Section 1] Hero Area */}
-      <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 pt-20">
-        <div className="max-w-7xl mx-auto w-full">
+      <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 pt-20 overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-50">
+          <ColorBends
+            colors={["#FC5C2A", "#8a5cff", "#0a0a0c"]}
+            rotation={90}
+            speed={0.2}
+            scale={1}
+            frequency={1}
+            warpStrength={1}
+            mouseInfluence={1}
+            noise={0.15}
+            parallax={0.5}
+            iterations={1}
+            intensity={1.5}
+            bandWidth={6}
+            transparent
+          />
+        </div>
+        <div className="max-w-7xl mx-auto w-full relative z-10">
           <p className="hero-el text-brand-copper font-mono text-xs md:text-sm tracking-widest mb-8 uppercase">
             Premium Hospital Branding
           </p>
@@ -113,7 +131,7 @@ export default function Home() {
           </div>
         </div>
         
-        <div className="absolute bottom-12 left-6 md:left-16 font-mono text-[10px] tracking-widest text-brand-gray flex items-center gap-4 hero-el">
+        <div className="absolute bottom-12 left-6 md:left-16 font-mono text-[10px] tracking-widest text-brand-gray flex items-center gap-4 hero-el z-10">
           <span>SCROLL</span>
           <div className="w-12 h-[1px] bg-brand-line"></div>
         </div>
