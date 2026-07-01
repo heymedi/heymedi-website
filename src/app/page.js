@@ -1,4 +1,5 @@
 "use client";
+import ContactForm from "../components/ContactForm";
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
@@ -432,73 +433,7 @@ export default function Home() {
           </div>
 
           <div className="bg-white rounded-[32px] p-8 md:p-14 shadow-[0_8px_30px_rgb(0,0,0,0.04)] reveal border border-black/5">
-            <form className="space-y-12" onSubmit={(e) => { e.preventDefault(); alert('요청이 전송되었습니다. (데모)'); }}>
-              <div className="relative group">
-                <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">01. 병원명(지역구포함) 적어주세요</label>
-                <input type="text" placeholder="예: 강남 튼튼정형외과 (필수)" required className="hover-trigger w-full bg-transparent border-b border-gray-200 py-3 text-lg md:text-xl font-light text-[#0a0a0c] placeholder-gray-400 focus:outline-none focus:border-brand-copper transition-colors" />
-              </div>
-              
-              <div className="relative group">
-                <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">02. 직책/성함을 적어주세요</label>
-                <input type="text" placeholder="예: 대표원장 홍길동 (필수)" required className="hover-trigger w-full bg-transparent border-b border-gray-200 py-3 text-lg md:text-xl font-light text-[#0a0a0c] placeholder-gray-400 focus:outline-none focus:border-brand-copper transition-colors" />
-              </div>
-
-              <div className="relative group">
-                <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">03. 연락받으실 연락처를 적어주세요</label>
-                <input type="tel" placeholder="연락처를 남겨주세요 (필수)" required className="hover-trigger w-full bg-transparent border-b border-gray-200 py-3 text-lg md:text-xl font-light text-[#0a0a0c] placeholder-gray-400 focus:outline-none focus:border-brand-copper transition-colors" />
-              </div>
-
-              <div className="relative group">
-                <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">04. 회신받으실 이메일주소를 적어주세요</label>
-                <input type="email" placeholder="이메일 주소를 적어주세요 (필수)" required className="hover-trigger w-full bg-transparent border-b border-gray-200 py-3 text-lg md:text-xl font-light text-[#0a0a0c] placeholder-gray-400 focus:outline-none focus:border-brand-copper transition-colors" />
-              </div>
-
-              <div className="relative group">
-                <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">05. 현재 겪고 계신 문제점에 대해 적어주세요.</label>
-                <textarea rows="3" placeholder="문제점에 대해 편하게 적어주세요 (필수)" required className="hover-trigger resize-none w-full bg-transparent border-b border-gray-200 py-3 text-lg md:text-xl font-light text-[#0a0a0c] placeholder-gray-400 focus:outline-none focus:border-brand-copper transition-colors"></textarea>
-              </div>
-
-              <div className="relative group">
-                <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">06. 현재 고민중인 마케팅 서비스가 있으신가요?</label>
-                <div className="pt-2 relative">
-                  <select required className="hover-trigger appearance-none w-full bg-transparent border-b border-gray-200 py-3 text-lg md:text-xl font-light text-[#0a0a0c] focus:outline-none focus:border-brand-copper transition-colors cursor-pointer">
-                    <option value="" disabled selected>마케팅 서비스를 선택해주세요 (선택)</option>
-                    <option value="네이버 블로그">네이버 블로그</option>
-                    <option value="네이버 스마트플레이스">네이버 스마트플레이스</option>
-                    <option value="네이버 체험단 마케팅">네이버 체험단 마케팅</option>
-                    <option value="네이버 카페바이럴 마케팅">네이버 카페바이럴 마케팅</option>
-                    <option value="유튜브 및 인스타그램">유튜브 및 인스타그램</option>
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
-                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#f7f7f7] rounded-xl p-6 mt-8">
-                <div className="flex justify-between items-start md:items-center mb-4 flex-col md:flex-row gap-2 md:gap-0">
-                  <div className="flex items-center gap-2">
-                    <input type="checkbox" id="privacyConsent" required className="w-4 h-4 m-0 p-0 border-gray-300 rounded accent-[#0a0a0c] cursor-pointer" />
-                    <label htmlFor="privacyConsent" className="text-sm md:text-base font-medium text-[#0a0a0c] cursor-pointer ml-1">
-                      [필수] 개인정보 수집 및 이용에 동의합니다.
-                    </label>
-                  </div>
-                  <button type="button" onClick={() => setShowPrivacyModal(true)} className="text-[#888888] text-sm underline underline-offset-2 hover:text-[#0a0a0c] transition-colors">
-                    (전문 보기)
-                  </button>
-                </div>
-                <p className="text-[#888888] text-sm leading-relaxed text-left">
-                  수집 목적: 마케팅 문의 및 상담 / 항목: 병원명, 성함, 연락처, 이메일, 마케팅 정보 / 보유 기간: 상담 종료 후 1년<br />
-                  (동의 거부 시 원활한 상담이 제한될 수 있습니다.)
-                </p>
-              </div>
-
-              <div className="pt-4 text-center">
-                <button type="submit" className="w-full md:w-auto px-12 py-5 bg-[#FF5900] text-white font-medium tracking-wide uppercase text-sm hover:bg-[#e04e00] transition-colors duration-300 hover-trigger shadow-lg shadow-[#FF5900]/20 rounded-full">
-                  우리 지역 독점 T/O 확인하기
-                </button>
-              </div>
-            </form>
+            <ContactForm onShowPrivacy={() => setShowPrivacyModal(true)} />
           </div>
         </div>
       </section>
