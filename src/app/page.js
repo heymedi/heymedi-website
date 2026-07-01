@@ -4,9 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Logo from "../components/Logo";
+import ContactButton from "../components/ContactButton";
 
 export default function Home() {
-  const [time, setTime] = useState("SYS. READY");
   const cursorDotRef = useRef(null);
   const cursorFollowerRef = useRef(null);
 
@@ -68,19 +68,6 @@ export default function Home() {
     }
   }, []);
 
-  // Time Pulse
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const now = new Date();
-      const kst = new Date(now.getTime() + (9 * 60 * 60 * 1000));
-      const hours = String(kst.getUTCHours()).padStart(2, '0');
-      const minutes = String(kst.getUTCMinutes()).padStart(2, '0');
-      const seconds = String(kst.getUTCSeconds()).padStart(2, '0');
-      setTime(`KST ${hours}:${minutes}:${seconds}`);
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <>
       {/* Cursor Elements */}
@@ -96,18 +83,8 @@ export default function Home() {
           <Logo className="h-6 md:h-8 w-auto text-current" />
         </div>
         
-        <div className="hidden md:flex w-1/3 justify-center items-center gap-3 font-mono text-xs tracking-widest text-brand-gray">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-copper opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-copper"></span>
-          </span>
-          <span>{time}</span>
-        </div>
-        
-        <div className="w-1/3 flex justify-end">
-          <a href="#contact" className="text-xs font-mono tracking-widest uppercase hover:text-brand-copper transition-colors hover-trigger">
-            [ 무료 진단받기 ]
-          </a>
+        <div className="w-2/3 flex justify-end">
+          <ContactButton />
         </div>
       </nav>
 
