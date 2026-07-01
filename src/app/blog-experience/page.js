@@ -44,8 +44,8 @@ export default function BlogExperience() {
       </nav>
 
       {/* Hero Area */}
-      <section className="relative min-h-[70vh] md:min-h-screen pt-32 pb-12 px-6 md:px-16 overflow-hidden bg-brand-dark text-white flex flex-col items-center justify-center text-center">
-        <div className="absolute inset-0 z-0 opacity-40">
+      <section className="relative h-[50vh] min-h-[400px] pt-32 pb-12 px-6 md:px-16 overflow-hidden bg-brand-dark text-white flex flex-col items-center justify-center text-center">
+        <div className="absolute top-0 left-0 w-full h-[100vh] z-0 opacity-40 pointer-events-none">
           <ColorBends
             colors={["#FF5900", "#8a5cff", "#0a0a0c"]}
             rotation={90}
