@@ -79,14 +79,6 @@ export default function Home() {
       });
     });
 
-    // Light Theme Transition on Scroll
-    ScrollTrigger.create({
-      trigger: "#section-2",
-      start: "top 95%",
-      onEnter: () => document.body.classList.add("light-theme"),
-      onLeaveBack: () => document.body.classList.remove("light-theme"),
-    });
-
     // Custom Cursor
     const cursorDot = cursorDotRef.current;
     const cursorFollower = cursorFollowerRef.current;
