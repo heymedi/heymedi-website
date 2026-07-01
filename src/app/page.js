@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import Logo from "../components/Logo";
 
 export default function Home() {
   const [time, setTime] = useState("SYS. READY");
@@ -91,8 +92,8 @@ export default function Home() {
 
       {/* Fixed Navigation */}
       <nav className="fixed top-0 w-full z-50 px-6 py-8 flex justify-between items-center mix-blend-difference text-white">
-        <div className="w-1/3 text-lg md:text-xl font-bold tracking-widest uppercase hover-trigger hover:text-brand-copper transition-colors">
-          HeyMedi.
+        <div className="w-1/3 hover-trigger hover:text-brand-copper transition-colors">
+          <Logo className="h-6 md:h-8 w-auto text-current" />
         </div>
         
         <div className="hidden md:flex w-1/3 justify-center items-center gap-3 font-mono text-xs tracking-widest text-brand-gray">
