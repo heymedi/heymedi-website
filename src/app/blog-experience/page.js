@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import gsap from "gsap";
 import Logo from "../../components/Logo";
 import ContactButton from "../../components/ContactButton";
 import ColorBends from "../../components/ColorBends";
@@ -8,6 +9,8 @@ import ColorBends from "../../components/ColorBends";
 export default function BlogExperience() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
+  const cursorDotRef = useRef(null);
+  const cursorFollowerRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,27 +21,57 @@ export default function BlogExperience() {
       }
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // Custom Cursor
+    const cursorDot = cursorDotRef.current;
+    const cursorFollower = cursorFollowerRef.current;
+    
+    if (window.innerWidth >= 768 && cursorDot && cursorFollower) {
+      let xTo = gsap.quickTo(cursorFollower, "x", { duration: 0.4, ease: "power3" });
+      let yTo = gsap.quickTo(cursorFollower, "y", { duration: 0.4, ease: "power3" });
+
+      const onMouseMove = (e) => {
+        gsap.set(cursorDot, { x: e.clientX, y: e.clientY });
+        xTo(e.clientX);
+        yTo(e.clientY);
+      };
+
+      window.addEventListener('mousemove', onMouseMove);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+        window.removeEventListener('mousemove', onMouseMove);
+      };
+    } else {
+      if (cursorDot) cursorDot.style.display = 'none';
+      if (cursorFollower) cursorFollower.style.display = 'none';
+      document.body.style.cursor = 'auto';
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
   }, []);
 
   return (
     <div className="relative min-h-screen bg-[#0a0a0c] selection:bg-brand-copper selection:text-white font-sans text-brand-gray overflow-x-hidden">
       
+      {/* Cursor Elements */}
+      <div ref={cursorDotRef} className="cursor-dot"></div>
+      <div ref={cursorFollowerRef} className="cursor-follower"></div>
+
       {/* Ambient Background */}
       <div className="ambient-light"></div>
 
       {/* Fixed Navigation */}
-      <nav className={`fixed top-0 w-full z-[100] px-6 py-8 flex justify-between items-center transition-all duration-500 ${isScrolled ? 'text-[#0a0a0c] bg-white/90 backdrop-blur-md shadow-sm !py-4' : 'text-white bg-transparent'}`}>
-        <div className="w-1/3 hover:text-brand-copper transition-colors">
+      <nav className={`fixed top-0 w-full z-[100] px-6 py-8 flex justify-between items-center transition-all duration-500 ${isScrolled ? 'text-[#0a0a0c] !py-4' : 'text-white bg-transparent'}`}>
+        <div className="w-1/3 hover:text-brand-copper transition-colors hover-trigger">
           <a href="/"><Logo className="h-6 md:h-8 w-auto text-current" /></a>
         </div>
         
         <div className="w-2/3 flex justify-end hidden md:flex">
           <ul className="flex items-center gap-8 text-sm font-medium tracking-wide">
-            <li><a href="#" className="hover:text-brand-copper transition-colors cursor-pointer">올인원마케팅</a></li>
-            <li><a href="#" className="hover:text-brand-copper transition-colors cursor-pointer">블로그대행</a></li>
-            <li><a href="/blog-experience" className="text-brand-copper transition-colors cursor-pointer">블로그체험단</a></li>
-            <li><a href="#" className="hover:text-brand-copper transition-colors cursor-pointer">카페바이럴</a></li>
+            <li><a href="#" className="hover:text-brand-copper transition-colors cursor-pointer hover-trigger">올인원마케팅</a></li>
+            <li><a href="#" className="hover:text-brand-copper transition-colors cursor-pointer hover-trigger">블로그대행</a></li>
+            <li><a href="/blog-experience" className="text-brand-copper transition-colors cursor-pointer hover-trigger">블로그체험단</a></li>
+            <li><a href="#" className="hover:text-brand-copper transition-colors cursor-pointer hover-trigger">카페바이럴</a></li>
           </ul>
         </div>
       </nav>
@@ -80,11 +113,9 @@ export default function BlogExperience() {
       {/* Full Image Section */}
       <section className="bg-white w-full flex flex-col items-center">
         <div className="w-full max-w-[800px] mx-auto flex flex-col">
-          <img src="/images/experience/01.png" alt="상세이미지 01" className="w-full h-auto" />
-          <img src="/images/experience/02.png" alt="상세이미지 02" className="w-full h-auto" />
-          <img src="/images/experience/03.png" alt="상세이미지 03" className="w-full h-auto" />
-          <img src="/images/experience/04.jpg" alt="상세이미지 04" className="w-full h-auto" />
-          <img src="/images/experience/05.jpg" alt="상세이미지 05" className="w-full h-auto" />
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
+            <img key={num} src={`/images/experience/${num.toString().padStart(2, '0')}.png`} alt={`상세이미지 ${num}`} className="w-full h-auto block" />
+          ))}
         </div>
       </section>
 
@@ -102,21 +133,21 @@ export default function BlogExperience() {
             </p>
           </div>
 
-          <div className="bg-white rounded-[32px] p-8 md:p-14 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-black/5">
+          <div className="bg-white rounded-[32px] p-8 md:p-14 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-black/5 hover-trigger">
             <form className="space-y-12" onSubmit={(e) => { e.preventDefault(); alert('요청이 전송되었습니다. (데모)'); }}>
               <div className="relative group">
                 <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">01. 병원 이름</label>
-                <input type="text" placeholder="예: 튼튼정형외과 (필수)" required className="w-full bg-transparent border-b border-gray-300 py-4 text-black focus:outline-none focus:border-brand-copper transition-colors placeholder:text-gray-400" />
+                <input type="text" placeholder="예: 튼튼정형외과 (필수)" required className="w-full bg-transparent border-b border-gray-300 py-4 text-black focus:outline-none focus:border-brand-copper transition-colors placeholder:text-gray-400 hover-trigger" />
               </div>
               
               <div className="relative group">
                 <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">02. 연락처</label>
-                <input type="tel" placeholder="연락받으실 번호를 남겨주세요 (필수)" required className="w-full bg-transparent border-b border-gray-300 py-4 text-black focus:outline-none focus:border-brand-copper transition-colors placeholder:text-gray-400" />
+                <input type="tel" placeholder="연락받으실 번호를 남겨주세요 (필수)" required className="w-full bg-transparent border-b border-gray-300 py-4 text-black focus:outline-none focus:border-brand-copper transition-colors placeholder:text-gray-400 hover-trigger" />
               </div>
 
               <div className="relative group">
                 <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">03. 고민 사항</label>
-                <textarea rows="3" placeholder="요즘 가장 고민되는 점이 있다면 편하게 적어주세요 (선택)" className="w-full bg-transparent border-b border-gray-300 py-4 text-black focus:outline-none focus:border-brand-copper transition-colors placeholder:text-gray-400 resize-none"></textarea>
+                <textarea rows="3" placeholder="요즘 가장 고민되는 점이 있다면 편하게 적어주세요 (선택)" className="w-full bg-transparent border-b border-gray-300 py-4 text-black focus:outline-none focus:border-brand-copper transition-colors placeholder:text-gray-400 resize-none hover-trigger"></textarea>
               </div>
 
               <div className="bg-[#f7f7f7] rounded-xl p-6 mt-8">
@@ -127,7 +158,7 @@ export default function BlogExperience() {
                       [필수] 개인정보 수집 및 이용에 동의합니다.
                     </label>
                   </div>
-                  <button type="button" onClick={() => setShowPrivacyModal(true)} className="text-[#888888] text-sm underline underline-offset-2 hover:text-[#0a0a0c] transition-colors">
+                  <button type="button" onClick={() => setShowPrivacyModal(true)} className="text-[#888888] text-sm underline underline-offset-2 hover:text-[#0a0a0c] transition-colors hover-trigger">
                     (전문 보기)
                   </button>
                 </div>
@@ -149,7 +180,7 @@ export default function BlogExperience() {
 
       {/* Footer */}
       <footer className="py-12 px-6 md:px-16 text-xs font-mono tracking-widest text-brand-gray bg-[#0a0a0c]">
-        <div className="w-full flex flex-col gap-1">
+        <div className="w-full flex flex-col gap-1 hover-trigger">
           <div className="flex flex-wrap gap-4 mb-1">
             <span>아카이브헤이</span>
             <span>|</span>
@@ -164,29 +195,29 @@ export default function BlogExperience() {
             <span>|</span>
             <span>TEL: 0507-1395-1381</span>
             <span>|</span>
-            <a href="mailto:team.archivehey@gmail.com" className="hover:text-white transition-colors">이메일: team.archivehey@gmail.com</a>
+            <a href="mailto:team.archivehey@gmail.com" className="hover:text-white transition-colors hover-trigger">이메일: team.archivehey@gmail.com</a>
             <span>|</span>
-            <a href="http://pf.kakao.com/_xacxenX/chat" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">카카오톡 문의</a>
+            <a href="http://pf.kakao.com/_xacxenX/chat" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors hover-trigger">카카오톡 문의</a>
           </div>
           <div className="flex flex-wrap gap-4 mb-4">
-            <button onClick={() => setShowPrivacyModal(true)} className="hover:text-white transition-colors font-medium">개인정보처리방침</button>
+            <button onClick={() => setShowPrivacyModal(true)} className="hover:text-white transition-colors font-medium hover-trigger">개인정보처리방침</button>
             <span>|</span>
-            <a href="/terms" className="hover:text-white transition-colors">이용약관</a>
+            <a href="/terms" className="hover:text-white transition-colors hover-trigger">이용약관</a>
           </div>
           <p>&copy; {new Date().getFullYear()} HEYMEDI. ALL RIGHTS RESERVED. PREMIUM HOSPITAL BRANDING</p>
         </div>
       </footer>
 
       {/* Floating Contact Button */}
-      <div className="fixed bottom-8 right-8 z-[100]">
+      <div className="fixed bottom-8 right-8 z-[100] hover-trigger">
         <ContactButton />
       </div>
 
       {/* Privacy Policy Modal */}
       {showPrivacyModal && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center p-6 bg-black/60 backdrop-blur-sm animate-fade-in">
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-6 bg-black/60 backdrop-blur-sm animate-fade-in hover-trigger">
           <div className="bg-white text-black w-full max-w-2xl rounded-2xl p-8 md:p-12 shadow-2xl relative">
-            <button onClick={() => setShowPrivacyModal(false)} className="absolute top-6 right-6 text-black/50 hover:text-black transition-colors">
+            <button onClick={() => setShowPrivacyModal(false)} className="absolute top-6 right-6 text-black/50 hover:text-black transition-colors hover-trigger">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             <h3 className="text-2xl font-medium mb-6">개인정보 수집 및 이용 동의</h3>
@@ -209,7 +240,7 @@ export default function BlogExperience() {
               </p>
             </div>
             <div className="mt-10 text-center">
-              <button onClick={() => setShowPrivacyModal(false)} className="px-8 py-4 bg-[#FF5900] text-white rounded-full font-medium tracking-wide hover:bg-[#e04e00] transition-colors">
+              <button onClick={() => setShowPrivacyModal(false)} className="px-8 py-4 bg-[#FF5900] text-white rounded-full font-medium tracking-wide hover:bg-[#e04e00] transition-colors hover-trigger">
                 확인했습니다
               </button>
             </div>
