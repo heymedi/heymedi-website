@@ -176,25 +176,52 @@ export default function AllInOneMarketing() {
           <div className="bg-white rounded-[32px] p-8 md:p-14 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-black/5 hover-trigger">
             <form className="space-y-12" onSubmit={(e) => { e.preventDefault(); alert('요청이 전송되었습니다. (데모)'); }}>
               <div className="relative group">
-                <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">01. 병원 이름</label>
-                <input type="text" placeholder="예: 튼튼정형외과 (필수)" required className="w-full bg-transparent border-b border-gray-300 py-4 text-black focus:outline-none focus:border-brand-copper transition-colors placeholder:text-gray-400 hover-trigger" />
+                <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">01. 병원명(지역구포함) 적어주세요</label>
+                <input type="text" placeholder="예: 강남 튼튼정형외과 (필수)" required className="hover-trigger w-full bg-transparent border-b border-gray-200 py-3 text-lg md:text-xl font-light text-[#0a0a0c] placeholder-gray-400 focus:outline-none focus:border-brand-copper transition-colors" />
               </div>
               
               <div className="relative group">
-                <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">02. 연락처</label>
-                <input type="tel" placeholder="연락받으실 번호를 남겨주세요 (필수)" required className="w-full bg-transparent border-b border-gray-300 py-4 text-black focus:outline-none focus:border-brand-copper transition-colors placeholder:text-gray-400 hover-trigger" />
+                <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">02. 직책/성함을 적어주세요</label>
+                <input type="text" placeholder="예: 대표원장 홍길동 (필수)" required className="hover-trigger w-full bg-transparent border-b border-gray-200 py-3 text-lg md:text-xl font-light text-[#0a0a0c] placeholder-gray-400 focus:outline-none focus:border-brand-copper transition-colors" />
               </div>
 
               <div className="relative group">
-                <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">03. 고민 사항</label>
-                <textarea rows="3" placeholder="요즘 가장 고민되는 점이 있다면 편하게 적어주세요 (선택)" className="w-full bg-transparent border-b border-gray-300 py-4 text-black focus:outline-none focus:border-brand-copper transition-colors placeholder:text-gray-400 resize-none hover-trigger"></textarea>
+                <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">03. 연락받으실 연락처를 적어주세요</label>
+                <input type="tel" placeholder="연락처를 남겨주세요 (필수)" required className="hover-trigger w-full bg-transparent border-b border-gray-200 py-3 text-lg md:text-xl font-light text-[#0a0a0c] placeholder-gray-400 focus:outline-none focus:border-brand-copper transition-colors" />
+              </div>
+
+              <div className="relative group">
+                <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">04. 회신받으실 이메일주소를 적어주세요</label>
+                <input type="email" placeholder="이메일 주소를 적어주세요 (필수)" required className="hover-trigger w-full bg-transparent border-b border-gray-200 py-3 text-lg md:text-xl font-light text-[#0a0a0c] placeholder-gray-400 focus:outline-none focus:border-brand-copper transition-colors" />
+              </div>
+
+              <div className="relative group">
+                <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">05. 현재 겪고 계신 문제점에 대해 적어주세요.</label>
+                <textarea rows="3" placeholder="문제점에 대해 편하게 적어주세요 (필수)" required className="hover-trigger resize-none w-full bg-transparent border-b border-gray-200 py-3 text-lg md:text-xl font-light text-[#0a0a0c] placeholder-gray-400 focus:outline-none focus:border-brand-copper transition-colors"></textarea>
+              </div>
+
+              <div className="relative group">
+                <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">06. 현재 고민중인 마케팅 서비스가 있으신가요?</label>
+                <div className="pt-2 relative">
+                  <select required className="hover-trigger appearance-none w-full bg-transparent border-b border-gray-200 py-3 text-lg md:text-xl font-light text-[#0a0a0c] focus:outline-none focus:border-brand-copper transition-colors cursor-pointer">
+                    <option value="" disabled selected>마케팅 서비스를 선택해주세요 (선택)</option>
+                    <option value="네이버 블로그">네이버 블로그</option>
+                    <option value="네이버 스마트플레이스">네이버 스마트플레이스</option>
+                    <option value="네이버 체험단 마케팅">네이버 체험단 마케팅</option>
+                    <option value="네이버 카페바이럴 마케팅">네이버 카페바이럴 마케팅</option>
+                    <option value="유튜브 및 인스타그램">유튜브 및 인스타그램</option>
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
+                </div>
               </div>
 
               <div className="bg-[#f7f7f7] rounded-xl p-6 mt-8">
                 <div className="flex justify-between items-start md:items-center mb-4 flex-col md:flex-row gap-2 md:gap-0">
-                  <div className="flex items-center gap-3">
-                    <input type="checkbox" id="privacyConsent" required className="w-5 h-5 border-gray-300 rounded accent-[#0a0a0c] cursor-pointer" />
-                    <label htmlFor="privacyConsent" className="text-base font-medium text-[#0a0a0c] cursor-pointer">
+                  <div className="flex items-center gap-2">
+                    <input type="checkbox" id="privacyConsent" required className="w-4 h-4 m-0 p-0 border-gray-300 rounded accent-[#0a0a0c] cursor-pointer" />
+                    <label htmlFor="privacyConsent" className="text-sm md:text-base font-medium text-[#0a0a0c] cursor-pointer ml-1">
                       [필수] 개인정보 수집 및 이용에 동의합니다.
                     </label>
                   </div>
@@ -203,7 +230,7 @@ export default function AllInOneMarketing() {
                   </button>
                 </div>
                 <p className="text-[#888888] text-sm leading-relaxed text-left">
-                  수집 목적: 프로젝트 문의 및 상담 / 항목: 이름, 연락처, 프로젝트 정보 / 보유 기간: 상담 종료 후 1년<br />
+                  수집 목적: 마케팅 문의 및 상담 / 항목: 병원명, 성함, 연락처, 이메일, 마케팅 정보 / 보유 기간: 상담 종료 후 1년<br />
                   (동의 거부 시 원활한 상담이 제한될 수 있습니다.)
                 </p>
               </div>
@@ -264,11 +291,11 @@ export default function AllInOneMarketing() {
             <div className="text-sm text-gray-600 space-y-4 font-light leading-relaxed max-h-[60vh] overflow-y-auto pr-2">
               <p>
                 <strong>1. 수집하는 개인정보 항목</strong><br/>
-                이름, 연락처, 프로젝트 정보, 고민 사항(선택)
+                병원명, 성함, 연락처, 이메일, 마케팅 정보
               </p>
               <p>
                 <strong>2. 개인정보 수집 및 이용 목적</strong><br/>
-                프로젝트 문의 및 상담 진행, 견적 산출, 서비스 안내
+                마케팅 문의 확인, 상담 및 견적 안내
               </p>
               <p>
                 <strong>3. 개인정보 보유 및 이용 기간</strong><br/>
