@@ -244,13 +244,13 @@ export default function Home() {
       </section>
 
       {/* [Section 2] Testimonial Marquee */}
-      <section className="py-24 overflow-hidden relative">
+      <section className="pt-48 pb-24 overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-6 md:px-16 mb-12">
           <div className="mb-24 reveal">
             <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase mb-4">SUCCESS STORIES</h2>
             <h3 className="text-3xl md:text-5xl font-medium tracking-tight leading-tight mb-8">
-              헤이메디의 독점을 선택한 원장님들,<br />
-              이미 지역구 1등을 경험하고 계십니다.
+              헤이메디를 선택한 원장님들,<br />
+              이미 경험하고 계십니다.
             </h3>
           </div>
         </div>
