@@ -18,16 +18,47 @@
   body {
     cursor: none;
     overflow-x: hidden;
-    background-color: #f8f9fa;
-    color: #0a0a0c;
+    background-color: var(--color-brand-dark);
+    color: #ffffff;
     transition: background-color 0.5s ease, color 0.5s ease;
   }
 }
 
+/* Light Theme Transition */
+body.light-theme {
+  background-color: #f8f9fa !important;
+  color: #0a0a0c !important;
+}
+
+body.light-theme .text-white {
+  color: #0a0a0c !important;
+}
+
+body.light-theme .text-brand-gray {
+  color: #666666 !important;
+}
+
+body.light-theme .ambient-light {
+  opacity: 0 !important;
+}
+
+/* Header transition inside light theme */
+body.light-theme nav {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(12px) !important;
+  color: #0a0a0c !important;
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05) !important;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #f8f9fa; }
-::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+::-webkit-scrollbar-track { background: var(--color-brand-dark); }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+
+body.light-theme ::-webkit-scrollbar-track { background: #f8f9fa !important; }
+body.light-theme ::-webkit-scrollbar-thumb { background: #ccc !important; }
 
 /* Custom Cursor Interaction Layer */
 .cursor-dot {
@@ -89,9 +120,9 @@ body.hover-active .cursor-follower {
 input, textarea {
     background: transparent;
     border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 0;
-    color: #0a0a0c;
+    color: #fff;
     padding: 1rem 0;
     width: 100%;
     transition: border-color 0.3s ease;
@@ -100,7 +131,17 @@ input:focus, textarea:focus {
     outline: none;
     border-bottom-color: var(--color-brand-copper);
 }
-input::placeholder, textarea::placeholder { color: #888; }
+input::placeholder, textarea::placeholder { color: #555; }
+
+body.light-theme input, body.light-theme textarea,
+.bg-white input, .bg-white textarea {
+    color: #0a0a0c;
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+}
+body.light-theme input::placeholder, body.light-theme textarea::placeholder,
+.bg-white input::placeholder, .bg-white textarea::placeholder {
+    color: #888;
+}
 
 /* Infinite Marquee */
 @keyframes marquee {

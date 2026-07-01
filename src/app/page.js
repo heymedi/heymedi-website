@@ -48,7 +48,6 @@ const testimonials = [
 export default function Home() {
   const cursorDotRef = useRef(null);
   const cursorFollowerRef = useRef(null);
-  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     // GSAP Registration
@@ -80,12 +79,15 @@ export default function Home() {
       });
     });
 
-    // Header transition on scroll
+    // Theme Transition: Light mode ONLY in section-2
     ScrollTrigger.create({
       trigger: "#section-2",
-      start: "top 80px",
-      onEnter: () => setIsScrolled(true),
-      onLeaveBack: () => setIsScrolled(false),
+      start: "top 80px", // When section 2 reaches header
+      end: "bottom 80px", // When section 2 leaves header
+      onEnter: () => document.body.classList.add("light-theme"),
+      onLeave: () => document.body.classList.remove("light-theme"),
+      onEnterBack: () => document.body.classList.add("light-theme"),
+      onLeaveBack: () => document.body.classList.remove("light-theme"),
     });
 
     // Custom Cursor
@@ -126,7 +128,7 @@ export default function Home() {
       <div className="ambient-light"></div>
 
       {/* Fixed Navigation */}
-      <nav className={`fixed top-0 w-full z-50 px-6 flex justify-between items-center transition-all duration-500 ${isScrolled ? 'text-[#0a0a0c] bg-white/90 backdrop-blur-md shadow-sm py-4' : 'text-white bg-transparent py-8'}`}>
+      <nav className="fixed top-0 w-full z-[100] px-6 py-8 flex justify-between items-center transition-all duration-500 text-current bg-transparent">
         <div className="w-1/3 hover-trigger hover:text-brand-copper transition-colors">
           <Logo className="h-6 md:h-8 w-auto text-current" />
         </div>
