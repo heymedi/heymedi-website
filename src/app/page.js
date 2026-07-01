@@ -10,35 +10,35 @@ import ColorBends from "../components/ColorBends";
 const testimonials = [
   {
     id: 1,
-    quote: <>지역 독점이라 안심하고 맡겼는데, <strong className="text-brand-copper font-bold">신환 문의가 250% 늘었습니다.</strong></>,
+    quote: <>지역 독점이라 안심하고 맡겼는데, <strong className="text-white font-bold">신환 문의가 250% 늘었습니다.</strong></>,
     author: "김원장",
     clinic: "A 치과",
     image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: 2,
-    quote: <>단순한 광고가 아니라, <strong className="text-brand-copper font-bold">병원 브랜드 자체가 하이엔드</strong>로 올라간 느낌입니다.</>,
+    quote: <>단순한 광고가 아니라, <strong className="text-white font-bold">병원 브랜드 자체가 하이엔드</strong>로 올라간 느낌입니다.</>,
     author: "박원장",
     clinic: "B 피부과",
     image: "https://images.unsplash.com/photo-1551076805-e18690c5e53b?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: 3,
-    quote: <>우리 병원의 가치를 알아주는 <strong className="text-brand-copper font-bold">프리미엄 환자층</strong>이 확연히 늘었습니다.</>,
+    quote: <>우리 병원의 가치를 알아주는 <strong className="text-white font-bold">프리미엄 환자층</strong>이 확연히 늘었습니다.</>,
     author: "이원장",
     clinic: "C 한의원",
     image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: 4,
-    quote: <>광고비는 그대로인데, <strong className="text-brand-copper font-bold">상담 동의율이 2배</strong>가 되었습니다. 진정한 독점의 힘이네요.</>,
+    quote: <>광고비는 그대로인데, <strong className="text-white font-bold">상담 동의율이 2배</strong>가 되었습니다. 진정한 독점의 힘이네요.</>,
     author: "최원장",
     clinic: "D 성형외과",
     image: "https://images.unsplash.com/photo-1638202993928-7267aad84c31?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: 5,
-    quote: <>정교한 디자인 덕분에 <strong className="text-brand-copper font-bold">대형 병원 못지않은 신뢰감</strong>을 줍니다.</>,
+    quote: <>정교한 디자인 덕분에 <strong className="text-white font-bold">대형 병원 못지않은 신뢰감</strong>을 줍니다.</>,
     author: "정원장",
     clinic: "E 정형외과",
     image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800"
@@ -49,6 +49,7 @@ export default function Home() {
   const cursorDotRef = useRef(null);
   const cursorFollowerRef = useRef(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
 
   useEffect(() => {
     // GSAP Registration
@@ -245,12 +246,14 @@ export default function Home() {
                   <img src="/USP_marketer02.png" alt="퍼널구조 2" className="w-full h-auto rounded-2xl border border-black/5 reveal" />
                   <img src="/USP_marketer03.png" alt="퍼널구조 3" className="w-full h-auto rounded-2xl border border-black/5 reveal" />
                 </div>
-                <p className="text-brand-gray text-lg font-light leading-relaxed break-keep mt-4">
+                <p className="text-black text-lg font-light leading-relaxed break-keep mt-4">
                   우리는 글을 쓰기 전, 성과가 날 수밖에 없는 '퍼널구조'부터 설계합니다. 대부분의 대행사는 '상위노출'에 집착하지만, 헤이메디는 본질에 집중합니다. 환자가 병원을 발견하고 예약 버튼을 누르기까지의 심리 동선을 먼저 짜지 않으면 아무리 많은 글도 소용없습니다.
                 </p>
               </div>
             </div>
             
+            <hr className="w-full border-t border-black/10 my-16 md:my-24" />
+
             <div className="flex flex-col md:flex-row py-12 gap-8 md:gap-24 relative md:items-start sticky-container">
               <div className="w-full md:w-1/3 flex flex-col gap-6 md:sticky md:top-32 sticky-content">
                 <div>
@@ -269,7 +272,7 @@ export default function Home() {
                   <img src="/USP_designer01.png" alt="디자인 포트폴리오 1" className="w-full h-auto rounded-2xl border border-black/5 reveal" />
                   <img src="/USP_designer02.png" alt="디자인 포트폴리오 2" className="w-full h-auto rounded-2xl border border-black/5 reveal" />
                 </div>
-                <p className="text-brand-gray text-lg font-light leading-relaxed break-keep mt-4">
+                <p className="text-black text-lg font-light leading-relaxed break-keep mt-4">
                   환자가 병원을 선택하는 0.3초의 찰나, 신뢰감 있는 첫인상은 비주얼로 결정됩니다. 공공기관, 유명 뷰티 및 브랜드 프로젝트를 수행하며 다져진 하이엔드급 디자이너가 우리 병원을 압도적으로 시각화 합니다.
                 </p>
               </div>
@@ -399,11 +402,22 @@ export default function Home() {
                 <textarea rows="3" placeholder="요즘 가장 고민되는 점이 있다면 편하게 적어주세요 (선택)" className="hover-trigger resize-none"></textarea>
               </div>
 
-              <div className="flex items-center justify-start gap-3 py-2">
-                <input type="checkbox" id="privacyConsent" required className="w-4 h-4 mt-0.5 accent-brand-copper cursor-pointer flex-shrink-0" />
-                <label htmlFor="privacyConsent" className="text-sm text-[#0a0a0c] text-left cursor-pointer hover:text-brand-copper transition-colors flex-1">
-                  개인정보 수집 및 이용에 동의합니다.
-                </label>
+              <div className="bg-[#f7f7f7] rounded-xl p-6 mt-8">
+                <div className="flex justify-between items-start md:items-center mb-4 flex-col md:flex-row gap-2 md:gap-0">
+                  <div className="flex items-center gap-3">
+                    <input type="checkbox" id="privacyConsent" required className="w-5 h-5 border-gray-300 rounded accent-[#0a0a0c] cursor-pointer" />
+                    <label htmlFor="privacyConsent" className="text-base font-medium text-[#0a0a0c] cursor-pointer">
+                      [필수] 개인정보 수집 및 이용에 동의합니다.
+                    </label>
+                  </div>
+                  <button type="button" onClick={() => setShowPrivacyModal(true)} className="text-[#888888] text-sm underline underline-offset-2 hover:text-[#0a0a0c] transition-colors">
+                    (전문 보기)
+                  </button>
+                </div>
+                <p className="text-[#888888] text-sm leading-relaxed text-left">
+                  수집 목적: 프로젝트 문의 및 상담 / 항목: 이름, 연락처, 프로젝트 정보 / 보유 기간: 상담 종료 후 1년<br />
+                  (동의 거부 시 원활한 상담이 제한될 수 있습니다.)
+                </p>
               </div>
 
               <div className="pt-4 text-center">
@@ -438,7 +452,7 @@ export default function Home() {
             <a href="http://pf.kakao.com/_xacxenX/chat" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">카카오톡 문의</a>
           </div>
           <div className="flex flex-wrap gap-4 mb-4">
-            <a href="/privacy" className="hover:text-white transition-colors font-medium">개인정보처리방침</a>
+            <button onClick={() => setShowPrivacyModal(true)} className="hover:text-white transition-colors font-medium">개인정보처리방침</button>
             <span>|</span>
             <a href="/terms" className="hover:text-white transition-colors">이용약관</a>
           </div>
@@ -450,6 +464,41 @@ export default function Home() {
       <div className="fixed bottom-8 right-8 z-[100] animate-fade-in-up hover-trigger">
         <ContactButton />
       </div>
+
+      {/* Privacy Policy Modal */}
+      {showPrivacyModal && (
+        <div className="fixed inset-0 z-[200] flex items-center justify-center p-6 bg-black/60 backdrop-blur-sm animate-fade-in">
+          <div className="bg-white text-black w-full max-w-2xl rounded-2xl p-8 md:p-12 shadow-2xl relative">
+            <button onClick={() => setShowPrivacyModal(false)} className="absolute top-6 right-6 text-black/50 hover:text-black transition-colors">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h3 className="text-2xl font-medium mb-6">개인정보 수집 및 이용 동의</h3>
+            <div className="text-sm text-gray-600 space-y-4 font-light leading-relaxed max-h-[60vh] overflow-y-auto pr-2">
+              <p>
+                <strong>1. 수집하는 개인정보 항목</strong><br/>
+                이름, 연락처, 프로젝트 정보, 고민 사항(선택)
+              </p>
+              <p>
+                <strong>2. 개인정보 수집 및 이용 목적</strong><br/>
+                프로젝트 문의 및 상담 진행, 견적 산출, 서비스 안내
+              </p>
+              <p>
+                <strong>3. 개인정보 보유 및 이용 기간</strong><br/>
+                상담 종료 후 1년 보관 후 지체 없이 파기합니다.
+              </p>
+              <p>
+                <strong>4. 동의 거부권 및 불이익</strong><br/>
+                귀하는 개인정보 수집에 동의를 거부할 권리가 있습니다. 단, 필수 항목 동의 거부 시 원활한 상담이 제한될 수 있습니다.
+              </p>
+            </div>
+            <div className="mt-10 text-center">
+              <button onClick={() => setShowPrivacyModal(false)} className="px-8 py-4 bg-[#FF5900] text-white rounded-full font-medium tracking-wide hover:bg-[#e04e00] transition-colors">
+                확인했습니다
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
