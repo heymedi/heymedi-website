@@ -211,15 +211,20 @@ export default function Home() {
             <div className="flex flex-col md:flex-row py-12">
               <div className="w-full md:w-1/3 mb-6 md:mb-0">
                 <span className="font-mono text-xs tracking-widest text-brand-copper mb-4 block">POINT 01</span>
-                <h4 className="text-2xl font-medium text-black">독점 파트너십</h4>
+                <h4 className="text-2xl font-medium text-black">
+                  환자를 모으는<br />
+                  날카로운 기획력
+                </h4>
               </div>
               <div className="w-full md:w-2/3">
                 <div className="aspect-[6/4] w-full bg-black/5 rounded-2xl mb-8 overflow-hidden relative">
-                   <img src="https://images.unsplash.com/photo-1551076805-e18690c5e53b?auto=format&fit=crop&q=80&w=1200" alt="독점 파트너십" className="w-full h-full object-cover" />
+                   <img src="/USP_marketer.png" alt="환자를 모으는 날카로운 기획력" className="w-full h-full object-cover" />
                 </div>
                 <p className="text-brand-gray text-lg font-light leading-relaxed">
-                  해당 상권 내 동종 진료과목은 절대 중복 계약하지 않습니다.<br />
-                  우리의 모든 리소스는 오직 원장님의 병원만을 향합니다.
+                  우리는 글을 쓰기 전, 성과가 날 수밖에 없는 '퍼널구조'부터 설계합니다.<br />
+                  대부분의 대행사는 '상위노출'에 집착하지만, 헤이메디는 본질에 집중합니다.<br />
+                  환자가 병원을 발견하고 예약 버튼을 누르기까지의 심리 동선을 먼저 짜지 않으면<br />
+                  아무리 많은 글도 소용없습니다.
                 </p>
               </div>
             </div>
@@ -227,15 +232,20 @@ export default function Home() {
             <div className="flex flex-col md:flex-row py-12">
               <div className="w-full md:w-1/3 mb-6 md:mb-0">
                 <span className="font-mono text-xs tracking-widest text-brand-copper mb-4 block">POINT 02</span>
-                <h4 className="text-2xl font-medium text-black">전략과 디자인의 결합</h4>
+                <h4 className="text-2xl font-medium text-black">
+                  첫인상 0.3초를 책임질<br />
+                  디자인 감각
+                </h4>
               </div>
               <div className="w-full md:w-2/3">
                 <div className="aspect-[6/4] w-full bg-black/5 rounded-2xl mb-8 overflow-hidden relative">
-                   <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200" alt="전략과 디자인의 결합" className="w-full h-full object-cover" />
+                   <img src="/USP_designer.png" alt="첫인상 0.3초를 책임질 디자인 감각" className="w-full h-full object-cover" />
                 </div>
                 <p className="text-brand-gray text-lg font-light leading-relaxed">
-                  뻔한 템플릿은 쓰지 않습니다.<br />
-                  데이터 기반의 정교한 타겟팅 위에, 시선을 사로잡는 하이엔드 디자인을 입혀 이탈 없는 전환을 만들어냅니다.
+                  환자가 병원을 선택하는 0.3초의 찰나,<br />
+                  신뢰감 있는 첫인상은 비주얼로 결정됩니다.<br />
+                  공공기관, 유명 뷰티 및 브랜드 프로젝트를 수행하며 다져진<br />
+                  하이엔드급 디자이너가 우리 병원을 압도적으로 시각화 합니다.
                 </p>
               </div>
             </div>
