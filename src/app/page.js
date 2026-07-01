@@ -148,16 +148,16 @@ export default function Home() {
 
       {/* Fixed Navigation */}
       <nav className={`fixed top-0 w-full z-[100] px-6 py-8 flex justify-between items-center transition-all duration-500 ${isScrolled ? 'text-[#0a0a0c] !py-4' : 'text-white bg-transparent'}`}>
-        <div className="w-1/3 hover-trigger hover:text-brand-copper transition-colors">
-          <Logo className="h-6 md:h-8 w-auto text-current" />
+        <div className="w-1/3 hover-trigger transition-colors">
+          <a href="/"><Logo className="h-6 md:h-8 w-auto text-current" /></a>
         </div>
         
         <div className="w-2/3 flex justify-end hidden md:flex">
           <ul className="flex items-center gap-8 text-sm font-medium tracking-wide">
-            <li><a href="#" className="hover:text-brand-copper transition-colors cursor-pointer hover-trigger">올인원마케팅</a></li>
-            <li><a href="#" className="hover:text-brand-copper transition-colors cursor-pointer hover-trigger">블로그대행</a></li>
+            <li><a href="/all-in-one" className="hover:text-brand-copper transition-colors cursor-pointer hover-trigger">올인원마케팅</a></li>
+            <li><a href="/blog-agency" className="hover:text-brand-copper transition-colors cursor-pointer hover-trigger">블로그대행</a></li>
             <li><a href="/blog-experience" className="hover:text-brand-copper transition-colors cursor-pointer hover-trigger">블로그체험단</a></li>
-            <li><a href="#" className="hover:text-brand-copper transition-colors cursor-pointer hover-trigger">카페바이럴</a></li>
+            <li><a href="/cafe-viral" className="hover:text-brand-copper transition-colors cursor-pointer hover-trigger">카페바이럴</a></li>
           </ul>
         </div>
       </nav>

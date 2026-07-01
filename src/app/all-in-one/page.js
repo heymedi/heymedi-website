@@ -7,7 +7,7 @@ import Logo from "../../components/Logo";
 import ContactButton from "../../components/ContactButton";
 import ColorBends from "../../components/ColorBends";
 
-export default function BlogExperience() {
+export default function AllInOneMarketing() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const cursorDotRef = useRef(null);
@@ -81,9 +81,9 @@ export default function BlogExperience() {
         
         <div className="w-2/3 flex justify-end hidden md:flex">
           <ul className="flex items-center gap-8 text-sm font-medium tracking-wide">
-            <li><a href="/all-in-one" className="hover:text-brand-copper transition-colors cursor-pointer hover-trigger">올인원마케팅</a></li>
+            <li><a href="/all-in-one" className="text-brand-copper transition-colors cursor-pointer hover-trigger">올인원마케팅</a></li>
             <li><a href="/blog-agency" className="hover:text-brand-copper transition-colors cursor-pointer hover-trigger">블로그대행</a></li>
-            <li><a href="/blog-experience" className="text-brand-copper transition-colors cursor-pointer hover-trigger">블로그체험단</a></li>
+            <li><a href="/blog-experience" className="hover:text-brand-copper transition-colors cursor-pointer hover-trigger">블로그체험단</a></li>
             <li><a href="/cafe-viral" className="hover:text-brand-copper transition-colors cursor-pointer hover-trigger">카페바이럴</a></li>
           </ul>
         </div>
@@ -110,10 +110,10 @@ export default function BlogExperience() {
         </div>
         
         <div className="max-w-4xl mx-auto relative z-10 my-auto">
-          <span className="text-brand-copper font-mono text-xs md:text-sm tracking-widest mb-6 block uppercase">Blog Experience</span>
+          <span className="text-brand-copper font-mono text-xs md:text-sm tracking-widest mb-6 block uppercase">All-In-One Marketing</span>
           <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight mb-8">
             진짜 방문객을 만드는<br />
-            <span className="text-white">블로그 체험단</span>
+            <span className="text-white">올인원 마케팅</span>
           </h1>
           <p className="text-lg text-[#bbbbbb] font-light leading-relaxed max-w-2xl mx-auto">
             단순히 방문자 수만 채우는 의미 없는 리뷰가 아닙니다.<br />
