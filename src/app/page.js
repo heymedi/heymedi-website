@@ -48,6 +48,7 @@ const testimonials = [
 export default function Home() {
   const cursorDotRef = useRef(null);
   const cursorFollowerRef = useRef(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     // GSAP Registration
@@ -79,15 +80,15 @@ export default function Home() {
       });
     });
 
-    // Theme Transition: Light mode ONLY in section-2
+    // Header transition on scroll
     ScrollTrigger.create({
       trigger: "#section-2",
       start: "top 80px", // When section 2 reaches header
       end: "bottom 80px", // When section 2 leaves header
-      onEnter: () => document.body.classList.add("light-theme"),
-      onLeave: () => document.body.classList.remove("light-theme"),
-      onEnterBack: () => document.body.classList.add("light-theme"),
-      onLeaveBack: () => document.body.classList.remove("light-theme"),
+      onEnter: () => setIsScrolled(true),
+      onLeave: () => setIsScrolled(false),
+      onEnterBack: () => setIsScrolled(true),
+      onLeaveBack: () => setIsScrolled(false),
     });
 
     // Custom Cursor
@@ -128,7 +129,7 @@ export default function Home() {
       <div className="ambient-light"></div>
 
       {/* Fixed Navigation */}
-      <nav className="fixed top-0 w-full z-[100] px-6 py-8 flex justify-between items-center transition-all duration-500 text-current bg-transparent">
+      <nav className={`fixed top-0 w-full z-[100] px-6 py-8 flex justify-between items-center transition-all duration-500 ${isScrolled ? 'text-[#0a0a0c] bg-white/90 backdrop-blur-md shadow-sm !py-4' : 'text-white bg-transparent'}`}>
         <div className="w-1/3 hover-trigger hover:text-brand-copper transition-colors">
           <Logo className="h-6 md:h-8 w-auto text-current" />
         </div>
@@ -189,7 +190,7 @@ export default function Home() {
       </section>
 
       {/* [Section 1] Core USP */}
-      <section id="section-2" className="py-32 px-6 md:px-16">
+      <section id="section-2" className="py-32 px-6 md:px-16 bg-white text-[#0a0a0c]">
         <div className="max-w-7xl mx-auto">
           <div className="mb-24 reveal">
             <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase mb-4">OUR PROMISE</h2>
@@ -243,7 +244,7 @@ export default function Home() {
       </section>
 
       {/* [Section 2] Testimonial Marquee */}
-      <section className="py-24 overflow-hidden relative bg-brand-dark text-white">
+      <section className="py-24 overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-6 md:px-16 mb-12">
           <div className="mb-24 reveal">
             <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase mb-4">SUCCESS STORIES</h2>
