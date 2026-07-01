@@ -178,7 +178,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto w-full relative z-10 flex-1 flex flex-col pt-32 pb-12">
           <div className="my-auto">
             <p className="hero-el text-brand-copper font-mono text-xs md:text-sm tracking-widest mb-8 uppercase">
-              Premium Hospital Branding
+              OUR MISSION
             </p>
             
             <h1 className="hero-el text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tightest mb-10 max-w-5xl">
@@ -196,7 +196,7 @@ export default function Home() {
           </div>
           
           <div className="hero-el flex flex-col items-start gap-4 text-brand-gray mt-auto">
-            <p className="text-sm md:text-base font-light tracking-wide">
+            <p className="text-sm md:text-base font-light tracking-wide text-white">
               원장님의 마케팅 대행사는 여러곳을 담당하고 있지 않나요?
             </p>
             <svg className="w-6 h-6 animate-bounce text-brand-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -235,9 +235,6 @@ export default function Home() {
                     날카로운 기획력
                   </h4>
                 </div>
-                <p className="text-brand-gray text-lg font-light leading-relaxed break-keep">
-                  우리는 글을 쓰기 전, 성과가 날 수밖에 없는 '퍼널구조'부터 설계합니다. 대부분의 대행사는 '상위노출'에 집착하지만, 헤이메디는 본질에 집중합니다. 환자가 병원을 발견하고 예약 버튼을 누르기까지의 심리 동선을 먼저 짜지 않으면 아무리 많은 글도 소용없습니다.
-                </p>
                 <div className="w-full">
                    <img src="/USP_marketer_profile.png" alt="마케터 프로필" className="w-full h-auto object-contain" />
                 </div>
@@ -248,6 +245,9 @@ export default function Home() {
                   <img src="/USP_marketer02.png" alt="퍼널구조 2" className="w-full h-auto rounded-2xl border border-black/5 reveal" />
                   <img src="/USP_marketer03.png" alt="퍼널구조 3" className="w-full h-auto rounded-2xl border border-black/5 reveal" />
                 </div>
+                <p className="text-brand-gray text-lg font-light leading-relaxed break-keep mt-4">
+                  우리는 글을 쓰기 전, 성과가 날 수밖에 없는 '퍼널구조'부터 설계합니다. 대부분의 대행사는 '상위노출'에 집착하지만, 헤이메디는 본질에 집중합니다. 환자가 병원을 발견하고 예약 버튼을 누르기까지의 심리 동선을 먼저 짜지 않으면 아무리 많은 글도 소용없습니다.
+                </p>
               </div>
             </div>
             
@@ -260,9 +260,6 @@ export default function Home() {
                     디자인 감각
                   </h4>
                 </div>
-                <p className="text-brand-gray text-lg font-light leading-relaxed break-keep">
-                  환자가 병원을 선택하는 0.3초의 찰나, 신뢰감 있는 첫인상은 비주얼로 결정됩니다. 공공기관, 유명 뷰티 및 브랜드 프로젝트를 수행하며 다져진 하이엔드급 디자이너가 우리 병원을 압도적으로 시각화 합니다.
-                </p>
                 <div className="w-full">
                    <img src="/USP_designer_profile.png" alt="디자이너 프로필" className="w-full h-auto object-contain" />
                 </div>
@@ -272,6 +269,9 @@ export default function Home() {
                   <img src="/USP_designer01.png" alt="디자인 포트폴리오 1" className="w-full h-auto rounded-2xl border border-black/5 reveal" />
                   <img src="/USP_designer02.png" alt="디자인 포트폴리오 2" className="w-full h-auto rounded-2xl border border-black/5 reveal" />
                 </div>
+                <p className="text-brand-gray text-lg font-light leading-relaxed break-keep mt-4">
+                  환자가 병원을 선택하는 0.3초의 찰나, 신뢰감 있는 첫인상은 비주얼로 결정됩니다. 공공기관, 유명 뷰티 및 브랜드 프로젝트를 수행하며 다져진 하이엔드급 디자이너가 우리 병원을 압도적으로 시각화 합니다.
+                </p>
               </div>
             </div>
           </div>
@@ -282,7 +282,7 @@ export default function Home() {
       <section className="pt-48 pb-24 overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-6 md:px-16 mb-12">
           <div className="mb-24 reveal">
-            <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase mb-4">SUCCESS STORIES</h2>
+            <h2 className="font-mono text-xs tracking-widest text-brand-copper uppercase mb-4">SUCCESS STORIES</h2>
             <h3 className="text-3xl md:text-5xl font-medium tracking-tight leading-tight mb-8">
               헤이메디를 선택한 원장님들,<br />
               이미 경험하고 계십니다.
@@ -305,7 +305,7 @@ export default function Home() {
                       "{t.quote}"
                     </p>
                     <div>
-                      <p className="text-brand-copper font-medium">{t.clinic}</p>
+                      <p className="text-white font-medium">{t.clinic}</p>
                       <p className="text-[#888888] text-sm">{t.author}</p>
                     </div>
                   </div>
@@ -320,7 +320,7 @@ export default function Home() {
       <section className="py-32 px-6 md:px-16">
         <div className="max-w-7xl mx-auto">
           <div className="mb-24 reveal">
-            <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase mb-4">WORK PROCESS</h2>
+            <h2 className="font-mono text-xs tracking-widest text-brand-copper uppercase mb-4">WORK PROCESS</h2>
             <h3 className="text-3xl md:text-5xl font-medium tracking-tight mb-6 leading-tight">
               지역구 1등은 우연이 아닙니다.<br />
               치밀하게 설계된 3단계 프로세스
@@ -399,9 +399,9 @@ export default function Home() {
                 <textarea rows="3" placeholder="요즘 가장 고민되는 점이 있다면 편하게 적어주세요 (선택)" className="hover-trigger resize-none"></textarea>
               </div>
 
-              <div className="flex items-center gap-3 py-2">
-                <input type="checkbox" id="privacyConsent" required className="w-4 h-4 accent-brand-copper cursor-pointer" />
-                <label htmlFor="privacyConsent" className="text-sm text-[#0a0a0c] cursor-pointer hover:text-brand-copper transition-colors">
+              <div className="flex items-center justify-start gap-3 py-2">
+                <input type="checkbox" id="privacyConsent" required className="w-4 h-4 mt-0.5 accent-brand-copper cursor-pointer flex-shrink-0" />
+                <label htmlFor="privacyConsent" className="text-sm text-[#0a0a0c] text-left cursor-pointer hover:text-brand-copper transition-colors flex-1">
                   개인정보 수집 및 이용에 동의합니다.
                 </label>
               </div>
@@ -418,7 +418,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-12 px-6 md:px-16 text-xs font-mono tracking-widest text-brand-gray">
-        <div className="max-w-7xl mx-auto flex flex-col gap-1">
+        <div className="w-full flex flex-col gap-1">
           <div className="flex flex-wrap gap-4 mb-1">
             <span>아카이브헤이</span>
             <span>|</span>
