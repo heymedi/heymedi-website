@@ -226,8 +226,9 @@ export default function Home() {
                   아무리 많은 글도 소용없습니다.
                 </p>
                 <div className="flex flex-col gap-4">
-                  <img src="/USP_marketer1.png" alt="퍼널구조 1" className="w-full h-auto rounded-2xl border border-black/5" />
-                  <img src="/USP_marketer2.png" alt="퍼널구조 2" className="w-full h-auto rounded-2xl border border-black/5" />
+                  <img src="/USP_marketer01.png" alt="퍼널구조 1" className="w-full h-auto rounded-2xl border border-black/5" />
+                  <img src="/USP_marketer02.png" alt="퍼널구조 2" className="w-full h-auto rounded-2xl border border-black/5" />
+                  <img src="/USP_marketer03.png" alt="퍼널구조 3" className="w-full h-auto rounded-2xl border border-black/5" />
                 </div>
               </div>
             </div>
@@ -251,8 +252,8 @@ export default function Home() {
                   하이엔드급 디자이너가 우리 병원을 압도적으로 시각화 합니다.
                 </p>
                 <div className="flex flex-col gap-4">
-                  <img src="/USP_designer1.png" alt="디자인 포트폴리오 1" className="w-full h-auto rounded-2xl border border-black/5" />
-                  <img src="/USP_designer2.png" alt="디자인 포트폴리오 2" className="w-full h-auto rounded-2xl border border-black/5" />
+                  <img src="/USP_designer01.png" alt="디자인 포트폴리오 1" className="w-full h-auto rounded-2xl border border-black/5" />
+                  <img src="/USP_designer02.png" alt="디자인 포트폴리오 2" className="w-full h-auto rounded-2xl border border-black/5" />
                 </div>
               </div>
             </div>
