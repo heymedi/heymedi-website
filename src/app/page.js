@@ -87,7 +87,7 @@ export default function Home() {
       <div className="ambient-light"></div>
 
       {/* Fixed Navigation */}
-      <nav className="fixed top-0 w-full z-50 px-6 py-8 flex justify-between items-center mix-blend-difference text-white">
+      <nav className="fixed top-0 w-full z-50 px-6 py-8 flex justify-between items-center transition-colors duration-500">
         <div className="w-1/3 hover-trigger hover:text-brand-copper transition-colors">
           <Logo className="h-6 md:h-8 w-auto text-current" />
         </div>
