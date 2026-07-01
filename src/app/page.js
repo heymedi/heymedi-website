@@ -7,6 +7,44 @@ import Logo from "../components/Logo";
 import ContactButton from "../components/ContactButton";
 import ColorBends from "../components/ColorBends";
 
+const testimonials = [
+  {
+    id: 1,
+    quote: "마케팅 비용은 절반으로 줄었는데, 신환 예약은 3배 늘었습니다. 진작 만났어야 했어요.",
+    author: "김원장",
+    clinic: "A 치과",
+    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    id: 2,
+    quote: "매달 보내주는 리포트가 압권입니다. 우리 병원의 장점을 저보다 더 잘 아시더라고요.",
+    author: "박원장",
+    clinic: "B 피부과",
+    image: "https://images.unsplash.com/photo-1551076805-e18690c5e53b?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    id: 3,
+    quote: "그냥 광고만 하는 게 아니라, 진짜로 환자의 마음을 움직이는 글을 써줍니다. 든든한 파트너입니다.",
+    author: "이원장",
+    clinic: "C 한의원",
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    id: 4,
+    quote: "상담 동의율이 체감될 정도로 올랐습니다. 블로그 보고 왔다는 환자분들이 정말 많아졌어요.",
+    author: "최원장",
+    clinic: "D 성형외과",
+    image: "https://images.unsplash.com/photo-1638202993928-7267aad84c31?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    id: 5,
+    quote: "원장인 제가 봐도 설득력이 있습니다. 우리 병원의 핵심 가치를 정확하게 짚어주어 감사합니다.",
+    author: "정원장",
+    clinic: "E 정형외과",
+    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800"
+  }
+];
+
 export default function Home() {
   const cursorDotRef = useRef(null);
   const cursorFollowerRef = useRef(null);
@@ -145,12 +183,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* [Section 1.5] Testimonial Marquee */}
+      <section className="py-24 border-t border-brand-line overflow-hidden relative">
+        <div className="max-w-7xl mx-auto px-6 md:px-16 mb-12">
+          <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase reveal">
+            01 / Success Stories
+          </h2>
+          <p className="text-xl font-light mt-4 text-white reveal">원장님들의 생생한 후기</p>
+        </div>
+        
+        {/* Marquee Wrapper */}
+        <div className="flex w-fit animate-marquee hover:[animation-play-state:paused] group mt-8">
+          {/* Double the list for infinite effect */}
+          {[...Array(2)].map((_, i) => (
+            <div key={i} className="flex gap-6 px-3">
+              {testimonials.map((t) => (
+                <div key={`${i}-${t.id}`} className="relative w-[280px] md:w-[360px] h-[400px] rounded-2xl overflow-hidden flex-shrink-0 cursor-none hover-trigger border border-white/5">
+                  <img src={t.image} alt="Testimonial background" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-[#0a0a0c]/60 to-transparent"></div>
+                  
+                  <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end h-full z-10">
+                    <p className="text-white text-lg font-medium leading-relaxed mb-6">
+                      "{t.quote}"
+                    </p>
+                    <div>
+                      <p className="text-brand-copper font-medium">{t.clinic}</p>
+                      <p className="text-brand-gray text-sm">{t.author}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* [Section 2] Pain Point */}
       <section id="section-2" className="py-32 px-6 md:px-16 hairline-top">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
           <div className="md:col-span-4 reveal">
             <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase sticky top-32">
-              01 / The Problem
+              02 / The Problem
             </h2>
           </div>
           <div className="md:col-span-8 reveal">
@@ -169,7 +242,7 @@ export default function Home() {
       <section className="py-32 px-6 md:px-16 hairline-top bg-brand-dark">
         <div className="max-w-7xl mx-auto">
           <div className="mb-24 reveal">
-            <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase mb-4">02 / Our Promise</h2>
+            <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase mb-4">03 / Our Promise</h2>
             <p className="text-2xl md:text-3xl font-light">헤이메디는 이렇게 다릅니다.</p>
           </div>
 
@@ -218,7 +291,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-24">
             <div className="md:col-span-4 reveal">
-              <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase">03 / Work Process</h2>
+              <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase">04 / Work Process</h2>
             </div>
             <div className="md:col-span-8 reveal">
               <h3 className="text-3xl md:text-5xl font-medium tracking-tight mb-6">

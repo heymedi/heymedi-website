@@ -141,3 +141,14 @@ input:focus, textarea:focus {
     border-bottom-color: var(--color-brand-copper);
 }
 input::placeholder, textarea::placeholder { color: #555; }
+
+/* Infinite Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+}
