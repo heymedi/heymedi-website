@@ -1,3 +1,4 @@
+import Header from "../../components/Header";
 import Logo from "../../components/Logo";
 
 export const metadata = {
@@ -8,11 +9,7 @@ export const metadata = {
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-white text-[#0a0a0c] selection:bg-brand-copper selection:text-white font-sans">
-      <nav className="w-full px-6 py-6 border-b border-gray-100 flex justify-between items-center bg-white z-50 relative">
-        <a href="/">
-          <Logo className="h-6 md:h-8 w-auto text-[#0a0a0c]" />
-        </a>
-      </nav>
+      <Header currentPath="/privacy" />
 
       <main className="max-w-4xl mx-auto px-6 py-20 md:py-32">
         <h1 className="text-3xl md:text-5xl font-medium tracking-tight mb-12">개인정보처리방침</h1>
