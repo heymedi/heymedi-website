@@ -82,7 +82,7 @@ export default function Home() {
     // Light Theme Transition on Scroll
     ScrollTrigger.create({
       trigger: "#section-2",
-      start: "top 60%",
+      start: "top 95%",
       onEnter: () => document.body.classList.add("light-theme"),
       onLeaveBack: () => document.body.classList.remove("light-theme"),
     });
@@ -170,10 +170,6 @@ export default function Home() {
               똑같은 키워드로 서로 경쟁시키는 것은<br />
               <strong className="text-white font-medium">원장님의 마케팅 비용을 깎아먹는 비겁한 행위입니다.</strong>
             </p>
-            <a href="#contact" className="inline-flex items-center gap-4 text-sm font-mono tracking-widest uppercase border border-brand-line px-8 py-4 rounded-full hover:bg-white hover:text-black transition-all hover-trigger group">
-              우리 병원 무료 진단받아보기 
-              <span className="text-brand-copper group-hover:text-black">→</span>
-            </a>
           </div>
         </div>
         
@@ -188,10 +184,10 @@ export default function Home() {
       </section>
 
       {/* [Section 1] Core USP */}
-      <section id="section-2" className="py-32 px-6 md:px-16 hairline-top bg-brand-dark">
+      <section id="section-2" className="py-32 px-6 md:px-16">
         <div className="max-w-7xl mx-auto">
           <div className="mb-24 reveal">
-            <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase mb-4">01 / Our Promise</h2>
+            <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase mb-4">OUR PROMISE</h2>
             <h3 className="text-3xl md:text-5xl font-medium tracking-tight leading-tight mb-8">
               1등은 나눠 가질 수 없겠죠?<br />
               지역당 단 1곳의 병원만 철저하게 독점 관리합니다.
@@ -204,8 +200,8 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex flex-col hairline-top reveal">
-            <div className="flex flex-col md:flex-row py-12 hairline-bottom group hover:bg-white/[0.02] transition-colors hover-trigger">
+          <div className="flex flex-col reveal">
+            <div className="flex flex-col md:flex-row py-12 group hover:bg-black/[0.02] transition-colors hover-trigger">
               <div className="w-full md:w-1/3 mb-6 md:mb-0">
                 <span className="font-mono text-xs tracking-widest text-brand-copper mb-4 block">POINT 01</span>
                 <h4 className="text-2xl font-medium text-white">독점 파트너십</h4>
@@ -216,7 +212,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="flex flex-col md:flex-row py-12 hairline-bottom group hover:bg-white/[0.02] transition-colors hover-trigger">
+            <div className="flex flex-col md:flex-row py-12 group hover:bg-black/[0.02] transition-colors hover-trigger">
               <div className="w-full md:w-1/3 mb-6 md:mb-0">
                 <span className="font-mono text-xs tracking-widest text-brand-copper mb-4 block">POINT 02</span>
                 <h4 className="text-2xl font-medium text-white">전략과 디자인의 결합</h4>
@@ -230,16 +226,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* [Section 4] Testimonial Marquee */}
-      <section className="py-24 border-t border-brand-line overflow-hidden relative">
+      {/* [Section 2] Testimonial Marquee */}
+      <section className="py-24 overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-6 md:px-16 mb-12">
-          <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase reveal">
-            02 / Success Stories
-          </h2>
-          <p className="text-2xl md:text-3xl font-light mt-4 text-white reveal leading-snug">
-            헤이메디의 독점을 선택한 원장님들,<br />
-            이미 지역구 1등을 경험하고 계십니다.
-          </p>
+          <div className="mb-24 reveal">
+            <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase mb-4">SUCCESS STORIES</h2>
+            <h3 className="text-3xl md:text-5xl font-medium tracking-tight leading-tight mb-8">
+              헤이메디의 독점을 선택한 원장님들,<br />
+              이미 지역구 1등을 경험하고 계십니다.
+            </h3>
+          </div>
         </div>
         
         {/* Marquee Wrapper */}
@@ -268,12 +264,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* [Section 4] How We Do It */}
-      <section className="py-32 px-6 md:px-16 hairline-top">
+      {/* [Section 3] How We Do It */}
+      <section className="py-32 px-6 md:px-16">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-24">
             <div className="md:col-span-4 reveal">
-              <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase">03 / Work Process</h2>
+              <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase">WORK PROCESS</h2>
             </div>
             <div className="md:col-span-8 reveal">
               <h3 className="text-3xl md:text-5xl font-medium tracking-tight mb-6 leading-tight">
@@ -284,7 +280,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="relative p-10 hairline-top hairline-bottom md:border-l border-brand-line bg-brand-dark/50 hover:-translate-y-2 transition-transform duration-500 reveal hover-trigger">
+            <div className="relative p-10 hover:-translate-y-2 transition-transform duration-500 reveal hover-trigger">
               <div className="text-brand-copper mb-8 opacity-80">
                 <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -297,7 +293,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="relative p-10 hairline-top hairline-bottom md:border-l border-brand-line bg-brand-dark/50 hover:-translate-y-2 transition-transform duration-500 md:translate-y-8 reveal hover-trigger">
+            <div className="relative p-10 hover:-translate-y-2 transition-transform duration-500 md:translate-y-8 reveal hover-trigger">
               <div className="text-brand-copper mb-8 opacity-80">
                 <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -309,7 +305,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="relative p-10 hairline-top hairline-bottom md:border-l md:border-r border-brand-line bg-brand-dark/50 hover:-translate-y-2 transition-transform duration-500 md:translate-y-16 reveal hover-trigger">
+            <div className="relative p-10 hover:-translate-y-2 transition-transform duration-500 md:translate-y-16 reveal hover-trigger">
               <div className="text-brand-copper mb-8 opacity-80">
                 <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -324,8 +320,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* [Section 5] Call to Action (Form) */}
-      <section id="contact" className="py-32 px-6 md:px-16 hairline-top relative overflow-hidden">
+      {/* [Section 4] Call to Action (Form) */}
+      <section id="contact" className="py-32 px-6 md:px-16 relative overflow-hidden">
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-20 reveal">
             <h2 className="text-3xl md:text-5xl font-medium tracking-tight mb-8 leading-tight">
@@ -364,7 +360,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-brand-line text-xs font-mono tracking-widest text-brand-gray">
+      <footer className="py-12 px-6 text-xs font-mono tracking-widest text-brand-gray">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           <div className="flex flex-col gap-2">
             <div className="flex flex-wrap gap-4 mb-2">
