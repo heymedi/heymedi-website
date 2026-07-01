@@ -20,7 +20,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ko" className={`scroll-smooth bg-[#0a0a0c] text-white ${inter.variable} ${notoSansKr.variable}`}>
-      <body className="antialiased font-sans selection:bg-brand-copper selection:text-white">
+      <body className="antialiased font-sans selection:bg-brand-copper selection:text-white break-keep">
         {children}
       </body>
     </html>

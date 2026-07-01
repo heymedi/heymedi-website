@@ -8,56 +8,46 @@ import ContactButton from "../../components/ContactButton";
 import ColorBends from "../../components/ColorBends";
 
 export default function AllInOneMarketing() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolledDown, setIsScrolledDown] = useState(false);
+  const [isAtTop, setIsAtTop] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const cursorDotRef = useRef(null);
   const cursorFollowerRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const whiteSection = document.getElementById("white-section");
-      if (whiteSection) {
-        const rect = whiteSection.getBoundingClientRect();
-        if (rect.top <= 80 && rect.bottom >= 80) {
-          setIsScrolled(true);
-        } else {
-          setIsScrolled(false);
-        }
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-
-    // Custom Cursor
-    const cursorDot = cursorDotRef.current;
-    const cursorFollower = cursorFollowerRef.current;
+    let lastScrollY = window.scrollY;
     
-    if (window.innerWidth >= 768 && cursorDot && cursorFollower) {
-      let xTo = gsap.quickTo(cursorFollower, "x", { duration: 0.4, ease: "power3" });
-      let yTo = gsap.quickTo(cursorFollower, "y", { duration: 0.4, ease: "power3" });
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      setIsAtTop(currentScrollY < 50);
+      
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsScrolledDown(true); // scrolling down
+      } else if (currentScrollY < lastScrollY) {
+        setIsScrolledDown(false); // scrolling up
+      }
+      
+      lastScrollY = currentScrollY;
+    };
+    
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
 
-      const onMouseMove = (e) => {
-        gsap.set(cursorDot, { x: e.clientX, y: e.clientY });
-        xTo(e.clientX);
-        yTo(e.clientY);
-      };
-
-      window.addEventListener('mousemove', onMouseMove);
-
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
+    const cleanupScroll = () => cleanupScroll();
         window.removeEventListener('mousemove', onMouseMove);
       };
     } else {
       if (cursorDot) cursorDot.style.display = 'none';
       if (cursorFollower) cursorFollower.style.display = 'none';
       document.body.style.cursor = 'auto';
-      return () => window.removeEventListener("scroll", handleScroll);
+      return () => cleanupScroll();
     }
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#0a0a0c] selection:bg-brand-copper selection:text-white font-sans text-brand-gray overflow-x-hidden">
+    <div className="relative min-h-[100dvh] bg-[#0a0a0c] selection:bg-brand-copper selection:text-white font-sans text-brand-gray overflow-x-hidden">
       
       {/* Cursor Elements */}
       <div ref={cursorDotRef} className="cursor-dot"></div>
@@ -85,7 +75,7 @@ export default function AllInOneMarketing() {
         </div>
       </div>
 
-      <nav className={`fixed top-0 w-full z-[100] px-6 py-4 md:py-8 flex justify-between items-center transition-all duration-500 ${isScrolled ? 'text-[#0a0a0c] bg-white/95 backdrop-blur-md shadow-sm !py-3 md:!py-4 md:bg-transparent md:backdrop-blur-none md:shadow-none' : 'text-white max-md:bg-[#0a0a0c]/90 max-md:backdrop-blur-md bg-transparent'}`}>
+      <nav className={`fixed top-0 w-full z-[100] px-6 py-4 md:py-8 flex justify-between items-center transition-transform duration-300 ${isScrolledDown ? '-translate-y-full' : 'translate-y-0'} ${isAtTop ? 'text-white bg-transparent' : 'text-[#0a0a0c] bg-white/95 backdrop-blur-md shadow-none !py-3 md:!py-4'}`}>
         <div className="w-1/2 md:w-1/3 hover-trigger transition-colors">
           <a href="/"><Logo className="h-6 md:h-8 w-auto text-current" /></a>
         </div>

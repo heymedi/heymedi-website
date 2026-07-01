@@ -48,7 +48,8 @@ const testimonials = [
 export default function Home() {
   const cursorDotRef = useRef(null);
   const cursorFollowerRef = useRef(null);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolledDown, setIsScrolledDown] = useState(false);
+  const [isAtTop, setIsAtTop] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
 
@@ -99,17 +100,24 @@ export default function Home() {
       }
     });
 
-    // Header transition on scroll
-    ScrollTrigger.create({
-      trigger: "#section-2",
-      start: "top 80px", // When section 2 reaches header
-      end: "bottom 80px", // When section 2 leaves header
-      onEnter: () => setIsScrolled(true),
-      onLeave: () => setIsScrolled(false),
-      onEnterBack: () => setIsScrolled(true),
-      onLeaveBack: () => setIsScrolled(false),
-    });
-
+    let lastScrollY = window.scrollY;
+    
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      setIsAtTop(currentScrollY < 50);
+      
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsScrolledDown(true); // scrolling down
+      } else if (currentScrollY < lastScrollY) {
+        setIsScrolledDown(false); // scrolling up
+      }
+      
+      lastScrollY = currentScrollY;
+    };
+    
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     // Custom Cursor
     const cursorDot = cursorDotRef.current;
     const cursorFollower = cursorFollowerRef.current;
@@ -127,6 +135,7 @@ export default function Home() {
       window.addEventListener('mousemove', onMouseMove);
 
       return () => {
+        window.removeEventListener('scroll', handleScroll);
         window.removeEventListener('mousemove', onMouseMove);
         // Clean up ScrollTrigger
         ScrollTrigger.getAll().forEach(t => t.kill());
@@ -135,6 +144,9 @@ export default function Home() {
       if (cursorDot) cursorDot.style.display = 'none';
       if (cursorFollower) cursorFollower.style.display = 'none';
       document.body.style.cursor = 'auto';
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
     }
   }, []);
 
@@ -166,7 +178,7 @@ export default function Home() {
         </div>
       </div>
 
-      <nav className={`fixed top-0 w-full z-[100] px-6 py-4 md:py-8 flex justify-between items-center transition-all duration-500 ${isScrolled ? 'text-[#0a0a0c] bg-white/95 backdrop-blur-md shadow-sm !py-3 md:!py-4 md:bg-transparent md:backdrop-blur-none md:shadow-none' : 'text-white max-md:bg-[#0a0a0c]/90 max-md:backdrop-blur-md bg-transparent'}`}>
+      <nav className={`fixed top-0 w-full z-[100] px-6 py-4 md:py-8 flex justify-between items-center transition-transform duration-300 ${isScrolledDown ? '-translate-y-full' : 'translate-y-0'} ${isAtTop ? 'text-white bg-transparent' : 'text-[#0a0a0c] bg-white/95 backdrop-blur-md shadow-none !py-3 md:!py-4'}`}>
         <div className="w-1/2 md:w-1/3 hover-trigger transition-colors">
           <a href="/"><Logo className="h-6 md:h-8 w-auto text-current" /></a>
         </div>
@@ -192,7 +204,7 @@ export default function Home() {
       </nav>
 
       {/* [Section 1] Hero Area */}
-      <section className="relative min-h-screen flex flex-col px-6 md:px-16 overflow-hidden bg-brand-dark text-white">
+      <section className="relative min-h-[100dvh] flex flex-col px-6 md:px-16 overflow-hidden bg-brand-dark text-white">
         <div className="absolute inset-0 z-0 opacity-50">
           <ColorBends
             colors={["#FF5900", "#8a5cff", "#0a0a0c"]}
@@ -495,7 +507,7 @@ export default function Home() {
       </footer>
 
       {/* Floating Contact Button */}
-      <div className="fixed bottom-8 right-8 z-[100] animate-fade-in-up hover-trigger">
+      <div className="fixed bottom-12 md:bottom-8 right-8 z-[100] animate-fade-in-up hover-trigger">
         <ContactButton />
       </div>
 
