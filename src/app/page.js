@@ -196,8 +196,7 @@ export default function Home() {
             <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase mb-4">OUR PROMISE</h2>
             <h3 className="text-3xl md:text-5xl font-medium tracking-tight leading-tight mb-8">
               1등은 나눠 가질 수 없겠죠?<br />
-              지역당 단 1곳의 병원만<br />
-              철저하게 독점 관리합니다.
+              지역당 단 1곳의 병원만 철저하게 관리합니다.
             </h3>
             <p className="text-lg text-brand-gray font-light leading-relaxed max-w-3xl">
               헤이메디는 본질부터 다르게 접근합니다.<br />
@@ -216,9 +215,9 @@ export default function Home() {
                   날카로운 기획력
                 </h4>
               </div>
-              <div className="w-full md:w-2/3">
-                <div className="aspect-[6/4] w-full bg-black/5 rounded-2xl mb-8 overflow-hidden relative">
-                   <img src="/USP_marketer.png" alt="환자를 모으는 날카로운 기획력" className="w-full h-full object-cover" />
+              <div className="w-full md:w-2/3 flex flex-col gap-8">
+                <div className="w-1/2">
+                   <img src="/USP_marketer_profile.png" alt="마케터 프로필" className="w-full h-auto object-contain" />
                 </div>
                 <p className="text-brand-gray text-lg font-light leading-relaxed">
                   우리는 글을 쓰기 전, 성과가 날 수밖에 없는 '퍼널구조'부터 설계합니다.<br />
@@ -226,6 +225,10 @@ export default function Home() {
                   환자가 병원을 발견하고 예약 버튼을 누르기까지의 심리 동선을 먼저 짜지 않으면<br />
                   아무리 많은 글도 소용없습니다.
                 </p>
+                <div className="flex flex-col gap-4">
+                  <img src="/USP_marketer1.png" alt="퍼널구조 1" className="w-full h-auto rounded-2xl border border-black/5" />
+                  <img src="/USP_marketer2.png" alt="퍼널구조 2" className="w-full h-auto rounded-2xl border border-black/5" />
+                </div>
               </div>
             </div>
             
@@ -237,9 +240,9 @@ export default function Home() {
                   디자인 감각
                 </h4>
               </div>
-              <div className="w-full md:w-2/3">
-                <div className="aspect-[6/4] w-full bg-black/5 rounded-2xl mb-8 overflow-hidden relative">
-                   <img src="/USP_designer.png" alt="첫인상 0.3초를 책임질 디자인 감각" className="w-full h-full object-cover" />
+              <div className="w-full md:w-2/3 flex flex-col gap-8">
+                <div className="w-1/2">
+                   <img src="/USP_designer_profile.png" alt="디자이너 프로필" className="w-full h-auto object-contain" />
                 </div>
                 <p className="text-brand-gray text-lg font-light leading-relaxed">
                   환자가 병원을 선택하는 0.3초의 찰나,<br />
@@ -247,6 +250,10 @@ export default function Home() {
                   공공기관, 유명 뷰티 및 브랜드 프로젝트를 수행하며 다져진<br />
                   하이엔드급 디자이너가 우리 병원을 압도적으로 시각화 합니다.
                 </p>
+                <div className="flex flex-col gap-4">
+                  <img src="/USP_designer1.png" alt="디자인 포트폴리오 1" className="w-full h-auto rounded-2xl border border-black/5" />
+                  <img src="/USP_designer2.png" alt="디자인 포트폴리오 2" className="w-full h-auto rounded-2xl border border-black/5" />
+                </div>
               </div>
             </div>
           </div>
