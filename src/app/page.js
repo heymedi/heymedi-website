@@ -1,270 +1,330 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Search, PenTool, ShieldCheck, HeartHandshake, TrendingUp, Users } from "lucide-react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 export default function Home() {
-  const { scrollYProgress } = useScroll();
-  const heroY = useTransform(scrollYProgress, [0, 0.2], [0, -100]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+  const [time, setTime] = useState("SYS. READY");
+  const cursorDotRef = useRef(null);
+  const cursorFollowerRef = useRef(null);
+
+  useEffect(() => {
+    // GSAP Registration
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Initial Hero Animation
+    gsap.from(".hero-el", {
+      y: 50,
+      opacity: 0,
+      duration: 1.5,
+      stagger: 0.2,
+      ease: "power3.out",
+      delay: 0.2
+    });
+
+    // Scroll-Triggered Reveal
+    const revealElements = document.querySelectorAll(".reveal");
+    revealElements.forEach((el) => {
+      gsap.to(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+          toggleActions: "play none none none"
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power3.out"
+      });
+    });
+
+    // Custom Cursor
+    const cursorDot = cursorDotRef.current;
+    const cursorFollower = cursorFollowerRef.current;
+    
+    if (window.innerWidth >= 768 && cursorDot && cursorFollower) {
+      let xTo = gsap.quickTo(cursorFollower, "x", { duration: 0.4, ease: "power3" });
+      let yTo = gsap.quickTo(cursorFollower, "y", { duration: 0.4, ease: "power3" });
+
+      const onMouseMove = (e) => {
+        gsap.set(cursorDot, { x: e.clientX, y: e.clientY });
+        xTo(e.clientX);
+        yTo(e.clientY);
+      };
+
+      window.addEventListener('mousemove', onMouseMove);
+
+      return () => {
+        window.removeEventListener('mousemove', onMouseMove);
+        // Clean up ScrollTrigger
+        ScrollTrigger.getAll().forEach(t => t.kill());
+      };
+    } else {
+      if (cursorDot) cursorDot.style.display = 'none';
+      if (cursorFollower) cursorFollower.style.display = 'none';
+      document.body.style.cursor = 'auto';
+    }
+  }, []);
+
+  // Time Pulse
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date();
+      const kst = new Date(now.getTime() + (9 * 60 * 60 * 1000));
+      const hours = String(kst.getUTCHours()).padStart(2, '0');
+      const minutes = String(kst.getUTCMinutes()).padStart(2, '0');
+      const seconds = String(kst.getUTCSeconds()).padStart(2, '0');
+      setTime(`KST ${hours}:${minutes}:${seconds}`);
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
-    <main>
-      {/* Hero Section */}
-      <section style={{
-        position: 'relative',
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        overflow: 'hidden',
-        padding: '0 24px',
-      }}>
-        {/* Abstract Glow Background */}
-        <div style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: '80vw',
-          height: '80vw',
-          maxWidth: '800px',
-          maxHeight: '800px',
-          background: 'radial-gradient(circle, rgba(252,92,42,0.15) 0%, rgba(17,22,37,0) 70%)',
-          filter: 'blur(60px)',
-          zIndex: 0,
-        }} />
+    <>
+      {/* Cursor Elements */}
+      <div ref={cursorDotRef} className="cursor-dot"></div>
+      <div ref={cursorFollowerRef} className="cursor-follower"></div>
+      
+      {/* Ambient Background */}
+      <div className="ambient-light"></div>
 
-        <motion.div 
-          style={{ y: heroY, opacity: heroOpacity, zIndex: 1, textAlign: 'center', maxWidth: '800px' }}
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-        >
-          <motion.h1 
-            style={{ 
-              fontFamily: 'var(--font-noto-serif-kr)', 
-              fontSize: 'min(5vw, 64px)', 
-              lineHeight: 1.2,
-              marginBottom: '32px',
-              fontWeight: 900
-            }}
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 1 }}
-          >
-            우리 병원을 선택할<br />
-            <span style={{ color: 'transparent', WebkitTextStroke: '1px var(--primary-color)' }}>특별한 이유</span>를 만들어 드립니다.
-          </motion.h1>
-          <motion.p 
-            className="section-desc" 
-            style={{ marginBottom: '48px', color: '#cbd5e1' }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 1 }}
-          >
-            단순한 노출이 아닌 환자의 마음을 여는 브랜딩.<br />
-            성과에 대한 확신으로, 효과 없을 시 100% 환불을 약속합니다.
-          </motion.p>
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.9, duration: 0.5 }}
-          >
-            <a href="#contact" className="btn-primary" style={{ padding: '16px 40px', fontSize: '18px' }}>
-              무료 마케팅 진단 신청
+      {/* Fixed Navigation */}
+      <nav className="fixed top-0 w-full z-50 px-6 py-8 flex justify-between items-center mix-blend-difference text-white">
+        <div className="w-1/3 text-lg md:text-xl font-bold tracking-widest uppercase hover-trigger hover:text-brand-copper transition-colors">
+          HeyMedi.
+        </div>
+        
+        <div className="hidden md:flex w-1/3 justify-center items-center gap-3 font-mono text-xs tracking-widest text-brand-gray">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-copper opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-copper"></span>
+          </span>
+          <span>{time}</span>
+        </div>
+        
+        <div className="w-1/3 flex justify-end">
+          <a href="#contact" className="text-xs font-mono tracking-widest uppercase hover:text-brand-copper transition-colors hover-trigger">
+            [ 무료 진단받기 ]
+          </a>
+        </div>
+      </nav>
+
+      {/* [Section 1] Hero Area */}
+      <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 pt-20">
+        <div className="max-w-7xl mx-auto w-full">
+          <p className="hero-el text-brand-copper font-mono text-xs md:text-sm tracking-widest mb-8 uppercase">
+            Premium Hospital Branding
+          </p>
+          
+          <h1 className="hero-el text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tightest mb-10 max-w-5xl">
+            마케팅 비용은 계속 쓰는데,<br />
+            <span className="text-brand-gray">왜 환자는 늘지 않을까요?</span>
+          </h1>
+          
+          <div className="hero-el flex flex-col md:flex-row md:items-end justify-between gap-8 mt-20">
+            <p className="text-lg md:text-xl text-brand-gray max-w-2xl font-light leading-relaxed">
+              원장님 병원만의 <strong className="text-white font-medium">'진짜 매력'</strong>을 찾아드릴게요.<br />
+              만약 성과가 없다면 100% 환불해 드립니다.<br />
+              그만큼 자신 있거든요!
+            </p>
+            <a href="#contact" className="inline-flex items-center gap-4 text-sm font-mono tracking-widest uppercase border border-brand-line px-8 py-4 rounded-full hover:bg-white hover:text-black transition-all hover-trigger group">
+              우리 병원 무료 진단받아보기 
+              <span className="text-brand-copper group-hover:text-black">→</span>
             </a>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
+        
+        <div className="absolute bottom-12 left-6 md:left-16 font-mono text-[10px] tracking-widest text-brand-gray flex items-center gap-4 hero-el">
+          <span>SCROLL</span>
+          <div className="w-12 h-[1px] bg-brand-line"></div>
+        </div>
       </section>
 
-      {/* Core Values: Architecture of Wealth (Finsight Labs Style 2x2 Grid) */}
-      <section className="section-padding" style={{ background: '#0a0d16' }}>
-        <div className="container">
-          <div className="text-center" style={{ marginBottom: '80px' }}>
-            <h2 className="section-title" style={{ fontFamily: 'var(--font-noto-serif-kr)' }}>병원의 가치를 설계합니다</h2>
-            <p className="section-desc" style={{ color: '#94a3b8' }}>
-              광고비를 태우기 전, 브랜딩의 뼈대부터 바로 세워야 합니다.
+      {/* [Section 2] Pain Point */}
+      <section className="py-32 px-6 md:px-16 hairline-top">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+          <div className="md:col-span-4 reveal">
+            <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase sticky top-32">
+              01 / The Problem
+            </h2>
+          </div>
+          <div className="md:col-span-8 reveal">
+            <h3 className="text-3xl md:text-5xl font-medium tracking-tight leading-tight mb-12">
+              "검색하면 우리 병원이 1등인데,<br />왜 예약 전화는 안 울릴까요?"
+            </h3>
+            <div className="space-y-8 text-brand-gray text-lg font-light leading-relaxed max-w-2xl">
+              <p>어디서 본 듯한 똑같은 광고 글로는 환자의 마음을 얻기 힘들어요.</p>
+              <p>단순히 방문자 수만 늘리는 마케팅은 이제 그만! 진짜 치료가 필요한 환자가 <span className="text-white">스스로 찾아오게</span> 만들어야 합니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* [Section 3] Core USP */}
+      <section className="py-32 px-6 md:px-16 hairline-top bg-brand-dark">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-24 reveal">
+            <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase mb-4">02 / Our Promise</h2>
+            <p className="text-2xl md:text-3xl font-light">헤이메디는 이렇게 다릅니다.</p>
+          </div>
+
+          <div className="flex flex-col hairline-top reveal">
+            <div className="flex flex-col md:flex-row justify-between py-8 md:py-12 hairline-bottom group hover:bg-white/[0.02] transition-colors hover-trigger">
+              <div className="w-full md:w-1/4 mb-4 md:mb-0">
+                <span className="font-mono text-xs tracking-widest text-brand-copper">비용과 책임</span>
+              </div>
+              <div className="w-full md:w-1/3 mb-2 md:mb-0 text-brand-gray line-through decoration-brand-gray">
+                보통: 계약하고 나면 연락이 잘 안 돼요.
+              </div>
+              <div className="w-full md:w-5/12 text-white font-medium">
+                헤이메디: 효과가 없으면 100% 환불해 드려요.
+              </div>
+            </div>
+            
+            <div className="flex flex-col md:flex-row justify-between py-8 md:py-12 hairline-bottom group hover:bg-white/[0.02] transition-colors hover-trigger">
+              <div className="w-full md:w-1/4 mb-4 md:mb-0">
+                <span className="font-mono text-xs tracking-widest text-brand-copper">콘텐츠 만들기</span>
+              </div>
+              <div className="w-full md:w-1/3 mb-2 md:mb-0 text-brand-gray">
+                보통: 기계적으로 똑같은 글만 복사해서 올려요.
+              </div>
+              <div className="w-full md:w-5/12 text-white font-medium">
+                헤이메디: 원장님과 깊은 대화를 나누고 진짜 장점을 찾아요.
+              </div>
+            </div>
+
+            <div className="flex flex-col md:flex-row justify-between py-8 md:py-12 hairline-bottom group hover:bg-white/[0.02] transition-colors hover-trigger">
+              <div className="w-full md:w-1/4 mb-4 md:mb-0">
+                <span className="font-mono text-xs tracking-widest text-brand-copper">광고 노출 방식</span>
+              </div>
+              <div className="w-full md:w-1/3 mb-2 md:mb-0 text-brand-gray">
+                보통: 아무에게나 닥치는 대로 광고해요.
+              </div>
+              <div className="w-full md:w-5/12 text-white font-medium">
+                헤이메디: 당장 치료가 필요한 분들에게만 콕 집어서 보여줘요.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* [Section 4] How We Do It */}
+      <section className="py-32 px-6 md:px-16 hairline-top">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-24">
+            <div className="md:col-span-4 reveal">
+              <h2 className="font-mono text-xs tracking-widest text-brand-gray uppercase">03 / Work Process</h2>
+            </div>
+            <div className="md:col-span-8 reveal">
+              <h3 className="text-3xl md:text-5xl font-medium tracking-tight mb-6">
+                "보이고, 설득하고,<br />찾아오게 만듭니다."
+              </h3>
+              <p className="text-brand-gray text-lg font-light">온라인의 관심이 실제 내원으로 이어지는 헤이메디만의 3단계 마법</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="relative p-10 hairline-top hairline-bottom md:border-l border-brand-line bg-brand-dark/50 hover:-translate-y-2 transition-transform duration-500 reveal hover-trigger">
+              <div className="text-4xl font-light text-brand-copper mb-8">1.</div>
+              <h4 className="text-2xl font-medium mb-6">[유입] 환자의 눈에 띄게</h4>
+              <p className="text-brand-gray text-sm font-light leading-relaxed">
+                단순히 비싼 광고비만 내고 잠깐 1등 자리에 오르는 방식은 쓰지 않아요. 헤이메디는 네이버가 좋아하는 '진짜 좋은 글'을 써서 탄탄하게 상위 노출을 만듭니다. 정성껏 가꾼 브랜드 블로그 하나만 있어도, 수십 개의 키워드를 안정적으로 꽉 잡을 수 있답니다.
+              </p>
+            </div>
+
+            <div className="relative p-10 hairline-top hairline-bottom md:border-l border-brand-line bg-brand-dark/50 hover:-translate-y-2 transition-transform duration-500 md:translate-y-8 reveal hover-trigger">
+              <div className="text-4xl font-light text-brand-copper mb-8">2.</div>
+              <h4 className="text-2xl font-medium mb-6">[설득] 진심 어린 스토리</h4>
+              <p className="text-brand-gray text-sm font-light leading-relaxed">
+                아픈 환자들은 비싼 최신 장비보다 "여기 원장님은 내 고민을 진짜 이해해 줄까?"를 더 궁금해합니다. 원장님의 진심과 진료 철학이 환자의 마음에 고스란히 닿을 수 있도록, 우리 병원을 선택할 수밖에 없는 따뜻하고 특별한 이야기를 만들어 드립니다.
+              </p>
+            </div>
+
+            <div className="relative p-10 hairline-top hairline-bottom md:border-l md:border-r border-brand-line bg-brand-dark/50 hover:-translate-y-2 transition-transform duration-500 md:translate-y-16 reveal hover-trigger">
+              <div className="text-4xl font-light text-brand-copper mb-8">3.</div>
+              <h4 className="text-2xl font-medium mb-6">[전환] 진짜 찾아오게</h4>
+              <p className="text-brand-gray text-sm font-light leading-relaxed">
+                글을 읽고 호감을 느꼈다면 병원 문을 열고 들어오게 해야겠죠? '공감 → 신뢰 → 방문'으로 이어지는 매끄러운 길을 짭니다. 환자가 자연스럽게 진료 문의와 예약 버튼을 누를 수 있도록, 온라인의 관심이 실제 매출로 쏙쏙 이어지게 설계해 드려요.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* [Section 5] Call to Action (Form) */}
+      <section id="contact" className="py-32 px-6 md:px-16 hairline-top relative overflow-hidden">
+        <div className="max-w-4xl mx-auto relative z-10">
+          <div className="text-center mb-20 reveal">
+            <h2 className="text-3xl md:text-5xl font-medium tracking-tight mb-8">
+              비싼 광고비부터 쓰지 마세요.<br />
+              <span className="text-brand-gray">병원의 매력부터 제대로 닦아내야 합니다.</span>
+            </h2>
+            <p className="text-brand-gray font-light">
+              매월 딱 정해진 수의 병원만 꼼꼼하게 도와드리고 있어요.<br />
+              우리 병원엔 어떤 처방이 필요할지, 지금 바로 편하게 이야기 나눠볼까요?
             </p>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '32px',
-            alignItems: 'center'
-          }}>
-            <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}
-            >
-              <div style={{ padding: '40px', background: 'var(--light-bg)', borderRadius: '24px', border: '1px solid var(--border-color)' }}>
-                <span style={{ color: 'var(--accent-color)', fontSize: '24px', fontWeight: 900, fontFamily: 'var(--font-noto-serif-kr)' }}>01</span>
-                <h3 style={{ marginTop: '16px', marginBottom: '8px', fontSize: '24px' }}>환자의 불안을 해소합니다</h3>
-                <p style={{ color: '#94a3b8' }}>병원을 찾는 환자의 본질적인 두려움을 이해하고, 안심할 수 있는 메시지를 전달합니다.</p>
-              </div>
-              <div style={{ padding: '40px', background: 'var(--light-bg)', borderRadius: '24px', border: '1px solid var(--border-color)' }}>
-                <span style={{ color: 'var(--accent-color)', fontSize: '24px', fontWeight: 900, fontFamily: 'var(--font-noto-serif-kr)' }}>02</span>
-                <h3 style={{ marginTop: '16px', marginBottom: '8px', fontSize: '24px' }}>노출의 질을 높입니다</h3>
-                <p style={{ color: '#94a3b8' }}>무의미한 트래픽이 아닌, 실제 내원으로 이어질 수 있는 고관여 타겟에게 노출시킵니다.</p>
-              </div>
-            </motion.div>
-
-            {/* Center Visual Mockup */}
-            <motion.div 
-              style={{ display: 'flex', justifyContent: 'center', padding: '40px' }}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div style={{
-                width: '100%',
-                aspectRatio: '1/1',
-                borderRadius: '50%',
-                background: 'var(--accent-gradient)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 0 100px rgba(252,92,42,0.2)',
-                position: 'relative'
-              }}>
-                <ShieldCheck size={80} color="white" />
-              </div>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}
-            >
-              <div style={{ padding: '40px', background: 'var(--light-bg)', borderRadius: '24px', border: '1px solid var(--border-color)' }}>
-                <span style={{ color: 'var(--accent-color)', fontSize: '24px', fontWeight: 900, fontFamily: 'var(--font-noto-serif-kr)' }}>03</span>
-                <h3 style={{ marginTop: '16px', marginBottom: '8px', fontSize: '24px' }}>원장님의 철학을 담습니다</h3>
-                <p style={{ color: '#94a3b8' }}>1시간의 심층 인터뷰를 통해 뻔한 광고가 아닌, 진정성 있는 원장님만의 스토리를 발굴합니다.</p>
-              </div>
-              <div style={{ padding: '40px', background: 'var(--light-bg)', borderRadius: '24px', border: '1px solid var(--border-color)' }}>
-                <span style={{ color: 'var(--accent-color)', fontSize: '24px', fontWeight: 900, fontFamily: 'var(--font-noto-serif-kr)' }}>04</span>
-                <h3 style={{ marginTop: '16px', marginBottom: '8px', fontSize: '24px' }}>데이터 기반으로 설계합니다</h3>
-                <p style={{ color: '#94a3b8' }}>정확한 상권 분석과 검색 로직을 통해 가장 효율적인 마케팅 포지션을 선점합니다.</p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services (Horizontal Scroll / Glassmorphism) */}
-      <section className="section-padding" style={{ position: 'relative' }}>
-        <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '60px' }}>
-            <div>
-              <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '8px' }}>병원의 상황에 맞는 전략</h2>
-              <p style={{ color: '#94a3b8', fontSize: '18px' }}>원장님의 병원에 지금 가장 필요한 솔루션을 제안합니다.</p>
+          <form className="space-y-12 reveal" onSubmit={(e) => { e.preventDefault(); alert('요청이 전송되었습니다. (데모)'); }}>
+            <div className="relative group">
+              <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">01. 병원 이름</label>
+              <input type="text" placeholder="예: 튼튼정형외과 (필수)" required className="hover-trigger" />
             </div>
-          </div>
+            
+            <div className="relative group">
+              <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">02. 연락처</label>
+              <input type="tel" placeholder="연락받으실 번호를 남겨주세요 (필수)" required className="hover-trigger" />
+            </div>
 
-          <div style={{
-            display: 'flex',
-            gap: '24px',
-            overflowX: 'auto',
-            paddingBottom: '40px',
-            scrollSnapType: 'x mandatory',
-            WebkitOverflowScrolling: 'touch',
-            scrollbarWidth: 'none'
-          }}>
-            {[
-              { icon: <PenTool size={40} />, title: "프리미엄 브랜드 블로그", desc: "검색 노출은 기본, 환자의 마음을 움직이는 심층 스토리텔링 원고를 기획 및 발행합니다." },
-              { icon: <Search size={40} />, title: "네이버 플레이스 최적화", desc: "지역 환자들이 병원을 검색할 때 가장 먼저, 가장 매력적으로 보이도록 세팅합니다." },
-              { icon: <HeartHandshake size={40} />, title: "체험단 및 카페 바이럴", desc: "의료법을 준수하면서도 신뢰도 높은 입소문을 만들어내어 병원의 평판을 구축합니다." },
-              { icon: <TrendingUp size={40} />, title: "퍼포먼스 마케팅", desc: "메타(인스타/페이스북) 및 구글 배너 광고를 통해 잠재 환자의 트래픽을 극대화합니다." }
-            ].map((service, i) => (
-              <motion.div 
-                key={i}
-                style={{
-                  minWidth: '320px',
-                  background: 'rgba(255,255,255,0.03)',
-                  backdropFilter: 'blur(20px)',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  borderRadius: '24px',
-                  padding: '40px',
-                  scrollSnapAlign: 'start',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '24px'
-                }}
-                whileHover={{ y: -10, background: 'rgba(255,255,255,0.06)' }}
-                transition={{ duration: 0.3 }}
-              >
-                <div style={{ color: 'var(--accent-color)' }}>{service.icon}</div>
-                <div>
-                  <h3 style={{ fontSize: '24px', marginBottom: '12px' }}>{service.title}</h3>
-                  <p style={{ color: '#94a3b8', lineHeight: 1.6 }}>{service.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+            <div className="relative group">
+              <label className="absolute text-xs font-mono tracking-widest text-brand-copper -top-4 left-0 transition-opacity">03. 고민 사항</label>
+              <textarea rows="3" placeholder="요즘 가장 고민되는 점이 있다면 편하게 적어주세요 (선택)" className="hover-trigger resize-none"></textarea>
+            </div>
 
-      {/* Contact Section */}
-      <section className="section-padding" id="contact" style={{ backgroundColor: '#0a0d16', textAlign: 'center' }}>
-        <div className="container">
-          <h2 className="section-title">지금 바로 전문가와 상담하세요</h2>
-          <p className="section-desc" style={{ marginBottom: '40px' }}>
-            우리 병원의 현 상황을 진단하고 가장 확실한 성장 방향을 제시해 드립니다.
-          </p>
-          <form className="contact-form" style={{ maxWidth: '500px', margin: '0 auto', background: 'rgba(255,255,255,0.03)', padding: '40px', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.1)' }}>
-            <div className="form-group">
-              <input type="text" placeholder="병원명" className="form-input" required />
+            <div className="pt-8 text-center">
+              <button type="submit" className="w-full md:w-auto px-12 py-5 bg-white text-black font-medium tracking-wide uppercase text-sm hover:bg-brand-copper hover:text-white transition-colors duration-300 hover-trigger">
+                [ 우리 병원 맞춤 성장 리포트 받아보기 ]
+              </button>
             </div>
-            <div className="form-group">
-              <input type="text" placeholder="연락처" className="form-input" required />
-            </div>
-            <div className="form-group">
-              <textarea placeholder="궁금하신 점이나 현재 고민을 적어주세요." className="form-input" rows="4"></textarea>
-            </div>
-            <button type="button" className="btn-primary" style={{ width: '100%', fontSize: '18px', padding: '16px' }}>
-              무료 상담 신청하기
-            </button>
           </form>
         </div>
       </section>
 
-      {/* Footer (Heyflow Style Applied Earlier) */}
-      <footer className="footer" style={{ background: '#05070a', color: '#64748b', padding: '60px 0', fontSize: '0.875rem' }}>
-        <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', textAlign: 'center' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', lineHeight: '1.6' }}>
-            <div>
+      {/* Footer */}
+      <footer className="py-12 px-6 border-t border-brand-line text-xs font-mono tracking-widest text-brand-gray">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+          <div className="flex flex-col gap-2">
+            <div className="flex flex-wrap gap-4 mb-2">
               <span>아카이브헤이</span>
-              <span style={{ margin: '0 8px', color: '#334155' }}>|</span>
+              <span>|</span>
               <span>브랜드명: 헤이메디</span>
-              <span style={{ margin: '0 8px', color: '#334155' }}>|</span>
+              <span>|</span>
               <span>대표: 지원규</span>
-              <span style={{ margin: '0 8px', color: '#334155' }}>|</span>
+              <span>|</span>
               <span>사업자등록번호: 151-47-01239</span>
             </div>
-            <div>
+            <div className="flex flex-wrap gap-4 mb-2">
               <span>주소: 경기도 화성시 동탄구 동탄중심상가2길 8, 4층 401-하46호</span>
-              <span style={{ margin: '0 8px', color: '#334155' }}>|</span>
-              <span>이메일: team.archivehey@gmail.com</span>
-              <span style={{ margin: '0 8px', color: '#334155' }}>|</span>
+              <span>|</span>
               <span>TEL: 0507-1395-1381</span>
-              <span style={{ margin: '0 8px', color: '#334155' }}>|</span>
-              <a href="http://pf.kakao.com/_xacxenX/chat" target="_blank" rel="noopener noreferrer" style={{ color: '#fff', fontWeight: 600, textDecoration: 'none' }}>카카오톡 문의</a>
             </div>
-            <div style={{ marginTop: '8px' }}>
-              <a href="/privacy" style={{ color: '#64748b', textDecoration: 'none' }}>개인정보처리방침</a>
-              <span style={{ margin: '0 8px', color: '#334155' }}>|</span>
-              <a href="/terms" style={{ color: '#64748b', textDecoration: 'none' }}>이용약관</a>
+            <div className="flex flex-wrap gap-4">
+              <a href="mailto:team.archivehey@gmail.com" className="hover:text-white transition-colors">team.archivehey@gmail.com</a>
+              <span>|</span>
+              <a href="http://pf.kakao.com/_xacxenX/chat" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">카카오톡 문의</a>
+              <span>|</span>
+              <a href="/privacy" className="hover:text-white transition-colors">개인정보처리방침</a>
+              <span>|</span>
+              <a href="/terms" className="hover:text-white transition-colors">이용약관</a>
             </div>
           </div>
-          <p style={{ marginTop: '16px' }}>© {new Date().getFullYear()} HeyMedi. All rights reserved.</p>
+          <div className="flex flex-col text-right">
+            <p>&copy; {new Date().getFullYear()} HEYMEDI. ALL RIGHTS RESERVED.</p>
+            <p className="mt-2">PREMIUM HOSPITAL BRANDING</p>
+          </div>
         </div>
       </footer>
-    </main>
+    </>
   );
 }
