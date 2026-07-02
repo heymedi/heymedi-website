@@ -107,7 +107,7 @@ export default function Header({ currentPath = "/" }) {
 
       {/* Main Navigation */}
       <nav 
-        className={`fixed top-0 w-full z-[100] px-6 md:px-16 lg:px-24 py-4 md:py-8 flex justify-between items-center transition-all duration-300 shadow-none bg-transparent ${isScrolledDown ? '-translate-y-full' : 'translate-y-0'} md:!translate-y-0 ${theme === 'dark' ? 'text-white' : 'text-[#0a0a0c]'}`}
+        className={`fixed top-0 w-full z-[100] px-6 md:px-12 lg:px-20 py-4 md:py-8 flex justify-between items-center transition-all duration-300 shadow-none bg-transparent ${isScrolledDown ? '-translate-y-full' : 'translate-y-0'} md:!translate-y-0 ${theme === 'dark' ? 'text-white' : 'text-[#0a0a0c]'}`}
       >
         <div className="w-1/2 md:w-1/3 hover-trigger transition-colors">
           <a href="/">
