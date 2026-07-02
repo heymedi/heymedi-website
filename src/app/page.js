@@ -47,6 +47,20 @@ export default function Home() {
       });
     });
 
+    // Service Cards Stagger Reveal
+    gsap.from(".service-card", {
+      scrollTrigger: {
+        trigger: ".service-cards-container",
+        start: "top 85%",
+        toggleActions: "play none none none"
+      },
+      y: 50,
+      opacity: 0,
+      duration: 1.2,
+      stagger: 0.2,
+      ease: "power3.out"
+    });
+
     // Sticky element fade out
     const stickyContainers = document.querySelectorAll('.sticky-container');
     stickyContainers.forEach((container) => {
@@ -173,9 +187,9 @@ export default function Home() {
         </div>
 
         {/* Core Services Section */}
-        <div className="w-full mx-auto mb-32 reveal">
+        <div className="w-full mx-auto mb-32 service-cards-container">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
-            <a href="/all-in-one" className="group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
+            <a href="/all-in-one" className="service-card group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
               <img loading="lazy" decoding="async" src="/images/service/service01.png" alt="올인원 마케팅" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10">
@@ -186,7 +200,7 @@ export default function Home() {
               </div>
             </a>
             
-            <a href="/blog-agency" className="group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
+            <a href="/blog-agency" className="service-card group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
               <img loading="lazy" decoding="async" src="/images/service/service02.png" alt="블로그 대행" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10">
@@ -197,7 +211,7 @@ export default function Home() {
               </div>
             </a>
 
-            <a href="/blog-experience" className="group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
+            <a href="/blog-experience" className="service-card group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
               <img loading="lazy" decoding="async" src="/images/service/service03.png" alt="블로그 체험단" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10">
@@ -208,7 +222,7 @@ export default function Home() {
               </div>
             </a>
 
-            <a href="/cafe-viral" className="group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
+            <a href="/cafe-viral" className="service-card group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
               <img loading="lazy" decoding="async" src="/images/service/service04.png" alt="카페바이럴" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10">

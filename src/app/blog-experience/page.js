@@ -95,7 +95,7 @@ export default function BlogExperience() {
       <section id="contact" className="py-32 px-6 md:px-16 relative overflow-hidden bg-[#0a0a0c]">
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-medium tracking-tight mb-8 leading-tight text-white">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8 leading-tight text-white">
               상권 내 경쟁 병원이 먼저 계약하면,<br />
               <span className="text-brand-copper">더 이상 기회는 없습니다.</span>
             </h2>
