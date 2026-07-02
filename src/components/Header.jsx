@@ -84,9 +84,9 @@ export default function Header({ currentPath = "/" }) {
       <div className={`fixed inset-0 z-[110] bg-[#0a0a0c] transition-transform duration-500 ease-in-out md:hidden ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="flex flex-col h-full px-6 py-8">
           <div className="flex justify-between items-center mb-16">
-            <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
+            <a href="/" onClick={() => setIsMobileMenuOpen(false)}>
               <Logo className="h-6 w-auto text-white" />
-            </Link>
+            </a>
             <button onClick={() => setIsMobileMenuOpen(false)} className="text-white p-2">
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6 18L18 6M6 6l12 12" />
@@ -107,12 +107,12 @@ export default function Header({ currentPath = "/" }) {
 
       {/* Main Navigation */}
       <nav 
-        className={`fixed top-0 w-full z-[100] px-6 py-4 md:py-8 flex justify-between items-center transition-all duration-300 shadow-none bg-transparent ${isScrolledDown ? '-translate-y-full' : 'translate-y-0'} md:!translate-y-0 ${theme === 'dark' ? 'text-white' : 'text-[#0a0a0c]'}`}
+        className={`fixed top-0 w-full z-[100] px-6 md:px-16 lg:px-24 py-4 md:py-8 flex justify-between items-center transition-all duration-300 shadow-none bg-transparent ${isScrolledDown ? '-translate-y-full' : 'translate-y-0'} md:!translate-y-0 ${theme === 'dark' ? 'text-white' : 'text-[#0a0a0c]'}`}
       >
         <div className="w-1/2 md:w-1/3 hover-trigger transition-colors">
-          <Link href="/">
+          <a href="/">
             <Logo className="h-6 md:h-8 w-auto text-current" />
-          </Link>
+          </a>
         </div>
         
         {/* Mobile Hamburger Menu Icon */}
