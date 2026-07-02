@@ -13,51 +13,51 @@ import ColorBends from "../components/ColorBends";
 const testimonials = [
   {
     id: 1,
-    quote: <>지역 독점이라 안심하고 맡겼는데, <strong className="text-white font-bold">신환 문의가 250% 늘었습니다.</strong></>,
-    author: "김원장",
-    clinic: "A 치과",
+    quote: <>기존 대행사들은 경쟁 치과까지 같이 돌리더라고요. 여긴 <strong className="text-white font-bold">철저한 지역 독점</strong>이라 우리 치과에만 집중해줘서 임플란트 신환이 눈에 띄게 늘었습니다.</>,
+    author: "이〇〇 원장",
+    clinic: "강남 〇〇치과",
     image: "/images/review/review01.png"
   },
   {
     id: 2,
-    quote: <>단순한 광고가 아니라, <strong className="text-white font-bold">병원 브랜드 자체가 하이엔드</strong>로 올라간 느낌입니다.</>,
-    author: "박원장",
-    clinic: "B 피부과",
+    quote: <>공장형 피부과들과는 다른, <strong className="text-white font-bold">우리 병원만의 '프리미엄'</strong>을 정확히 짚어내 주시네요. 환자분들 객단가 자체가 달라졌습니다.</>,
+    author: "박〇〇 원장",
+    clinic: "분당 〇〇피부과",
     image: "/images/review/review02.png"
   },
   {
     id: 3,
-    quote: <>우리 병원의 가치를 알아주는 <strong className="text-white font-bold">프리미엄 환자층</strong>이 확연히 늘었습니다.</>,
-    author: "이원장",
-    clinic: "C 한의원",
+    quote: <>다 똑같은 영혼 없는 블로그 글이 아닙니다. 환자분들이 <strong className="text-white font-bold">원장인 제가 직접 쓴 줄 알고</strong> 깊은 신뢰를 갖고 내원하십니다.</>,
+    author: "김〇〇 원장",
+    clinic: "부산 〇〇한의원",
     image: "/images/review/review03.png"
   },
   {
     id: 4,
-    quote: <>광고비는 그대로인데, <strong className="text-white font-bold">상담 동의율이 2배</strong>가 되었습니다. 진정한 독점의 힘이네요.</>,
-    author: "최원장",
-    clinic: "D 성형외과",
+    quote: <>불필요한 키워드를 정리해 주셔서 <strong className="text-white font-bold">마케팅 비용은 30% 줄었는데 예약 문의는 오히려 2배 늘어서</strong> 직원들 충원 중입니다.</>,
+    author: "최〇〇 원장",
+    clinic: "인천 〇〇정형외과",
     image: "/images/review/review04.png"
   },
   {
     id: 5,
-    quote: <>정교한 디자인 덕분에 <strong className="text-white font-bold">대형 병원 못지않은 신뢰감</strong>을 줍니다.</>,
-    author: "정원장",
-    clinic: "E 정형외과",
+    quote: <>디자인 퀄리티가 워낙 뛰어나다 보니 병원 이미지가 완전히 달라졌어요. <strong className="text-white font-bold">수술 단가가 높은 환자분들의 상담 동의율</strong>이 확실히 높아졌습니다.</>,
+    author: "정〇〇 원장",
+    clinic: "압구정 〇〇성형외과",
     image: "/images/review/review05.png"
   },
   {
     id: 6,
-    quote: <>원장님들 사이에서 입소문 난 이유를 알겠습니다. <strong className="text-white font-bold">마케팅의 격</strong>이 다릅니다.</>,
-    author: "조원장",
-    clinic: "F 안과",
+    quote: <>원장들 모임에서 마케팅 어디 맡기냐고 자꾸 물어보는데, <strong className="text-white font-bold">우리 지역 TO 뺏길까 봐 일부러 안 알려주고 있습니다.</strong> ㅎㅎ</>,
+    author: "윤〇〇 원장",
+    clinic: "대전 〇〇여성의원",
     image: "/images/review/review06.png"
   },
   {
     id: 7,
-    quote: <>개원 초기 마케팅이 막막했는데, <strong className="text-white font-bold">헤이메디 덕분에 빠르게 안정화</strong> 되었습니다.</>,
-    author: "윤원장",
-    clinic: "G 피부과",
+    quote: <>타겟층이 정확히 반응할 만한 카피를 기가 막히게 뽑아주십니다. 단순 노출이 아니라 <strong className="text-white font-bold">진짜 '설득'이 되는 마케팅</strong>을 처음 경험해 봅니다.</>,
+    author: "조〇〇 원장",
+    clinic: "수원 〇〇안과",
     image: "/images/review/review07.png"
   }
 ];
