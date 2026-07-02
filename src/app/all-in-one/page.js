@@ -79,17 +79,12 @@ export default function AllInOneMarketing() {
             진짜 방문객을 만드는<br />
             <span className="text-white">올인원 마케팅</span>
           </h1>
-          <p className="text-lg text-[#bbbbbb] font-light leading-relaxed max-w-2xl mx-auto">
-            단순히 방문자 수만 채우는 의미 없는 리뷰가 아닙니다.<br />
-            내 병원 주변의 타겟 고객이 직접 검색하고 찾아올 수 있도록,<br />
-            <strong className="text-white font-medium">잘 짜여진 기획과 생생한 경험</strong>을 전달합니다.
-          </p>
         </div>
       </section>
 
       {/* Full Image Section */}
       <section id="white-section" className="bg-white w-full py-20 md:py-32 px-6 flex flex-col items-center">
-        <div className="w-full max-w-[800px] mx-auto flex flex-col rounded-[32px] overflow-hidden border border-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+        <div className="w-full max-w-[652px] mx-auto flex flex-col rounded-[32px] overflow-hidden border border-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
             <img key={num} src={`/images/experience/${num.toString().padStart(2, '0')}.png`} alt={`상세이미지 ${num}`} className="w-full h-auto block -mt-[1px] first:mt-0" />
           ))}
