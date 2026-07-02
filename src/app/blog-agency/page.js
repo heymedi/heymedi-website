@@ -74,10 +74,9 @@ export default function BlogAgency() {
         </div>
         
         <div className="max-w-4xl mx-auto relative z-10 my-auto">
-          <span className="text-brand-copper font-mono text-xs md:text-sm tracking-widest mb-6 block uppercase">Blog Agency</span>
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight mb-8">
-            우리병원을 선택하게 만드는<br />
-            <span className="text-white">블로그 대행</span>
+          <span className="text-brand-copper font-mono text-xs md:text-sm tracking-widest mb-6 block uppercase">우리병원을 선택하게 만드는</span>
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight mb-8 text-white">
+            블로그 대행
           </h1>
         </div>
       </section>

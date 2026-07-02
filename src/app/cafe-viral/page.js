@@ -74,10 +74,9 @@ export default function CafeViral() {
         </div>
         
         <div className="max-w-4xl mx-auto relative z-10 my-auto">
-          <span className="text-brand-copper font-mono text-xs md:text-sm tracking-widest mb-6 block uppercase">Cafe Viral</span>
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight mb-8">
-            입소문에 강력한 처방전<br />
-            <span className="text-white">카페바이럴</span>
+          <span className="text-brand-copper font-mono text-xs md:text-sm tracking-widest mb-6 block uppercase">입소문에 강력한 처방전</span>
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight mb-8 text-white">
+            카페바이럴
           </h1>
         </div>
       </section>

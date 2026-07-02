@@ -74,10 +74,9 @@ export default function AllInOneMarketing() {
         </div>
         
         <div className="max-w-4xl mx-auto relative z-10 my-auto">
-          <span className="text-brand-copper font-mono text-xs md:text-sm tracking-widest mb-6 block uppercase">All-In-One Marketing</span>
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight mb-8">
-            지역구 1등 만들기 프로젝트<br />
-            <span className="text-white">올인원 마케팅</span>
+          <span className="text-brand-copper font-mono text-xs md:text-sm tracking-widest mb-6 block uppercase">지역구 1등 만들기 프로젝트</span>
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight mb-8 text-white">
+            올인원 마케팅
           </h1>
         </div>
       </section>
