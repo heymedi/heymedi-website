@@ -21,98 +21,102 @@ export default function Home() {
     // GSAP Registration
     gsap.registerPlugin(ScrollTrigger);
 
-    // Initial Hero Animation
-    gsap.from(".hero-el", {
-      y: 50,
-      opacity: 0,
-      duration: 1.5,
-      stagger: 0.2,
-      ease: "power3.out",
-      delay: 0.2
-    });
-
-    // Scroll-Triggered Reveal
-    const revealElements = document.querySelectorAll(".reveal");
-    revealElements.forEach((el) => {
-      gsap.to(el, {
-        scrollTrigger: {
-          trigger: el,
-          start: "top 85%",
-          toggleActions: "play none none none"
-        },
-        y: 0,
-        opacity: 1,
-        duration: 1.2,
-        ease: "power3.out"
+    let ctx = gsap.context(() => {
+      // Initial Hero Animation
+      gsap.from(".hero-el", {
+        y: 50,
+        opacity: 0,
+        duration: 1.5,
+        stagger: 0.2,
+        ease: "power3.out",
+        delay: 0.2
       });
-    });
 
-    // Service Cards Stagger Reveal
-    gsap.fromTo(".service-card", 
-      { y: 50, opacity: 0 },
-      {
-        scrollTrigger: {
-          trigger: ".service-cards-container",
-          start: "top 85%",
-          toggleActions: "play none none none"
-        },
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power2.out"
-      }
-    );
+      // Scroll-Triggered Reveal
+      const revealElements = document.querySelectorAll(".reveal");
+      revealElements.forEach((el) => {
+        gsap.to(el, {
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            toggleActions: "play none none none"
+          },
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: "power3.out"
+        });
+      });
 
-    // Sticky element fade out (Only on Desktop)
-    let mm = gsap.matchMedia();
-    mm.add("(min-width: 768px)", () => {
-      const stickyContainers = document.querySelectorAll('.sticky-container');
-      stickyContainers.forEach((container) => {
-        const stickyContent = container.querySelector('.sticky-content');
-        if (stickyContent) {
-          gsap.fromTo(stickyContent, 
-            { opacity: 1 },
-            {
-              scrollTrigger: {
-                trigger: container,
-                start: "bottom 60%", // 부모 영역의 하단이 화면의 60% 지점에 도달하면 페이드아웃 시작
-                end: "bottom 30%",   // 화면 30% 지점에서 페이드아웃 완료
-                scrub: true,         // 스크롤에 맞춰 부드럽게 전환
-              },
-              opacity: 0
-            }
-          );
+      // Service Cards Stagger Reveal
+      gsap.fromTo(".service-card", 
+        { y: 50, opacity: 0 },
+        {
+          scrollTrigger: {
+            trigger: ".service-cards-container",
+            start: "top 85%",
+            toggleActions: "play none none none"
+          },
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power2.out"
         }
+      );
+
+      // Sticky element fade out (Only on Desktop)
+      let mm = gsap.matchMedia();
+      mm.add("(min-width: 768px)", () => {
+        const stickyContainers = document.querySelectorAll('.sticky-container');
+        stickyContainers.forEach((container) => {
+          const stickyContent = container.querySelector('.sticky-content');
+          if (stickyContent) {
+            gsap.fromTo(stickyContent, 
+              { opacity: 1 },
+              {
+                scrollTrigger: {
+                  trigger: container,
+                  start: "bottom 60%", // 부모 영역의 하단이 화면의 60% 지점에 도달하면 페이드아웃 시작
+                  end: "bottom 30%",   // 화면 30% 지점에서 페이드아웃 완료
+                  scrub: true,         // 스크롤에 맞춰 부드럽게 전환
+                },
+                opacity: 0
+              }
+            );
+          }
+        });
       });
-    });// Custom Cursor
+    });
+
+    // Custom Cursor
     const cursorDot = cursorDotRef.current;
     const cursorFollower = cursorFollowerRef.current;
+    let onMouseMove;
     
     if (window.innerWidth >= 768 && cursorDot && cursorFollower) {
       let xTo = gsap.quickTo(cursorFollower, "x", { duration: 0.4, ease: "power3" });
       let yTo = gsap.quickTo(cursorFollower, "y", { duration: 0.4, ease: "power3" });
 
-      const onMouseMove = (e) => {
+      onMouseMove = (e) => {
         gsap.set(cursorDot, { x: e.clientX, y: e.clientY });
         xTo(e.clientX);
         yTo(e.clientY);
       };
 
       window.addEventListener('mousemove', onMouseMove);
-
-      return () => {
-        window.removeEventListener('mousemove', onMouseMove);
-        // Clean up ScrollTrigger
-        ScrollTrigger.getAll().forEach(t => t.kill());
-      };
     } else {
       if (cursorDot) cursorDot.style.display = 'none';
       if (cursorFollower) cursorFollower.style.display = 'none';
       document.body.style.cursor = 'auto';
-      return () => {
-      };
     }
+
+    return () => {
+      ctx.revert();
+      if (onMouseMove) {
+        window.removeEventListener('mousemove', onMouseMove);
+      }
+    };
   }, []);
 
   return (
