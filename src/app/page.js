@@ -20,7 +20,7 @@ const testimonials = [
   },
   {
     id: 2,
-    quote: <>대표님이 3개월 동안 옆에서 멱살 잡고 케어해주신 덕분에 <strong className="text-white font-bold">상담 문의랑 내원율이 확실히 올라왔어요.</strong> 제 진료 전문성을 제대로 녹여내 줍니다.</>,
+    quote: <>대표님이 3개월 동안 옆에서 멱살 잡고 케어해주신 덕분에 <strong className="text-white font-bold">상담 문의랑 내원율이 확실히 올라왔어요.</strong></>,
     author: "이원장님",
     clinic: "**피부과의원",
     image: "/images/review/review02.png"
