@@ -65,28 +65,7 @@ export default function Home() {
         }
       );
 
-      // Sticky element fade out (Only on Desktop)
-      let mm = gsap.matchMedia();
-      mm.add("(min-width: 768px)", () => {
-        const stickyContainers = document.querySelectorAll('.sticky-container');
-        stickyContainers.forEach((container) => {
-          const stickyContent = container.querySelector('.sticky-content');
-          if (stickyContent) {
-            gsap.fromTo(stickyContent, 
-              { opacity: 1 },
-              {
-                scrollTrigger: {
-                  trigger: container,
-                  start: "bottom 60%", // 부모 영역의 하단이 화면의 60% 지점에 도달하면 페이드아웃 시작
-                  end: "bottom 30%",   // 화면 30% 지점에서 페이드아웃 완료
-                  scrub: true,         // 스크롤에 맞춰 부드럽게 전환
-                },
-                opacity: 0
-              }
-            );
-          }
-        });
-      });
+
     });
 
     // Custom Cursor
