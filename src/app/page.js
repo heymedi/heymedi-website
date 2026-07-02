@@ -176,7 +176,7 @@ export default function Home() {
         <div className="w-full mx-auto mb-32 reveal">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
             <a href="/all-in-one" className="group block relative aspect-square rounded-[32px] overflow-hidden shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
-              <img src="/images/service/service01.png" alt="올인원 마케팅" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img src="/images/service/service01.gif" alt="올인원 마케팅" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-transparent transition-opacity duration-500"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-start text-center z-10">
                 <h4 className="text-2xl md:text-3xl font-bold text-white mb-3 break-keep tracking-tight">올인원 마케팅</h4>
@@ -212,7 +212,7 @@ export default function Home() {
             </a>
 
             <a href="/cafe-viral" className="group block relative aspect-square rounded-[32px] overflow-hidden shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
-              <img src="/images/service/service04.png" alt="카페바이럴" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img src="/images/service/service04.jpeg" alt="카페바이럴" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-transparent transition-opacity duration-500"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-start text-center z-10">
                 <h4 className="text-2xl md:text-3xl font-bold text-white mb-3 break-keep tracking-tight">카페바이럴</h4>
