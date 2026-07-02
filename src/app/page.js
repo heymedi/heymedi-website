@@ -55,7 +55,7 @@ const testimonials = [
   },
   {
     id: 7,
-    quote: <>최고의 결과물을 주셔서 감사합니다. 단순 노출이 아니라 <strong className="text-white font-bold">진짜 '설득'이 되는 마케팅</strong>을 처음 경험해 봅니다.</>,
+    quote: <>원장들 모임에서 마케팅 어디 맡기냐고 자꾸 물어보는데, <strong className="text-white font-bold">우리 지역 TO 뺏길까 봐 일부러 안 알려주고 있습니다. ㅎㅎ</strong></>,
     author: "조원장님",
     clinic: "**안과의원",
     image: "/images/review/review07.png"
