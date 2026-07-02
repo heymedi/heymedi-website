@@ -175,55 +175,51 @@ export default function Home() {
         {/* Core Services Section */}
         <div className="w-full mx-auto mb-32 reveal">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
-            <a href="/all-in-one" className="group block bg-[#0a0a0c] rounded-[32px] overflow-hidden shadow-2xl border border-white/5 hover:-translate-y-2 transition-all duration-500 flex flex-col pt-12 md:pt-16">
-              <div className="px-6 md:px-8 text-center flex flex-col items-center z-10 relative">
-                <h4 className="text-2xl md:text-3xl font-bold text-white mb-4 break-keep tracking-tight">올인원 마케팅</h4>
-                <p className="text-sm md:text-base text-white/70 font-light mb-8 break-keep">지역구 1등 만들기 프로젝트</p>
-                <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transition-transform group-hover:scale-105 mb-8 md:mb-12">
+            <a href="/all-in-one" className="group block relative aspect-square rounded-[32px] overflow-hidden shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
+              <img src="/images/service/service01.png" alt="올인원 마케팅" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-transparent transition-opacity duration-500"></div>
+              <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-start text-center z-10">
+                <h4 className="text-2xl md:text-3xl font-bold text-white mb-3 break-keep tracking-tight">올인원 마케팅</h4>
+                <p className="text-sm md:text-base text-white/90 font-light mb-8 break-keep">지역구 1등 만들기 프로젝트</p>
+                <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transition-transform group-hover:scale-105 shadow-lg">
                   자세히 보기
                 </div>
-              </div>
-              <div className="mt-auto relative w-full aspect-square overflow-hidden flex items-end justify-center">
-                <img src="/images/service/service01.png" alt="올인원 마케팅" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100 mix-blend-lighten" />
               </div>
             </a>
             
-            <a href="/blog-agency" className="group block bg-[#0a0a0c] rounded-[32px] overflow-hidden shadow-2xl border border-white/5 hover:-translate-y-2 transition-all duration-500 flex flex-col pt-12 md:pt-16">
-              <div className="px-6 md:px-8 text-center flex flex-col items-center z-10 relative">
-                <h4 className="text-2xl md:text-3xl font-bold text-white mb-4 break-keep tracking-tight">블로그 대행</h4>
-                <p className="text-sm md:text-base text-white/70 font-light mb-8 break-keep">우리병원을 선택하게 만드는</p>
-                <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transition-transform group-hover:scale-105 mb-8 md:mb-12">
+            <a href="/blog-agency" className="group block relative aspect-square rounded-[32px] overflow-hidden shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
+              <img src="/images/service/service02.png" alt="블로그 대행" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-transparent transition-opacity duration-500"></div>
+              <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-start text-center z-10">
+                <h4 className="text-2xl md:text-3xl font-bold text-white mb-3 break-keep tracking-tight">블로그 대행</h4>
+                <p className="text-sm md:text-base text-white/90 font-light mb-8 break-keep">우리병원을 선택하게 만드는</p>
+                <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transition-transform group-hover:scale-105 shadow-lg">
                   자세히 보기
                 </div>
-              </div>
-              <div className="mt-auto relative w-full aspect-square overflow-hidden flex items-end justify-center">
-                <img src="/images/service/service02.png" alt="블로그 대행" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100 mix-blend-lighten" />
               </div>
             </a>
 
-            <a href="/blog-experience" className="group block bg-[#0a0a0c] rounded-[32px] overflow-hidden shadow-2xl border border-white/5 hover:-translate-y-2 transition-all duration-500 flex flex-col pt-12 md:pt-16">
-              <div className="px-6 md:px-8 text-center flex flex-col items-center z-10 relative">
-                <h4 className="text-2xl md:text-3xl font-bold text-white mb-4 break-keep tracking-tight">블로그 체험단</h4>
-                <p className="text-sm md:text-base text-white/70 font-light mb-8 break-keep">우리병원을 궁금하게 만드는</p>
-                <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transition-transform group-hover:scale-105 mb-8 md:mb-12">
+            <a href="/blog-experience" className="group block relative aspect-square rounded-[32px] overflow-hidden shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
+              <img src="/images/service/service03.png" alt="블로그 체험단" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-transparent transition-opacity duration-500"></div>
+              <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-start text-center z-10">
+                <h4 className="text-2xl md:text-3xl font-bold text-white mb-3 break-keep tracking-tight">블로그 체험단</h4>
+                <p className="text-sm md:text-base text-white/90 font-light mb-8 break-keep">우리병원을 궁금하게 만드는</p>
+                <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transition-transform group-hover:scale-105 shadow-lg">
                   자세히 보기
                 </div>
-              </div>
-              <div className="mt-auto relative w-full aspect-square overflow-hidden flex items-end justify-center">
-                <img src="/images/service/service03.png" alt="블로그 체험단" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100 mix-blend-lighten" />
               </div>
             </a>
 
-            <a href="/cafe-viral" className="group block bg-[#0a0a0c] rounded-[32px] overflow-hidden shadow-2xl border border-white/5 hover:-translate-y-2 transition-all duration-500 flex flex-col pt-12 md:pt-16">
-              <div className="px-6 md:px-8 text-center flex flex-col items-center z-10 relative">
-                <h4 className="text-2xl md:text-3xl font-bold text-white mb-4 break-keep tracking-tight">카페바이럴</h4>
-                <p className="text-sm md:text-base text-white/70 font-light mb-8 break-keep">입소문에 강력한 처방전</p>
-                <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transition-transform group-hover:scale-105 mb-8 md:mb-12">
+            <a href="/cafe-viral" className="group block relative aspect-square rounded-[32px] overflow-hidden shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
+              <img src="/images/service/service04.png" alt="카페바이럴" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-transparent transition-opacity duration-500"></div>
+              <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-start text-center z-10">
+                <h4 className="text-2xl md:text-3xl font-bold text-white mb-3 break-keep tracking-tight">카페바이럴</h4>
+                <p className="text-sm md:text-base text-white/90 font-light mb-8 break-keep">입소문에 강력한 처방전</p>
+                <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transition-transform group-hover:scale-105 shadow-lg">
                   자세히 보기
                 </div>
-              </div>
-              <div className="mt-auto relative w-full aspect-square overflow-hidden flex items-end justify-center">
-                <img src="/images/service/service04.png" alt="카페바이럴" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100 mix-blend-lighten" />
               </div>
             </a>
           </div>
