@@ -108,7 +108,7 @@ export default function Home() {
       <section className="relative min-h-[100dvh] flex flex-col px-6 md:px-16 overflow-hidden bg-brand-dark text-white">
         <div className="absolute inset-0 z-0 opacity-50">
           <ColorBends
-            colors={["#FF5900", "#8a5cff", "#0a0a0c"]}
+            colors={["#FF5900", "#FF2000", "#0a0a0c"]}
             rotation={90}
             speed={0.2}
             scale={1}
