@@ -176,7 +176,7 @@ export default function Home() {
         <div className="w-full mx-auto mb-32 reveal">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
             <a href="/all-in-one" className="group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
-              <img src="/images/service/service01.png" alt="올인원 마케팅" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img loading="lazy" decoding="async" src="/images/service/service01.png" alt="올인원 마케팅" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10">
                 <h4 className="text-2xl md:text-3xl font-extrabold text-white break-keep tracking-tight transform translate-y-8 group-hover:-translate-y-2 transition-all duration-500">올인원 마케팅</h4>
@@ -187,7 +187,7 @@ export default function Home() {
             </a>
             
             <a href="/blog-agency" className="group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
-              <img src="/images/service/service02.png" alt="블로그 대행" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img loading="lazy" decoding="async" src="/images/service/service02.png" alt="블로그 대행" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10">
                 <h4 className="text-2xl md:text-3xl font-extrabold text-white break-keep tracking-tight transform translate-y-8 group-hover:-translate-y-2 transition-all duration-500">블로그 대행</h4>
@@ -198,7 +198,7 @@ export default function Home() {
             </a>
 
             <a href="/blog-experience" className="group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
-              <img src="/images/service/service03.png" alt="블로그 체험단" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img loading="lazy" decoding="async" src="/images/service/service03.png" alt="블로그 체험단" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10">
                 <h4 className="text-2xl md:text-3xl font-extrabold text-white break-keep tracking-tight transform translate-y-8 group-hover:-translate-y-2 transition-all duration-500">블로그 체험단</h4>
@@ -209,7 +209,7 @@ export default function Home() {
             </a>
 
             <a href="/cafe-viral" className="group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
-              <img src="/images/service/service04.png" alt="카페바이럴" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img loading="lazy" decoding="async" src="/images/service/service04.png" alt="카페바이럴" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10">
                 <h4 className="text-2xl md:text-3xl font-extrabold text-white break-keep tracking-tight transform translate-y-8 group-hover:-translate-y-2 transition-all duration-500">카페바이럴</h4>
@@ -233,14 +233,14 @@ export default function Home() {
                   </h4>
                 </div>
                 <div className="w-full">
-                   <img src="/USP_marketer_profile.png" alt="마케터 프로필" className="w-full h-auto object-contain" />
+                   <img loading="lazy" decoding="async" src="/USP_marketer_profile.png" alt="마케터 프로필" className="w-full h-auto object-contain" />
                 </div>
               </div>
               <div className="w-full md:w-[70%] flex flex-col gap-8">
                 <div className="flex flex-col gap-8">
-                  <img src="/USP_marketer01.png" alt="퍼널구조 1" className="w-full h-auto rounded-2xl border border-black/5 reveal" />
-                  <img src="/USP_marketer02.png" alt="퍼널구조 2" className="w-full h-auto rounded-2xl border border-black/5 reveal" />
-                  <img src="/USP_marketer03.png" alt="퍼널구조 3" className="w-full h-auto rounded-2xl border border-black/5 reveal" />
+                  <img loading="lazy" decoding="async" src="/USP_marketer01.png" alt="퍼널구조 1" className="w-full h-auto rounded-2xl border border-black/5 reveal" />
+                  <img loading="lazy" decoding="async" src="/USP_marketer02.png" alt="퍼널구조 2" className="w-full h-auto rounded-2xl border border-black/5 reveal" />
+                  <img loading="lazy" decoding="async" src="/USP_marketer03.png" alt="퍼널구조 3" className="w-full h-auto rounded-2xl border border-black/5 reveal" />
                 </div>
                 <p className="text-black text-lg font-light leading-relaxed break-keep mt-4">
                   우리는 글을 쓰기 전, 성과가 날 수밖에 없는 '퍼널구조'부터 설계합니다. 대부분의 대행사는 '상위노출'에 집착하지만, 헤이메디는 본질에 집중합니다. 환자가 병원을 발견하고 예약 버튼을 누르기까지의 심리 동선을 먼저 짜지 않으면 아무리 많은 글도 소용없습니다.
@@ -260,13 +260,13 @@ export default function Home() {
                   </h4>
                 </div>
                 <div className="w-full">
-                   <img src="/USP_designer_profile.png" alt="디자이너 프로필" className="w-full h-auto object-contain" />
+                   <img loading="lazy" decoding="async" src="/USP_designer_profile.png" alt="디자이너 프로필" className="w-full h-auto object-contain" />
                 </div>
               </div>
               <div className="w-full md:w-[70%] flex flex-col gap-8">
                 <div className="flex flex-col gap-8">
-                  <img src="/USP_designer01.png" alt="디자인 포트폴리오 1" className="w-full h-auto rounded-2xl border border-black/5 reveal" />
-                  <img src="/USP_designer02.png" alt="디자인 포트폴리오 2" className="w-full h-auto rounded-2xl border border-black/5 reveal" />
+                  <img loading="lazy" decoding="async" src="/USP_designer01.png" alt="디자인 포트폴리오 1" className="w-full h-auto rounded-2xl border border-black/5 reveal" />
+                  <img loading="lazy" decoding="async" src="/USP_designer02.png" alt="디자인 포트폴리오 2" className="w-full h-auto rounded-2xl border border-black/5 reveal" />
                 </div>
                 <p className="text-black text-lg font-light leading-relaxed break-keep mt-4">
                   환자가 병원을 선택하는 0.3초의 찰나, 신뢰감 있는 첫인상은 비주얼로 결정됩니다. 공공기관, 유명 뷰티 및 브랜드 프로젝트를 수행하며 다져진 하이엔드급 디자이너가 우리 병원을 압도적으로 시각화 합니다.
@@ -296,7 +296,7 @@ export default function Home() {
             <div key={i} className="flex gap-6 px-3">
               {testimonialsData.map((t) => (
                 <div key={`${i}-${t.id}`} className="group relative w-[280px] md:w-[360px] rounded-2xl overflow-hidden flex-shrink-0 cursor-none hover-trigger border border-[#ffffff]/5 bg-[#1a1a1a]">
-                  <img src={t.image} alt="Testimonial background" className="relative w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700" />
+                  <img loading="lazy" decoding="async" src={t.image} alt="Testimonial background" className="relative w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-[#0a0a0c]/80 to-transparent"></div>
                   
                   <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end z-10">
