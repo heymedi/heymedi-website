@@ -66,7 +66,7 @@ export default function ContactForm({ onShowPrivacy, isModal = false }) {
         body: JSON.stringify(formData),
       });
       
-      alert("성공적으로 접수되었습니다!");
+      alert("접수가 완료되었습니다.\n접수된 내용은 입력해주신 메일로 받아보실 수 있습니다.");
       setFormData({
         hospitalName: '',
         name: '',
