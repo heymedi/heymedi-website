@@ -10,7 +10,7 @@ export const metadata = {
 export default function TermsOfService() {
   return (
     <div className="min-h-screen bg-white text-[#0a0a0c] selection:bg-brand-copper selection:text-white font-sans">
-      <Header currentPath="/terms" />
+      <Header currentPath="/terms" forceTheme="light" />
 
       <main className="max-w-4xl mx-auto px-6 py-20 md:py-32">
         <h1 className="text-3xl md:text-5xl font-medium tracking-tight mb-12">이용약관</h1>

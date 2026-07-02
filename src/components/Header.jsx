@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from "next/link";
 import Logo from './Logo';
 
-export default function Header({ currentPath = "/" }) {
+export default function Header({ currentPath = "/", forceTheme }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolledDown, setIsScrolledDown] = useState(false);
   const [theme, setTheme] = useState('dark');
@@ -47,8 +47,8 @@ export default function Header({ currentPath = "/" }) {
                        currentSection.classList.contains('bg-[#0a0a0c]');
         setTheme(isDark ? 'dark' : 'light');
       } else if (window.scrollY < 100) {
-        // Default to dark at the very top (Hero section usually dark)
-        setTheme('dark');
+        // Default to dark at the very top, unless forceTheme is light
+        setTheme(forceTheme || 'dark');
       }
     };
 
