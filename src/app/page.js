@@ -13,51 +13,51 @@ import ColorBends from "../components/ColorBends";
 const testimonials = [
   {
     id: 1,
-    quote: <>기존 대행사들은 경쟁 치과까지 같이 돌리더라고요. 여긴 <strong className="text-white font-bold">철저한 지역 독점</strong>이라 우리 치과에만 집중해줘서 임플란트 신환이 눈에 띄게 늘었습니다.</>,
-    author: "이〇〇 원장",
-    clinic: "강남 〇〇치과",
+    quote: <>타 대행사에서 돈만 쓰고 효과를 못 봐서 반포기 상태였거든요. 근데 헤이메디는 다르네요. 처음엔 한 달만 테스트해보자 했는데, <strong className="text-white font-bold">벌써 3개월이 지났습니다!!</strong></>,
+    author: "김원장님",
+    clinic: "**치과의원",
     image: "/images/review/review01.png"
   },
   {
     id: 2,
-    quote: <>공장형 피부과들과는 다른, <strong className="text-white font-bold">우리 병원만의 '프리미엄'</strong>을 정확히 짚어내 주시네요. 환자분들 객단가 자체가 달라졌습니다.</>,
-    author: "박〇〇 원장",
-    clinic: "분당 〇〇피부과",
+    quote: <>대표님이 3개월 동안 옆에서 멱살 잡고 케어해주신 덕분에 <strong className="text-white font-bold">상담 문의랑 내원율이 확실히 올라왔어요.</strong> 제 진료 전문성을 제대로 녹여내 줍니다.</>,
+    author: "이원장님",
+    clinic: "**피부과의원",
     image: "/images/review/review02.png"
   },
   {
     id: 3,
-    quote: <>다 똑같은 영혼 없는 블로그 글이 아닙니다. 환자분들이 <strong className="text-white font-bold">원장인 제가 직접 쓴 줄 알고</strong> 깊은 신뢰를 갖고 내원하십니다.</>,
-    author: "김〇〇 원장",
-    clinic: "부산 〇〇한의원",
+    quote: <>블로그가 효과가 있을까 의심을 많이 했었는데, 요즘은 <strong className="text-white font-bold">환자들이 블로그 보고 왔다는 이야기</strong>를 많이 하시네요.</>,
+    author: "박원장님",
+    clinic: "**한의원",
     image: "/images/review/review03.png"
   },
   {
     id: 4,
-    quote: <>불필요한 키워드를 정리해 주셔서 <strong className="text-white font-bold">마케팅 비용은 30% 줄었는데 예약 문의는 오히려 2배 늘어서</strong> 직원들 충원 중입니다.</>,
-    author: "최〇〇 원장",
-    clinic: "인천 〇〇정형외과",
+    quote: <><strong className="text-white font-bold">가격 부담은 덜하면서 성과는 확실하니</strong> 추가 연장을 안 할 이유가 없네요. 진짜 돈 아깝지 않은 곳입니다.^^</>,
+    author: "최실장님",
+    clinic: "**정형외과의원",
     image: "/images/review/review04.png"
   },
   {
     id: 5,
-    quote: <>디자인 퀄리티가 워낙 뛰어나다 보니 병원 이미지가 완전히 달라졌어요. <strong className="text-white font-bold">수술 단가가 높은 환자분들의 상담 동의율</strong>이 확실히 높아졌습니다.</>,
-    author: "정〇〇 원장",
-    clinic: "압구정 〇〇성형외과",
+    quote: <>바빠서 답변도 잘 못해드렸는데 <strong className="text-white font-bold">글을 섬세하고 가독성 좋게 작성해주셔서 감동받았습니다.</strong> 앞으로도 계속 이용해보겠습니다!</>,
+    author: "정원장님",
+    clinic: "**성형외과의원",
     image: "/images/review/review05.png"
   },
   {
     id: 6,
-    quote: <>원장들 모임에서 마케팅 어디 맡기냐고 자꾸 물어보는데, <strong className="text-white font-bold">우리 지역 TO 뺏길까 봐 일부러 안 알려주고 있습니다.</strong> ㅎㅎ</>,
-    author: "윤〇〇 원장",
-    clinic: "대전 〇〇여성의원",
+    quote: <>체험단 모집으로 이용해보았습니다. <strong className="text-white font-bold">가이드가 잘되어있어 블로거분들 모집에 수월했습니다.</strong></>,
+    author: "윤실장님",
+    clinic: "**여성의원",
     image: "/images/review/review06.png"
   },
   {
     id: 7,
-    quote: <>타겟층이 정확히 반응할 만한 카피를 기가 막히게 뽑아주십니다. 단순 노출이 아니라 <strong className="text-white font-bold">진짜 '설득'이 되는 마케팅</strong>을 처음 경험해 봅니다.</>,
-    author: "조〇〇 원장",
-    clinic: "수원 〇〇안과",
+    quote: <>최고의 결과물을 주셔서 감사합니다. 단순 노출이 아니라 <strong className="text-white font-bold">진짜 '설득'이 되는 마케팅</strong>을 처음 경험해 봅니다.</>,
+    author: "조원장님",
+    clinic: "**안과의원",
     image: "/images/review/review07.png"
   }
 ];
@@ -296,11 +296,11 @@ export default function Home() {
           {[...Array(2)].map((_, i) => (
             <div key={i} className="flex gap-6 px-3">
               {testimonials.map((t) => (
-                <div key={`${i}-${t.id}`} className="relative w-[280px] md:w-[360px] h-[400px] rounded-2xl overflow-hidden flex-shrink-0 cursor-none hover-trigger border border-[#ffffff]/5">
-                  <img src={t.image} alt="Testimonial background" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-[#0a0a0c]/60 to-transparent"></div>
+                <div key={`${i}-${t.id}`} className="relative w-[280px] md:w-[360px] rounded-2xl overflow-hidden flex-shrink-0 cursor-none hover-trigger border border-[#ffffff]/5 bg-[#1a1a1a]">
+                  <img src={t.image} alt="Testimonial background" className="relative w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-[#0a0a0c]/80 to-transparent"></div>
                   
-                  <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end h-full z-10">
+                  <div className="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end z-10">
                     <p className="text-[#ffffff] text-lg font-medium leading-relaxed mb-6">
                       "{t.quote}"
                     </p>
