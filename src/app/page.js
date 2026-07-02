@@ -175,8 +175,8 @@ export default function Home() {
         {/* Core Services Section */}
         <div className="w-full mx-auto mb-32 reveal">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
-            <a href="/all-in-one" className="group block relative aspect-[2/3] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
-              <img src="/images/service/service01.gif" alt="올인원 마케팅" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <a href="/all-in-one" className="group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
+              <img src="/images/service/service01.png" alt="올인원 마케팅" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent transition-opacity duration-500 opacity-80 group-hover:opacity-100"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-end text-center z-10">
                 <h4 className="text-2xl md:text-3xl font-bold text-white mb-2 break-keep tracking-tight">올인원 마케팅</h4>
@@ -187,7 +187,7 @@ export default function Home() {
               </div>
             </a>
             
-            <a href="/blog-agency" className="group block relative aspect-[2/3] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
+            <a href="/blog-agency" className="group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
               <img src="/images/service/service02.png" alt="블로그 대행" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent transition-opacity duration-500 opacity-80 group-hover:opacity-100"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-end text-center z-10">
@@ -199,7 +199,7 @@ export default function Home() {
               </div>
             </a>
 
-            <a href="/blog-experience" className="group block relative aspect-[2/3] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
+            <a href="/blog-experience" className="group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
               <img src="/images/service/service03.png" alt="블로그 체험단" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent transition-opacity duration-500 opacity-80 group-hover:opacity-100"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-end text-center z-10">
@@ -211,8 +211,8 @@ export default function Home() {
               </div>
             </a>
 
-            <a href="/cafe-viral" className="group block relative aspect-[2/3] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
-              <img src="/images/service/service04.jpeg" alt="카페바이럴" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <a href="/cafe-viral" className="group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
+              <img src="/images/service/service04.png" alt="카페바이럴" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent transition-opacity duration-500 opacity-80 group-hover:opacity-100"></div>
               <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-end text-center z-10">
                 <h4 className="text-2xl md:text-3xl font-bold text-white mb-2 break-keep tracking-tight">카페바이럴</h4>
