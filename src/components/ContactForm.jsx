@@ -11,8 +11,16 @@ const MARKETING_OPTIONS = [
 ];
 
 export default function ContactForm({ onShowPrivacy, isModal = false }) {
-  const [selectedService, setSelectedService] = useState("");
+  const [formData, setFormData] = useState({
+    hospitalName: '',
+    name: '',
+    phone: '',
+    email: '',
+    message: '',
+    service: ''
+  });
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const dropdownRef = useRef(null);
   
   // Custom Select Click Outside
@@ -26,9 +34,53 @@ export default function ContactForm({ onShowPrivacy, isModal = false }) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSelectService = (service) => {
+    setFormData(prev => ({ ...prev, service }));
+    setIsDropdownOpen(false);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('요청이 전송되었습니다. (데모)');
+    setIsSubmitting(true);
+    
+    try {
+      const WEB_APP_URL = process.env.NEXT_PUBLIC_GOOGLE_WEBHOOK_URL;
+      
+      if (!WEB_APP_URL) {
+        alert("시스템 설정 오류: 웹훅 URL이 설정되지 않았습니다.");
+        setIsSubmitting(false);
+        return;
+      }
+
+      await fetch(WEB_APP_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      alert("성공적으로 접수되었습니다!");
+      setFormData({
+        hospitalName: '',
+        name: '',
+        phone: '',
+        email: '',
+        message: '',
+        service: ''
+      });
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("전송에 실패했습니다. 다시 시도해주세요.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Generate unique ID for checkbox to prevent collision if multiple forms render
@@ -40,6 +92,9 @@ export default function ContactForm({ onShowPrivacy, isModal = false }) {
         <label className="block text-xs font-mono tracking-widest text-brand-copper mb-3">01. 병원명 (지역구 포함)</label>
         <input 
           type="text" 
+          name="hospitalName"
+          value={formData.hospitalName}
+          onChange={handleChange}
           required 
           className="w-full bg-transparent border border-gray-300 rounded-2xl px-5 py-4 text-base md:text-lg font-light text-[#0a0a0c] focus:outline-none focus:border-brand-copper focus:ring-1 focus:ring-brand-copper transition-all hover-trigger" 
         />
@@ -49,6 +104,9 @@ export default function ContactForm({ onShowPrivacy, isModal = false }) {
         <label className="block text-xs font-mono tracking-widest text-brand-copper mb-3">02. 직책 / 성함</label>
         <input 
           type="text" 
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
           required 
           className="w-full bg-transparent border border-gray-300 rounded-2xl px-5 py-4 text-base md:text-lg font-light text-[#0a0a0c] focus:outline-none focus:border-brand-copper focus:ring-1 focus:ring-brand-copper transition-all hover-trigger" 
         />
@@ -58,6 +116,9 @@ export default function ContactForm({ onShowPrivacy, isModal = false }) {
         <label className="block text-xs font-mono tracking-widest text-brand-copper mb-3">03. 연락처</label>
         <input 
           type="tel" 
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
           required 
           className="w-full bg-transparent border border-gray-300 rounded-2xl px-5 py-4 text-base md:text-lg font-light text-[#0a0a0c] focus:outline-none focus:border-brand-copper focus:ring-1 focus:ring-brand-copper transition-all hover-trigger" 
         />
@@ -67,6 +128,9 @@ export default function ContactForm({ onShowPrivacy, isModal = false }) {
         <label className="block text-xs font-mono tracking-widest text-brand-copper mb-3">04. 이메일 주소</label>
         <input 
           type="email" 
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
           required 
           className="w-full bg-transparent border border-gray-300 rounded-2xl px-5 py-4 text-base md:text-lg font-light text-[#0a0a0c] focus:outline-none focus:border-brand-copper focus:ring-1 focus:ring-brand-copper transition-all hover-trigger" 
         />
@@ -75,6 +139,9 @@ export default function ContactForm({ onShowPrivacy, isModal = false }) {
       <div className="relative group">
         <label className="block text-xs font-mono tracking-widest text-brand-copper mb-3">05. 현재 겪고 계신 문제점</label>
         <textarea 
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
           rows="3" 
           required 
           className="w-full bg-transparent border border-gray-300 rounded-2xl px-5 py-4 text-base md:text-lg font-light text-[#0a0a0c] focus:outline-none focus:border-brand-copper focus:ring-1 focus:ring-brand-copper transition-all hover-trigger resize-none"
@@ -85,17 +152,17 @@ export default function ContactForm({ onShowPrivacy, isModal = false }) {
         <label className="block text-xs font-mono tracking-widest text-brand-copper mb-3">06. 고려 중인 마케팅 서비스 (선택)</label>
         <div className="relative">
           {/* Hidden real input for form submission validation if needed */}
-          <input type="hidden" value={selectedService} />
+          <input type="hidden" name="service" value={formData.service} />
           
           <button
             type="button"
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             className={`w-full flex items-center justify-between text-left border rounded-2xl px-5 py-4 text-base md:text-lg font-light transition-all hover-trigger ${
               isDropdownOpen ? 'bg-transparent border-brand-copper text-[#0a0a0c] ring-1 ring-brand-copper' : 
-              selectedService ? 'bg-transparent border-gray-300 text-[#0a0a0c]' : 'bg-transparent border-gray-300 text-gray-400'
+              formData.service ? 'bg-transparent border-gray-300 text-[#0a0a0c]' : 'bg-transparent border-gray-300 text-gray-400'
             }`}
           >
-            <span>{selectedService || '마케팅 서비스를 선택해주세요'}</span>
+            <span>{formData.service || '마케팅 서비스를 선택해주세요'}</span>
             <svg className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180 text-brand-copper' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 9l-7 7-7-7" />
             </svg>
@@ -112,11 +179,8 @@ export default function ContactForm({ onShowPrivacy, isModal = false }) {
                 <li key={idx}>
                   <button
                     type="button"
-                    onClick={() => {
-                      setSelectedService(option);
-                      setIsDropdownOpen(false);
-                    }}
-                    className={`w-full text-left px-5 py-3 hover:bg-[#fff5f0] hover:text-brand-copper transition-colors ${selectedService === option ? 'bg-[#fff5f0] text-brand-copper font-medium' : 'text-gray-700 font-light'}`}
+                    onClick={() => handleSelectService(option)}
+                    className={`w-full text-left px-5 py-3 hover:bg-[#fff5f0] hover:text-brand-copper transition-colors ${formData.service === option ? 'bg-[#fff5f0] text-brand-copper font-medium' : 'text-gray-700 font-light'}`}
                   >
                     {option}
                   </button>
@@ -153,8 +217,8 @@ export default function ContactForm({ onShowPrivacy, isModal = false }) {
       </div>
 
       <div className="pt-4 text-center">
-        <button type="submit" className="w-full md:w-auto px-12 py-5 bg-[#FF5900] text-white font-medium tracking-wide uppercase text-sm hover:bg-[#e04e00] transition-colors duration-300 hover-trigger shadow-lg shadow-[#FF5900]/20 rounded-full">
-          우리 지역 독점 T/O 확인하기
+        <button type="submit" disabled={isSubmitting} className={`w-full md:w-auto px-12 py-5 bg-[#FF5900] text-white font-medium tracking-wide uppercase text-sm transition-colors duration-300 rounded-full ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-[#e04e00] hover-trigger shadow-lg shadow-[#FF5900]/20'}`}>
+          {isSubmitting ? '전송 중...' : '우리 지역 독점 T/O 확인하기'}
         </button>
       </div>
     </form>
