@@ -228,7 +228,7 @@ export default function Home() {
       </section>
 
       {/* [Section 2] Testimonial Marquee */}
-      <section className="pt-48 pb-24 overflow-hidden relative">
+      <section className="pt-48 pb-24 overflow-hidden relative bg-[#0a0a0c]">
         <div className="max-w-7xl mx-auto px-6 md:px-16 mb-12">
           <div className="mb-24 reveal">
             <h2 className="font-mono text-xs tracking-widest text-brand-copper uppercase mb-4">SUCCESS STORIES</h2>
@@ -264,7 +264,7 @@ export default function Home() {
       </section>
 
       {/* [Section 3] How We Do It */}
-      <section className="py-32 px-6 md:px-16">
+      <section className="py-32 px-6 md:px-16 bg-[#0a0a0c]">
         <div className="max-w-7xl mx-auto">
           <div className="mb-24 reveal">
             <h2 className="font-mono text-xs tracking-widest text-brand-copper uppercase mb-4">WORK PROCESS</h2>
@@ -316,7 +316,7 @@ export default function Home() {
       </section>
 
       {/* [Section 4] Call to Action (Form) */}
-      <section id="contact" className="py-32 px-6 md:px-16 relative overflow-hidden">
+      <section id="contact" className="py-32 px-6 md:px-16 relative overflow-hidden bg-[#0a0a0c]">
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-20 reveal">
             <h2 className="text-3xl md:text-5xl font-medium tracking-tight mb-8 leading-tight">
@@ -336,7 +336,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 md:px-16 text-xs font-mono tracking-widest text-brand-gray">
+      <footer className="py-12 px-6 md:px-16 text-xs font-mono tracking-widest text-brand-gray bg-[#0a0a0c]">
         <div className="w-full flex flex-col gap-1">
           <div className="flex flex-wrap gap-4 mb-1">
             <span>아카이브헤이</span>
