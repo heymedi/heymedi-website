@@ -50,7 +50,7 @@ const testimonials = [
     id: 6,
     quote: <>체험단 모집으로 이용해보았습니다. <strong className="text-white font-bold">가이드가 잘되어있어 블로거분들 모집에 수월했습니다.</strong></>,
     author: "윤실장님",
-    clinic: "**여성의원",
+    clinic: "**피부과의원",
     image: "/images/review/review06.png"
   },
   {
