@@ -58,9 +58,9 @@ export default function Home() {
         },
         y: 0,
         opacity: 1,
-        duration: 1.2,
-        stagger: 0.2,
-        ease: "power3.out"
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power2.out"
       }
     );
 
@@ -69,15 +69,18 @@ export default function Home() {
     stickyContainers.forEach((container) => {
       const stickyContent = container.querySelector('.sticky-content');
       if (stickyContent) {
-        gsap.to(stickyContent, {
-          scrollTrigger: {
-            trigger: container,
-            start: "bottom 60%", // 부모 영역의 하단이 화면의 60% 지점에 도달하면 페이드아웃 시작
-            end: "bottom 30%",   // 화면 30% 지점에서 페이드아웃 완료
-            scrub: true,         // 스크롤에 맞춰 부드럽게 전환
-          },
-          opacity: 0
-        });
+        gsap.fromTo(stickyContent, 
+          { opacity: 1 },
+          {
+            scrollTrigger: {
+              trigger: container,
+              start: "bottom 60%", // 부모 영역의 하단이 화면의 60% 지점에 도달하면 페이드아웃 시작
+              end: "bottom 30%",   // 화면 30% 지점에서 페이드아웃 완료
+              scrub: true,         // 스크롤에 맞춰 부드럽게 전환
+            },
+            opacity: 0
+          }
+        );
       }
     });// Custom Cursor
     const cursorDot = cursorDotRef.current;
@@ -192,64 +195,72 @@ export default function Home() {
         {/* Core Services Section */}
         <div className="w-full mx-auto mb-32 service-cards-container">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
-            <a href="/all-in-one" className="service-card group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
-              <img loading="lazy" decoding="async" src="/images/service/service01.png" alt="올인원 마케팅" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500"></div>
-              <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10">
-                <h4 className="text-2xl md:text-3xl font-extrabold text-white break-keep tracking-tight transform translate-y-8 group-hover:-translate-y-2 transition-all duration-500">올인원 마케팅</h4>
-                <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-lg mt-6">
-                  자세히 보기
+            <div className="service-card h-full">
+              <a href="/all-in-one" className="group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
+                <img loading="lazy" decoding="async" src="/images/service/service01.png" alt="올인원 마케팅" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500"></div>
+                <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10">
+                  <h4 className="text-2xl md:text-3xl font-extrabold text-white break-keep tracking-tight transform translate-y-8 group-hover:-translate-y-2 transition-all duration-500">올인원 마케팅</h4>
+                  <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-lg mt-6">
+                    자세히 보기
+                  </div>
                 </div>
-              </div>
-            </a>
+              </a>
+            </div>
             
-            <a href="/blog-agency" className="service-card group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
-              <img loading="lazy" decoding="async" src="/images/service/service02.png" alt="블로그 대행" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500"></div>
-              <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10">
-                <h4 className="text-2xl md:text-3xl font-extrabold text-white break-keep tracking-tight transform translate-y-8 group-hover:-translate-y-2 transition-all duration-500">블로그 대행</h4>
-                <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-lg mt-6">
-                  자세히 보기
+            <div className="service-card h-full">
+              <a href="/blog-agency" className="group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
+                <img loading="lazy" decoding="async" src="/images/service/service02.png" alt="블로그 대행" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500"></div>
+                <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10">
+                  <h4 className="text-2xl md:text-3xl font-extrabold text-white break-keep tracking-tight transform translate-y-8 group-hover:-translate-y-2 transition-all duration-500">블로그 대행</h4>
+                  <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-lg mt-6">
+                    자세히 보기
+                  </div>
                 </div>
-              </div>
-            </a>
+              </a>
+            </div>
 
-            <a href="/blog-experience" className="service-card group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
-              <img loading="lazy" decoding="async" src="/images/service/service03.png" alt="블로그 체험단" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500"></div>
-              <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10">
-                <h4 className="text-2xl md:text-3xl font-extrabold text-white break-keep tracking-tight transform translate-y-8 group-hover:-translate-y-2 transition-all duration-500">블로그 체험단</h4>
-                <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-lg mt-6">
-                  자세히 보기
+            <div className="service-card h-full">
+              <a href="/blog-experience" className="group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
+                <img loading="lazy" decoding="async" src="/images/service/service03.png" alt="블로그 체험단" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500"></div>
+                <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10">
+                  <h4 className="text-2xl md:text-3xl font-extrabold text-white break-keep tracking-tight transform translate-y-8 group-hover:-translate-y-2 transition-all duration-500">블로그 체험단</h4>
+                  <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-lg mt-6">
+                    자세히 보기
+                  </div>
                 </div>
-              </div>
-            </a>
+              </a>
+            </div>
 
-            <a href="/cafe-viral" className="service-card group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
-              <img loading="lazy" decoding="async" src="/images/service/service04.png" alt="카페바이럴" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500"></div>
-              <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10">
-                <h4 className="text-2xl md:text-3xl font-extrabold text-white break-keep tracking-tight transform translate-y-8 group-hover:-translate-y-2 transition-all duration-500">카페바이럴</h4>
-                <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-lg mt-6">
-                  자세히 보기
+            <div className="service-card h-full">
+              <a href="/cafe-viral" className="group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
+                <img loading="lazy" decoding="async" src="/images/service/service04.png" alt="카페바이럴" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500"></div>
+                <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10">
+                  <h4 className="text-2xl md:text-3xl font-extrabold text-white break-keep tracking-tight transform translate-y-8 group-hover:-translate-y-2 transition-all duration-500">카페바이럴</h4>
+                  <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-lg mt-6">
+                    자세히 보기
+                  </div>
                 </div>
-              </div>
-            </a>
+              </a>
+            </div>
           </div>
         </div>
 
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col reveal">
+          <div className="flex flex-col">
             <div className="flex flex-col md:flex-row py-12 gap-8 md:gap-24 relative md:items-start sticky-container">
               <div className="w-full md:w-[30%] flex flex-col gap-6 md:sticky md:top-32 sticky-content">
-                <div>
+                <div className="reveal">
                   <span className="font-mono text-xs tracking-widest text-brand-copper mb-4 block">POINT 01</span>
                   <h4 className="text-3xl md:text-4xl font-bold text-black leading-tight">
                     환자를 모으는<br />
                     날카로운 기획력
                   </h4>
                 </div>
-                <div className="w-full">
+                <div className="w-full reveal">
                    <img loading="lazy" decoding="async" src="/USP_marketer_profile.png" alt="마케터 프로필" className="w-full h-auto object-contain" />
                 </div>
               </div>
@@ -269,14 +280,14 @@ export default function Home() {
 
             <div className="flex flex-col md:flex-row py-12 gap-8 md:gap-24 relative md:items-start sticky-container">
               <div className="w-full md:w-[30%] flex flex-col gap-6 md:sticky md:top-32 sticky-content">
-                <div>
+                <div className="reveal">
                   <span className="font-mono text-xs tracking-widest text-brand-copper mb-4 block">POINT 02</span>
                   <h4 className="text-3xl md:text-4xl font-bold text-black leading-tight">
                     첫인상 0.3초를 책임질<br />
                     디자인 감각
                   </h4>
                 </div>
-                <div className="w-full">
+                <div className="w-full reveal">
                    <img loading="lazy" decoding="async" src="/USP_designer_profile.png" alt="디자이너 프로필" className="w-full h-auto object-contain" />
                 </div>
               </div>
