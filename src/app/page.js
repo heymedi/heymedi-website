@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import ContactForm from "../components/ContactForm";
 
 import { useEffect, useRef, useState } from "react";
@@ -171,6 +172,55 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Core Services Section */}
+        <div className="max-w-7xl mx-auto mb-32 reveal">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+            <a href="/all-in-one" className="group block bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-black/5 hover:-translate-y-2 transition-all duration-300">
+              <div className="aspect-[4/3] bg-gray-100 overflow-hidden relative">
+                <img src="/images/service/service01.png" alt="올인원 마케팅" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-300"></div>
+              </div>
+              <div className="p-6 md:p-8">
+                <h4 className="text-xl font-medium mb-2">올인원 마케팅</h4>
+                <p className="text-sm text-brand-gray font-light">지역구 1등 만들기 프로젝트</p>
+              </div>
+            </a>
+            
+            <a href="/blog-agency" className="group block bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-black/5 hover:-translate-y-2 transition-all duration-300">
+              <div className="aspect-[4/3] bg-gray-100 overflow-hidden relative">
+                <img src="/images/service/service02.png" alt="블로그 대행" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-300"></div>
+              </div>
+              <div className="p-6 md:p-8">
+                <h4 className="text-xl font-medium mb-2">블로그 대행</h4>
+                <p className="text-sm text-brand-gray font-light">우리병원을 선택하게 만드는</p>
+              </div>
+            </a>
+
+            <a href="/blog-experience" className="group block bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-black/5 hover:-translate-y-2 transition-all duration-300">
+              <div className="aspect-[4/3] bg-gray-100 overflow-hidden relative">
+                <img src="/images/service/service03.png" alt="블로그 체험단" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-300"></div>
+              </div>
+              <div className="p-6 md:p-8">
+                <h4 className="text-xl font-medium mb-2">블로그 체험단</h4>
+                <p className="text-sm text-brand-gray font-light">우리병원을 궁금하게 만드는</p>
+              </div>
+            </a>
+
+            <a href="/cafe-viral" className="group block bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-black/5 hover:-translate-y-2 transition-all duration-300">
+              <div className="aspect-[4/3] bg-gray-100 overflow-hidden relative">
+                <img src="/images/service/service04.png" alt="카페바이럴" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-300"></div>
+              </div>
+              <div className="p-6 md:p-8">
+                <h4 className="text-xl font-medium mb-2">카페바이럴</h4>
+                <p className="text-sm text-brand-gray font-light">입소문에 강력한 처방전</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col reveal">
             <div className="flex flex-col md:flex-row py-12 gap-8 md:gap-24 relative md:items-start sticky-container">
@@ -336,34 +386,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 md:px-16 text-xs font-mono tracking-widest text-brand-gray bg-[#0a0a0c]">
-        <div className="w-full flex flex-col gap-1">
-          <div className="flex flex-wrap gap-4 mb-1">
-            <span>아카이브헤이</span>
-            <span>|</span>
-            <span>브랜드명: 헤이메디</span>
-            <span>|</span>
-            <span>대표: 지원규</span>
-            <span>|</span>
-            <span>사업자등록번호: 151-47-01239</span>
-          </div>
-          <div className="flex flex-wrap gap-4 mb-1">
-            <span>주소: 경기도 화성시 동탄구 동탄중심상가2길 8, 4층 401-하46호</span>
-            <span>|</span>
-            <span>TEL: 0507-1395-1381</span>
-            <span>|</span>
-            <a href="mailto:team.archivehey@gmail.com" className="hover:text-white transition-colors">이메일: team.archivehey@gmail.com</a>
-            <span>|</span>
-            <a href="http://pf.kakao.com/_xacxenX/chat" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">카카오톡 문의</a>
-          </div>
-          <div className="flex flex-wrap gap-4 mb-4">
-            <a href="/privacy" className="hover:text-white transition-colors font-medium">개인정보처리방침</a>
-            <span>|</span>
-            <a href="/terms" className="hover:text-white transition-colors">이용약관</a>
-          </div>
-          <p>&copy; {new Date().getFullYear()} HEYMEDI. ALL RIGHTS RESERVED. PREMIUM HOSPITAL BRANDING</p>
-        </div>
-      </footer>
+      <Footer onShowPrivacy={() => setShowPrivacyModal(true)} />
 
       {/* Floating Contact Button */}
       <div className="fixed bottom-12 md:bottom-8 right-8 z-[100] animate-fade-in-up hover-trigger">

@@ -1,5 +1,6 @@
 "use client";
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import ContactForm from "../../components/ContactForm";
 
 import { useEffect, useState, useRef } from "react";
@@ -111,34 +112,7 @@ export default function BlogExperience() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 md:px-16 text-xs font-mono tracking-widest text-brand-gray bg-[#0a0a0c]">
-        <div className="w-full flex flex-col gap-1 hover-trigger">
-          <div className="flex flex-wrap gap-4 mb-1">
-            <span>아카이브헤이</span>
-            <span>|</span>
-            <span>브랜드명: 헤이메디</span>
-            <span>|</span>
-            <span>대표: 지원규</span>
-            <span>|</span>
-            <span>사업자등록번호: 151-47-01239</span>
-          </div>
-          <div className="flex flex-wrap gap-4 mb-1">
-            <span>주소: 경기도 화성시 동탄구 동탄중심상가2길 8, 4층 401-하46호</span>
-            <span>|</span>
-            <span>TEL: 0507-1395-1381</span>
-            <span>|</span>
-            <a href="mailto:team.archivehey@gmail.com" className="hover:text-white transition-colors hover-trigger">이메일: team.archivehey@gmail.com</a>
-            <span>|</span>
-            <a href="http://pf.kakao.com/_xacxenX/chat" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors hover-trigger">카카오톡 문의</a>
-          </div>
-          <div className="flex flex-wrap gap-4 mb-4">
-            <button onClick={() => setShowPrivacyModal(true)} className="hover:text-white transition-colors font-medium hover-trigger">개인정보처리방침</button>
-            <span>|</span>
-            <a href="/terms" className="hover:text-white transition-colors hover-trigger">이용약관</a>
-          </div>
-          <p>&copy; {new Date().getFullYear()} HEYMEDI. ALL RIGHTS RESERVED. PREMIUM HOSPITAL BRANDING</p>
-        </div>
-      </footer>
+      <Footer onShowPrivacy={() => setShowPrivacyModal(true)} />
 
       {/* Floating Contact Button */}
       <div className="fixed bottom-8 right-8 z-[100] hover-trigger">
