@@ -112,27 +112,7 @@ export default function Home() {
           opacity: 0
         });
       }
-    });
-
-    let lastScrollY = window.scrollY;
-    
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      setIsAtTop(currentScrollY < 50);
-      
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsScrolledDown(true); // scrolling down
-      } else if (currentScrollY < lastScrollY) {
-        setIsScrolledDown(false); // scrolling up
-      }
-      
-      lastScrollY = currentScrollY;
-    };
-    
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    // Custom Cursor
+    });// Custom Cursor
     const cursorDot = cursorDotRef.current;
     const cursorFollower = cursorFollowerRef.current;
     
@@ -149,7 +129,6 @@ export default function Home() {
       window.addEventListener('mousemove', onMouseMove);
 
       return () => {
-        window.removeEventListener('scroll', handleScroll);
         window.removeEventListener('mousemove', onMouseMove);
         // Clean up ScrollTrigger
         ScrollTrigger.getAll().forEach(t => t.kill());
@@ -159,7 +138,6 @@ export default function Home() {
       if (cursorFollower) cursorFollower.style.display = 'none';
       document.body.style.cursor = 'auto';
       return () => {
-        window.removeEventListener('scroll', handleScroll);
       };
     }
   }, []);

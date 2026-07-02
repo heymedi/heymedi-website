@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import Header from "../../components/Header";
 import Logo from "../../components/Logo";
-import Link from "next/link";
 
 export const metadata = {
   title: "이용약관 | 헤이메디",
@@ -57,9 +56,9 @@ export default function TermsOfService() {
         </div>
         
         <div className="mt-20">
-          <Link href="/" className="inline-flex items-center justify-center px-8 py-4 border border-gray-200 rounded-full text-sm font-medium hover:bg-gray-50 transition-colors">
+          <a href="/" className="inline-flex items-center justify-center px-8 py-4 border border-gray-200 rounded-full text-sm font-medium hover:bg-gray-50 transition-colors">
             홈으로 돌아가기
-          </Link>
+          </a>
         </div>
       </main>
     </div>

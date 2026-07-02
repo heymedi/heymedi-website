@@ -14,27 +14,7 @@ export default function CafeViral() {
   const cursorDotRef = useRef(null);
   const cursorFollowerRef = useRef(null);
 
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-    
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      setIsAtTop(currentScrollY < 50);
-      
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsScrolledDown(true); // scrolling down
-      } else if (currentScrollY < lastScrollY) {
-        setIsScrolledDown(false); // scrolling up
-      }
-      
-      lastScrollY = currentScrollY;
-    };
-    
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-
-    const cursorDot = cursorDotRef.current;
+  useEffect(() => {const cursorDot = cursorDotRef.current;
     const cursorFollower = cursorFollowerRef.current;
     
     if (window.innerWidth >= 768 && cursorDot && cursorFollower) {
@@ -50,14 +30,13 @@ export default function CafeViral() {
       window.addEventListener('mousemove', onMouseMove);
 
       return () => {
-        window.removeEventListener('scroll', handleScroll);
         window.removeEventListener('mousemove', onMouseMove);
       };
     } else {
       if (cursorDot) cursorDot.style.display = 'none';
       if (cursorFollower) cursorFollower.style.display = 'none';
       document.body.style.cursor = 'auto';
-      return () => window.removeEventListener('scroll', handleScroll);
+      return () => {};
     }
   }, []);
 
