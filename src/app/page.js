@@ -48,18 +48,21 @@ export default function Home() {
     });
 
     // Service Cards Stagger Reveal
-    gsap.from(".service-card", {
-      scrollTrigger: {
-        trigger: ".service-cards-container",
-        start: "top 85%",
-        toggleActions: "play none none none"
-      },
-      y: 50,
-      opacity: 0,
-      duration: 1.2,
-      stagger: 0.2,
-      ease: "power3.out"
-    });
+    gsap.fromTo(".service-card", 
+      { y: 50, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: ".service-cards-container",
+          start: "top 85%",
+          toggleActions: "play none none none"
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        stagger: 0.2,
+        ease: "power3.out"
+      }
+    );
 
     // Sticky element fade out
     const stickyContainers = document.querySelectorAll('.sticky-container');
