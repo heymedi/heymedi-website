@@ -35,6 +35,12 @@ export const metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    google: '-qpbhdqJwpVqoMXYK7wNG_q4K5pqQmEFTVmQFlkB6Xc',
+    other: {
+      'naver-site-verification': '39a6e6ac18ef7565de19a13d93a3c56d80c04f27',
+    },
+  },
 };
 
 export default function RootLayout({ children }) {
