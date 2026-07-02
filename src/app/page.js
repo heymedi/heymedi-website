@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 import Header from "../components/Header";
 import ContactForm from "../components/ContactForm";
@@ -15,35 +16,49 @@ const testimonials = [
     quote: <>지역 독점이라 안심하고 맡겼는데, <strong className="text-white font-bold">신환 문의가 250% 늘었습니다.</strong></>,
     author: "김원장",
     clinic: "A 치과",
-    image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800"
+    image: "/images/review/review01.png"
   },
   {
     id: 2,
     quote: <>단순한 광고가 아니라, <strong className="text-white font-bold">병원 브랜드 자체가 하이엔드</strong>로 올라간 느낌입니다.</>,
     author: "박원장",
     clinic: "B 피부과",
-    image: "https://images.unsplash.com/photo-1551076805-e18690c5e53b?auto=format&fit=crop&q=80&w=800"
+    image: "/images/review/review02.png"
   },
   {
     id: 3,
     quote: <>우리 병원의 가치를 알아주는 <strong className="text-white font-bold">프리미엄 환자층</strong>이 확연히 늘었습니다.</>,
     author: "이원장",
     clinic: "C 한의원",
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800"
+    image: "/images/review/review03.png"
   },
   {
     id: 4,
     quote: <>광고비는 그대로인데, <strong className="text-white font-bold">상담 동의율이 2배</strong>가 되었습니다. 진정한 독점의 힘이네요.</>,
     author: "최원장",
     clinic: "D 성형외과",
-    image: "https://images.unsplash.com/photo-1638202993928-7267aad84c31?auto=format&fit=crop&q=80&w=800"
+    image: "/images/review/review04.png"
   },
   {
     id: 5,
     quote: <>정교한 디자인 덕분에 <strong className="text-white font-bold">대형 병원 못지않은 신뢰감</strong>을 줍니다.</>,
     author: "정원장",
     clinic: "E 정형외과",
-    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800"
+    image: "/images/review/review05.png"
+  },
+  {
+    id: 6,
+    quote: <>원장님들 사이에서 입소문 난 이유를 알겠습니다. <strong className="text-white font-bold">마케팅의 격</strong>이 다릅니다.</>,
+    author: "조원장",
+    clinic: "F 안과",
+    image: "/images/review/review06.png"
+  },
+  {
+    id: 7,
+    quote: <>개원 초기 마케팅이 막막했는데, <strong className="text-white font-bold">헤이메디 덕분에 빠르게 안정화</strong> 되었습니다.</>,
+    author: "윤원장",
+    clinic: "G 피부과",
+    image: "/images/review/review07.png"
   }
 ];
 
@@ -186,8 +201,8 @@ export default function Home() {
               OUR MISSION
             </p>
             
-            <h1 className="hero-el text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tightest mb-10 max-w-5xl">
-              우리의 목표는<br />
+            <h1 className="hero-el text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.3] tracking-tightest mb-10 max-w-5xl break-keep">
+              우리의 목표는<br className="hidden md:block" />
               <span className="text-white">"지역구 1등 병원" 만들기입니다.</span>
             </h1>
             

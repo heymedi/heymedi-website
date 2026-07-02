@@ -10,6 +10,7 @@ export default function ContactButton() {
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line
     setMounted(true);
   }, []);
 

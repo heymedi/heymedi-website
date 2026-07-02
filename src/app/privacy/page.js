@@ -1,5 +1,7 @@
+/* eslint-disable react/no-unescaped-entities */
 import Header from "../../components/Header";
 import Logo from "../../components/Logo";
+import Link from "next/link";
 
 export const metadata = {
   title: "개인정보처리방침 | 헤이메디",
@@ -51,10 +53,8 @@ export default function PrivacyPolicy() {
           </section>
         </div>
         
-        <div className="mt-20">
-          <a href="/" className="inline-flex items-center justify-center px-8 py-4 border border-gray-200 rounded-full text-sm font-medium hover:bg-gray-50 transition-colors">
-            홈으로 돌아가기
-          </a>
+        <div className="mt-12 text-center md:text-left">
+          <Link href="/" className="inline-block mt-12 bg-[#0a0a0c] text-white px-8 py-4 rounded-xl hover:bg-brand-copper transition-colors">메인으로 돌아가기</Link>
         </div>
       </main>
     </div>
