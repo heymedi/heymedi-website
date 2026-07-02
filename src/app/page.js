@@ -240,12 +240,12 @@ export default function Home() {
         </div>
         
         {/* Marquee Wrapper */}
-        <div className="flex w-fit animate-marquee hover:[animation-play-state:paused] group mt-8">
+        <div className="flex w-fit animate-marquee hover:[animation-play-state:paused] mt-8">
           {/* Double the list for infinite effect */}
           {[...Array(2)].map((_, i) => (
             <div key={i} className="flex gap-6 px-3">
               {testimonialsData.map((t) => (
-                <div key={`${i}-${t.id}`} className="relative w-[280px] md:w-[360px] rounded-2xl overflow-hidden flex-shrink-0 cursor-none hover-trigger border border-[#ffffff]/5 bg-[#1a1a1a]">
+                <div key={`${i}-${t.id}`} className="group relative w-[280px] md:w-[360px] rounded-2xl overflow-hidden flex-shrink-0 cursor-none hover-trigger border border-[#ffffff]/5 bg-[#1a1a1a]">
                   <img src={t.image} alt="Testimonial background" className="relative w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-[#0a0a0c]/80 to-transparent"></div>
                   

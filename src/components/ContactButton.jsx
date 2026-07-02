@@ -57,10 +57,6 @@ export default function ContactButton() {
                 상권 내 경쟁 병원이 먼저 계약하면,<br className="hidden md:block" />
                 <span className="text-brand-copper">더 이상 기회는 없습니다.</span>
               </h3>
-              <p className="text-brand-gray font-light text-sm">
-                지역당 단 1곳, 철저한 독점 파트너십으로 원장님의 성공에만 집중합니다.<br className="hidden md:block" />
-                현재 우리 지역의 계약 가능 여부를 확인해 보세요.
-              </p>
             </div>
             
             <ContactForm onShowPrivacy={() => setShowPrivacyModal(true)} isModal={true} />
