@@ -178,9 +178,9 @@ export default function Home() {
             <a href="/all-in-one" className="group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
               <img src="/images/service/service01.png" alt="올인원 마케팅" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500"></div>
-              <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10 gap-6">
-                <h4 className="text-2xl md:text-3xl font-bold text-white break-keep tracking-tight">올인원 마케팅</h4>
-                <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-lg">
+              <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10">
+                <h4 className="text-2xl md:text-3xl font-bold text-white break-keep tracking-tight transform translate-y-8 group-hover:-translate-y-2 transition-all duration-500">올인원 마케팅</h4>
+                <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-lg mt-6">
                   자세히 보기
                 </div>
               </div>
@@ -189,9 +189,9 @@ export default function Home() {
             <a href="/blog-agency" className="group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
               <img src="/images/service/service02.png" alt="블로그 대행" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500"></div>
-              <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10 gap-6">
-                <h4 className="text-2xl md:text-3xl font-bold text-white break-keep tracking-tight">블로그 대행</h4>
-                <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-lg">
+              <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10">
+                <h4 className="text-2xl md:text-3xl font-bold text-white break-keep tracking-tight transform translate-y-8 group-hover:-translate-y-2 transition-all duration-500">블로그 대행</h4>
+                <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-lg mt-6">
                   자세히 보기
                 </div>
               </div>
@@ -200,9 +200,9 @@ export default function Home() {
             <a href="/blog-experience" className="group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
               <img src="/images/service/service03.png" alt="블로그 체험단" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500"></div>
-              <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10 gap-6">
-                <h4 className="text-2xl md:text-3xl font-bold text-white break-keep tracking-tight">블로그 체험단</h4>
-                <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-lg">
+              <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10">
+                <h4 className="text-2xl md:text-3xl font-bold text-white break-keep tracking-tight transform translate-y-8 group-hover:-translate-y-2 transition-all duration-500">블로그 체험단</h4>
+                <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-lg mt-6">
                   자세히 보기
                 </div>
               </div>
@@ -211,9 +211,9 @@ export default function Home() {
             <a href="/cafe-viral" className="group block relative aspect-[3/2] rounded-[32px] overflow-hidden hover:shadow-2xl border border-black/5 hover:-translate-y-2 transition-all duration-500">
               <img src="/images/service/service04.png" alt="카페바이럴" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-500"></div>
-              <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10 gap-6">
-                <h4 className="text-2xl md:text-3xl font-bold text-white break-keep tracking-tight">카페바이럴</h4>
-                <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-lg">
+              <div className="absolute inset-0 p-8 md:p-10 flex flex-col items-center justify-center text-center z-10">
+                <h4 className="text-2xl md:text-3xl font-bold text-white break-keep tracking-tight transform translate-y-8 group-hover:-translate-y-2 transition-all duration-500">카페바이럴</h4>
+                <div className="bg-white text-[#0a0a0c] px-6 py-3 rounded-full font-bold text-sm transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-lg mt-6">
                   자세히 보기
                 </div>
               </div>
