@@ -282,7 +282,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                 </svg>
               </div>
-              <h4 className="text-2xl font-medium mb-6"><span className="text-brand-copper font-light mr-2">1.</span> [유입] 환자의 눈에 띄게</h4>
+              <h4 className="text-2xl font-medium mb-6"><span className="text-brand-copper font-light mr-2">1.</span> 유입을 늘리고</h4>
               <p className="text-brand-gray text-sm font-light leading-relaxed">
                 단순히 비싼 광고비만 내고 잠깐 1등 자리에 오르는 방식은 쓰지 않아요. 헤이메디는 네이버가 좋아하는 '진짜 좋은 글'을 써서 탄탄하게 상위 노출을 만듭니다. 정성껏 가꾼 브랜드 블로그 하나만 있어도, 수십 개의 키워드를 안정적으로 꽉 잡을 수 있답니다.
               </p>
@@ -294,7 +294,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
               </div>
-              <h4 className="text-2xl font-medium mb-6"><span className="text-brand-copper font-light mr-2">2.</span> [설득] 진심 어린 스토리</h4>
+              <h4 className="text-2xl font-medium mb-6"><span className="text-brand-copper font-light mr-2">2.</span> 스토리로 설득하고</h4>
               <p className="text-brand-gray text-sm font-light leading-relaxed">
                 아픈 환자들은 비싼 최신 장비보다 "여기 원장님은 내 고민을 진짜 이해해 줄까?"를 더 궁금해합니다. 원장님의 진심과 진료 철학이 환자의 마음에 고스란히 닿을 수 있도록, 우리 병원을 선택할 수밖에 없는 따뜻하고 특별한 이야기를 만들어 드립니다.
               </p>
@@ -306,7 +306,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg>
               </div>
-              <h4 className="text-2xl font-medium mb-6"><span className="text-brand-copper font-light mr-2">3.</span> [전환] 진짜 찾아오게</h4>
+              <h4 className="text-2xl font-medium mb-6"><span className="text-brand-copper font-light mr-2">3.</span> 방문하게 합니다.</h4>
               <p className="text-brand-gray text-sm font-light leading-relaxed">
                 글을 읽고 호감을 느꼈다면 병원 문을 열고 들어오게 해야겠죠? '공감 → 신뢰 → 방문'으로 이어지는 매끄러운 길을 짭니다. 환자가 자연스럽게 진료 문의와 예약 버튼을 누를 수 있도록, 온라인의 관심이 실제 매출로 쏙쏙 이어지게 설계해 드려요.
               </p>
