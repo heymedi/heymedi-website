@@ -12,7 +12,7 @@ export default function Footer({ onShowPrivacy }) {
             <a href="/privacy" className="hover:text-white transition-colors font-medium">개인정보처리방침</a>
           )}
           <a href="/terms" className="hover:text-white transition-colors">이용약관</a>
-          <a href="http://pf.kakao.com/_MxnNXX/chat" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">카카오톡 문의</a>
+          <a href="http://pf.kakao.com/_MxnNXX/chat" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">카카오톡채널 @헤이메디</a>
         </div>
         <p className="mt-4 text-[#555]">&copy; {new Date().getFullYear()} HEYMEDI. ALL RIGHTS RESERVED. PREMIUM HOSPITAL BRANDING</p>
       </div>
