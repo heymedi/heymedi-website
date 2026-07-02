@@ -173,7 +173,7 @@ export default function Home() {
         </div>
 
         {/* Core Services Section */}
-        <div className="max-w-7xl mx-auto mb-32 reveal">
+        <div className="w-full mx-auto mb-32 reveal">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
             <a href="/all-in-one" className="group block bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-black/5 hover:-translate-y-2 transition-all duration-300">
               <div className="aspect-[4/3] bg-gray-100 overflow-hidden relative">
